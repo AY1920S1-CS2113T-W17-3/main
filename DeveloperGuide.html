@@ -27,15 +27,22 @@
 <li><a href="#common-classes">2.6. Common Classes</a></li>
 </ul>
 </li>
-<li><a href="#implementation">3. Implementation</a></li>
+<li><a href="#implementation">3. Implementation</a>
+<ul class="sectlevel2">
+<li><a href="#adding-savings">3.1. Adding Savings</a></li>
+<li><a href="#editing-bonds">3.2. Editing Bonds</a></li>
+<li><a href="#deleting-credit-card">3.3. Deleting Credit Card</a></li>
+<li><a href="#listing-credit-cards">3.4. Listing Credit Cards</a></li>
+<li><a href="#transferring-funds">3.5. Transferring Funds</a></li>
+</ul>
+</li>
 <li><a href="#documentation">4. Documentation</a>
 <ul class="sectlevel2">
 <li><a href="#editing-documentation">4.1. Editing Documentation</a></li>
 <li><a href="#publishing-documentation">4.2. Publishing Documentation</a></li>
-<li><a href="#converting-to-pdf-format">4.3. Converting to PDF format</a></li>
-<li><a href="#site-wide-documentation-settings">4.4. Site-wide Documentation Settings</a></li>
-<li><a href="#per-file-documentation-settings">4.5. Per-file Documentation Settings</a></li>
-<li><a href="#site-template">4.6. Site Template</a></li>
+<li><a href="#converting-documentation-to-pdf-format">4.3. Converting Documentation to PDF format</a></li>
+<li><a href="#per-file-documentation-settings">4.4. Per-file Documentation Settings</a></li>
+<li><a href="#site-template">4.5. Site Template</a></li>
 </ul>
 </li>
 <li><a href="#testing">5. Testing</a>
@@ -348,6 +355,10 @@ The following class plays an important role at the architecture level:</p>
 </div>
 <div class="title">Figure 2. Ui Component Diagram</div>
 </div>
+<div class="paragraph">
+<p>The <code>Ui</code> is responsible for printing output in a <strong>user-friendly</strong> manner and prints out changes made to <code>Model</code> by
+<code>Logic</code>.</p>
+</div>
 </div>
 <div class="sect2">
 <h3 id="logic-component"><a class="link" href="#logic-component">2.3. Logic Component</a></h3>
@@ -357,47 +368,224 @@ The following class plays an important role at the architecture level:</p>
 </div>
 <div class="title">Figure 3. High Level Logic Diagram</div>
 </div>
+<div class="ulist">
+<ul>
+<li>
+<p>The <code>logic</code> package consists of the <code>parser</code>, <code>command</code> and <code>regex</code> packages.</p>
+</li>
+<li>
+<p>The <code>parser</code> package contains classes that are responsible for parsing user commands.</p>
+</li>
+<li>
+<p>The parser classes will make use of the <code>RegexUtil</code> stored in the <code>regex</code> package to verify the correctness of user
+input and will return a <code>Command</code> object back to <code>Main</code> upon determining the validity of the input which is
+explained in <strong>Figure 4</strong>.</p>
+</li>
+</ul>
+</div>
+<div class="sect3">
+<h4 id="parser"><a class="link" href="#parser">2.3.1. Parser</a></h4>
 <div class="imageblock">
 <div class="content">
 <img src="images/HighLevelLogicParser.png" alt="HighLevelLogicParser" width="800">
 </div>
 <div class="title">Figure 4. General Parser Class Diagram</div>
 </div>
+<div class="ulist">
+<ul>
+<li>
+<p>The <code>Logic.parser</code> package consists of <code>Parser</code>, <code>ParseCommand</code>, <code>ParseType</code>, <code>ParseRawData</code> and the <strong>abstract</strong>
+<code>Parser</code> classes that more specific parsers will inherit from.</p>
+</li>
+<li>
+<p>The <code>Parser</code> class provides <strong>general methods</strong> that more specific parser classes will <strong>require</strong>.</p>
+</li>
+<li>
+<p>The <code>ParseCommand</code> class parses the action from the user input (e.g. <code>/add</code>, <code>/delete</code>, <code>/edit</code>), before passing the user
+input to the <code>ParseType</code> class for further parsing.</p>
+</li>
+<li>
+<p>The <code>ParseType</code> class will continue to parse the type of user input (e.g. <code>/card</code>, <code>/bank</code>), before passing the user input
+to a more specific <code>Parser</code> class (e.g. <code>ParseAddCard</code> under the abstract class <code>ParseCard</code> which is not shown here) for further sophisticated parsing.</p>
+</li>
+<li>
+<p>The specific parser classes will then call <code>ParseRawData</code> to extract required parameters based on the Command and Type
+that was determined earlier in <code>ParseCommand</code> and <code>ParseType</code> previously.</p>
+</li>
+<li>
+<p>The specific parser class will also check the correctness of the extracted parameters by using <code>RegexUtil</code> stored
+in the <code>regex</code> package which is also part of the <code>logic</code> package as shown in <strong>Figure 3</strong>. After which, the parser class
+will proceed to create an instance of the appropriate command class and return it back to <code>Main</code>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="command"><a class="link" href="#command">2.3.2. Command</a></h4>
 <div class="imageblock">
 <div class="content">
-<img src="images/LogicCommandBankPackage.png" alt="LogicCommandBankPackage" width="970">
+<img src="images/LogicCommandBankPackage.png" alt="LogicCommandBankPackage" width="1000">
 </div>
-<div class="title">Figure 5. High Level Bank Command Class Diagram</div>
+<div class="title">Figure 5. Bank Command Class Diagram</div>
+</div>
+<div class="paragraph">
+<p>The <code>logic.command.bank</code> package consist of <code>Savings</code> and <code>Investment</code> classes which inherits from the <code>Command</code> class.</p>
+</div>
+<div class="paragraph">
+<p>Both the <code>Savings</code> and <code>Investments</code> classes have the following common features:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Add</p>
+</li>
+<li>
+<p>Edit</p>
+</li>
+<li>
+<p>Delete</p>
+</li>
+<li>
+<p>List</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><code>Main</code> will call the specific <code>Savings</code> or <code>Investment</code> command class that will construct the <strong>required
+parameters</strong> before calling the <code>Profile</code> class in <code>Model</code> to <strong>execute</strong>.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/LogicCommandBondPackage.png" alt="LogicCommandBondPackage" width="800">
 </div>
-<div class="title">Figure 6. High Level Bond Command Class Diagram</div>
+<div class="title">Figure 6. Bond Command Class Diagram</div>
+</div>
+<div class="paragraph">
+<p>The <code>logic.command.bond</code> package consist of <code>Bond</code> classes with the following features:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Add</p>
+</li>
+<li>
+<p>Edit</p>
+</li>
+<li>
+<p>Delete</p>
+</li>
+<li>
+<p>List</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><code>Main</code> will call the specific <code>Bond</code> command class that will construct the <strong>required parameters</strong> before calling the
+<code>Profile</code> class in <code>Model</code> to <strong>execute</strong>.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/LogicCommandCardPackage.png" alt="LogicCommandCardPackage" width="800">
 </div>
-<div class="title">Figure 7. High Level Card Command Class Diagram</div>
+<div class="title">Figure 7. Card Command Class Diagram</div>
+</div>
+<div class="paragraph">
+<p>The <code>logic.command.card</code> package consist of <code>Card</code> classes with the following features:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Add</p>
+</li>
+<li>
+<p>Edit</p>
+</li>
+<li>
+<p>Delete</p>
+</li>
+<li>
+<p>List</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><code>Main</code> will call the specific <code>Card</code> command class that will construct the <strong>required parameters</strong> before calling the
+<code>Profile</code> class in <code>Model</code> to <strong>execute</strong>.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/LogicCommandGoalsPackage.png" alt="LogicCommandGoalsPackage" width="800">
 </div>
-<div class="title">Figure 8. High Level Goals Command Class Diagram</div>
+<div class="title">Figure 8. Goals Command Class Diagram</div>
+</div>
+<div class="paragraph">
+<p>The <code>logic.command.goals</code> package consist of <code>Goals</code> classes with the following features:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Add</p>
+</li>
+<li>
+<p>Edit</p>
+</li>
+<li>
+<p>Delete</p>
+</li>
+<li>
+<p>List</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><code>Main</code> will call the specific <code>Goal</code> command class that will construct the <strong>required parameters</strong> before calling the
+<code>Profile</code> class in <code>Model</code> to <strong>execute</strong>.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/LogicCommandFindPackage.png" alt="LogicCommandFindPackage" width="800">
 </div>
-<div class="title">Figure 9. High Level Find Command Class Diagram</div>
+<div class="title">Figure 9. Find Command Class Diagram</div>
+</div>
+<div class="paragraph">
+<p>The <code>logic.command.find</code> package consist of <code>Find</code> classes with the ability to find any:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Bank account</p>
+</li>
+<li>
+<p>Cards</p>
+</li>
+<li>
+<p>Bonds</p>
+</li>
+<li>
+<p>Card expenditure</p>
+</li>
+<li>
+<p>Bank expenditure</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><code>Main</code> will call the specific <code>Find</code> command class that will construct the <strong>required parameters</strong> before calling the
+<code>Profile</code> class in <code>Model</code> to <strong>execute</strong>.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/LogicCommandTransferPackage.png" alt="LogicCommandTransferPackage" width="800">
 </div>
-<div class="title">Figure 10. High Level Transfer Command Class Diagram</div>
+<div class="title">Figure 10. Transfer Command Class Diagram</div>
+</div>
+<div class="paragraph">
+<p>The Transfer Package under <code>logic.command.transfer</code> consist of the <code>TransferCommand</code> class which inherits from <code>Command</code>.</p>
+</div>
+<div class="paragraph">
+<p><code>Main</code> will call the <code>TransferCommand</code> class that will construct the <strong>required parameters</strong> before calling the <code>Profile</code>
+class in <code>Model</code> to <strong>execute</strong>.</p>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -408,55 +596,570 @@ The following class plays an important role at the architecture level:</p>
 </div>
 <div class="title">Figure 11. Model Component Diagram</div>
 </div>
+<div class="paragraph">
+<p>The <code>Model</code> contains multiple packages that is responsible for specifying the structures and constraints of the <strong>core
+functionalities</strong> of <strong>OwlMoney</strong> as well as the storing of data of the application in memory.</p>
+</div>
+<div class="paragraph">
+<p>In general, the <code>Model</code> contains the following packages:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>bank</code> &#8594; responsible for the savings and investment accounts.</p>
+</li>
+<li>
+<p><code>bond</code> &#8594; responsible for the investment bonds.</p>
+</li>
+<li>
+<p><code>card</code> &#8594; responsible for the credit cards.</p>
+</li>
+<li>
+<p><code>goals</code> &#8594; responsible for financial goals.</p>
+</li>
+<li>
+<p><code>profile</code> &#8594; responsible for the user profile.</p>
+</li>
+<li>
+<p><code>transaction</code> &#8594; responsible for expenditures and deposits which are classified under the umbrella term Transaction.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>To execute any command, <code>Main</code> will invoke <code>profile.Profile</code> to execute commands.
+<code>Profile</code> has access to each individual ArrayList such as <code>CardList</code>, <code>BankList</code>, <code>GoalList</code> that stores objects of
+cards, bank accounts and financial goals respectively. Both <code>Card</code> and <code>Bank</code> objects each contains a <code>TransactionList</code>
+which holds records of transactions.
+If the <code>Card</code> or the <code>Bank</code> objects are <strong>deleted</strong>, its corresponding <code>TransactionList</code> that contains the records of
+transactions <strong>will be deleted</strong> along with it given that it has a <strong>composite relationship</strong> with <code>TransactionList</code>.</p>
+</div>
 </div>
 <div class="sect2">
 <h3 id="storage-component"><a class="link" href="#storage-component">2.5. Storage Component</a></h3>
-
+<div class="paragraph">
+<p>To be added.</p>
+</div>
 </div>
 <div class="sect2">
 <h3 id="common-classes"><a class="link" href="#common-classes">2.6. Common Classes</a></h3>
-
+<div class="paragraph">
+<p>To be added.</p>
+</div>
 </div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="implementation"><a class="link" href="#implementation">3. Implementation</a></h2>
 <div class="sectionbody">
+<div class="sect2">
+<h3 id="adding-savings"><a class="link" href="#adding-savings">3.1. Adding Savings</a></h3>
 <div class="imageblock">
 <div class="content">
 <img src="images/AddSavingCommand.png" alt="AddSavingCommand" width="970">
 </div>
-<div class="title">Figure 12. Model Component Diagram</div>
+<div class="title">Figure 12. Sequence Diagram of Adding Savings</div>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The sequence diagram presented above is assumed to be a valid command which will generate in a successful result.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The above sequence diagram depicts the interaction between the <code>Logic</code> and <code>Model</code> component for running
+<code>AddSavingsCommand</code>.</p>
+</div>
+<div class="paragraph">
+<p>The <code>AddSavingsCommand</code> requires <strong>3</strong> inputs:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Savings Account&#8217;s name</p>
+</li>
+<li>
+<p>Amount</p>
+</li>
+<li>
+<p>Income</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>When the user executes the <code>AddSavingsCommand</code>, the following steps are taken by the application:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>When <code>AddSavingsCommand</code> is executed, it creates a new savings object using the <strong>3</strong> inputs.</p>
+</li>
+<li>
+<p>After creating the savings object, the <code>AddSavingsCommand</code> will invoke the method <code>profileAddNewBank</code>.</p>
+</li>
+<li>
+<p>Within the invocation of <code>profileAddNewBank</code>, a method <code>bankListAddBank</code> will be invoked to add the new savings object
+to an Arraylist containing all bank objects.</p>
+</li>
+<li>
+<p>Once <code>bankListAddBank</code> is invoked, it will perform the following checks:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Check if the bank name specified is unique among all bank accounts in the bank list through the method
+<code>bankAccountExists</code>.</p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<code>bankListAddBank</code> will throw an error if the above check fails.
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<ol class="arabic" start="5">
+<li>
+<p>After passing the above checks, <code>bankListAddBank</code> will add the new savings object to the Arraylist which contains all
+bank objects.</p>
+</li>
+<li>
+<p>Once the savings object has been added, the details of the new savings object will be displayed to inform the user
+of the <strong>successful</strong> addition of the savings object.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="editing-bonds"><a class="link" href="#editing-bonds">3.2. Editing Bonds</a></h3>
 <div class="imageblock">
 <div class="content">
 <img src="images/editBondCommand.png" alt="editBondCommand" width="970">
 </div>
-<div class="title">Figure 13. Model Component Diagram</div>
+<div class="title">Figure 13. Sequence Diagram of Editing Bonds</div>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The sequence diagram presented above is assumed to be a valid command which will produce a successful result.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The sequence diagram presented above depicts the interaction between the <code>Logic</code> and <code>Model</code> component for running
+<code>EditBondCommand</code>.</p>
+</div>
+<div class="paragraph">
+<p>The <code>EditBondCommand</code> requires a minimum of <strong>3</strong> and up to a maximum of <strong>4</strong> inputs:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Investment Account&#8217;s name</p>
+</li>
+<li>
+<p>Bond’s name</p>
+</li>
+<li>
+<p><strong>At least 1</strong> of the <strong>2</strong> inputs:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Rate</p>
+</li>
+<li>
+<p>Year of maturity</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>When the user executes the <code>EditBondCommand</code>, the following steps are taken by the application:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>When <code>EditBondCommand</code> is executed, it will invoke <code>profileEditBond</code>.</p>
+</li>
+<li>
+<p>Within the invocation of <code>profileEditBond</code>, a method named <code>bankListEditBond</code> will be invoked.</p>
+</li>
+<li>
+<p>Once invoked, <code>bankListEditBond</code> will perform the following checks based on the bank name specified:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Check for the existence of the investment account containing the bond.</p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<code>bankListEditBond</code> will throw an error if the above check fails.
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<ol class="arabic" start="4">
+<li>
+<p>After passing the above checks, the method <code>investmentEditBond</code> will be invoked.</p>
+</li>
+<li>
+<p>Within <code>investmentEditBond</code>, the method named <code>editBond</code> will be invoked.</p>
+</li>
+<li>
+<p>Once invoked, <code>editBond</code> will perform the following checks:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Check for the existence of the bond within the investment account.</p>
+</li>
+<li>
+<p>Check whether the newly specified year of maturity for the bond is more than or equal to the current year of
+maturity through the method <code>editBondYear</code>.</p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<code>editBond</code> will throw an error if the above check fails.
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<ol class="arabic" start="7">
+<li>
+<p>After passing all of the above checks, <code>editBond</code> will update the bond details with the new details specified using:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>editBondRate</code> &#8594; edits bond&#8217;s interest or coupon rate.</p>
+</li>
+<li>
+<p><code>editBondYear</code> &#8594; edits year of maturity.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Once the bond object has been edited, the updated details of that bond object will be displayed to inform the user
+of the <strong>successful</strong> editing of the bond.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="deleting-credit-card"><a class="link" href="#deleting-credit-card">3.3. Deleting Credit Card</a></h3>
 <div class="imageblock">
 <div class="content">
 <img src="images/DeleteCardCommand.png" alt="DeleteCardCommand" width="970">
 </div>
 <div class="title">Figure 14. Model Component Diagram</div>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The sequence diagram presented above is assumed to be a valid command which will produce a successful result.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The above sequence diagram depicts the interaction between the <code>Logic</code> and <code>Model</code> component for running
+<code>DeleteCardCommand</code>.</p>
+</div>
+<div class="paragraph">
+<p>The <code>DeleteCardCommand</code> requires <strong>1</strong> input:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Credit Card’s name.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>When the user executes the <code>DeleteCardCommand</code>, the following steps are taken by the application:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>When <code>DeleteCardCommand</code> is executed, it will invoke <code>profileDeleteCard</code>.</p>
+</li>
+<li>
+<p>Within the invocation of <code>profileDeleteCard</code>, a method named <code>cardListDeleteCard</code> will be invoked.</p>
+</li>
+<li>
+<p>Once invoked, <code>cardListDeleteCard</code> will perform the following checks:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Check the Arraylist containing all card objects is not empty through the method cardListCheckListEmpty .</p>
+</li>
+<li>
+<p>Check for the existence of the card with the specified name.</p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<code>cardListDeleteCard</code> will throw an error if any of the above checks fail.
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<ol class="arabic" start="4">
+<li>
+<p>After passing the above checks, <code>cardListDeleteCard</code> will delete the card with the specified name from the Arraylist.</p>
+</li>
+<li>
+<p>Once the card object has been deleted, the details of the deleted card object will be displayed to inform the user
+of the <strong>successful</strong> deletion of the card object.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="listing-credit-cards"><a class="link" href="#listing-credit-cards">3.4. Listing Credit Cards</a></h3>
 <div class="imageblock">
 <div class="content">
 <img src="images/listCardCommand.png" alt="listCardCommand" width="970">
 </div>
 <div class="title">Figure 15. Model Component Diagram</div>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The sequence diagram presented above is assumed to be a valid command which will produce a successful result.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The above sequence diagram depicts the interaction between the <code>Logic</code> and <code>Model</code> component for running
+<code>ListCardCommand</code>.</p>
+</div>
+<div class="paragraph">
+<p>The <code>ListCardCommand</code> does not require any additional input.</p>
+</div>
+<div class="paragraph">
+<p>When the user executes the <code>ListCardCommand</code>, the following steps are taken by the application:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>When the <code>ListCardCommand</code> is executed, it will invoke <code>profileListCard</code>.</p>
+</li>
+<li>
+<p>Within the invocation of <code>profileListCard</code>, a method name <code>cardListListCard</code> will be invoked.</p>
+</li>
+<li>
+<p>Once invoked, <code>cardListListCard</code> will perform the following checks:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Check the arraylist containing the card objects is not empty through the method cardListCheckListEmpty.</p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<code>cardListListCard</code> will throw an error if the above check fail.
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<ol class="arabic" start="4">
+<li>
+<p>After passing the above checks, <code>cardListListCard</code> will display the details of each card within the Arraylist.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="transferring-funds"><a class="link" href="#transferring-funds">3.5. Transferring Funds</a></h3>
 <div class="imageblock">
 <div class="content">
 <img src="images/TransferCommand.png" alt="TransferCommand" width="970">
 </div>
 <div class="title">Figure 16. Model Component Diagram</div>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The sequence diagram presented above is assumed to be a valid command which will produce a successful result.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The above sequence diagram depicts the interaction between the <code>Logic</code> and <code>Model</code> component for running
+<code>TransferCommand</code>.</p>
+</div>
+<div class="paragraph">
+<p>The <code>TransferCommand</code> requires <strong>4</strong> inputs:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Sender Bank Account&#8217;s name</p>
+</li>
+<li>
+<p>Receiver Bank Account&#8217;s name</p>
+</li>
+<li>
+<p>Date of transfer</p>
+</li>
+<li>
+<p>Amount to transfer</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>When the user executes the <code>TransferCommand</code>, the following steps are taken by the application:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>When the <code>TransferCommand</code> is executed, it will invoke <code>transferFund</code>.</p>
+</li>
+<li>
+<p>Once invoked, <code>transferFund</code> will perform the following checks:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Check the transferring account exists in the Arraylist of banks through the method <code>bankListIsAccountExistToReceive</code>.</p>
+</li>
+<li>
+<p>Check the transferring account has sufficient money for the transfer through the method
+<code>bankListIsSufficientForTransfer</code>.</p>
+</li>
+<li>
+<p>Check the receiving account exists in the arraylist of bank through the method <code>bankListIsAccountExistToReceive</code>.</p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<code>transferFund</code> will throw an error if any of the above checks fail.
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<ol class="arabic" start="3">
+<li>
+<p>After passing the above checks, <code>transferFund</code> will add an expenditure to the transferring account.</p>
+</li>
+<li>
+<p>After adding an <strong>expenditure</strong> to the transferring account, a <strong>deposit</strong> will be added to the receiving account for the
+fund transfer.</p>
+</li>
+<li>
+<p>Once the transfer has been completed, the details of the transfer will be displayed to inform the user of the
+<strong>successful</strong> fund transfer.</p>
+</li>
+</ol>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="documentation"><a class="link" href="#documentation">4. Documentation</a></h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>We use asciidoc for writing documentation.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+We chose asciidoc over Markdown because asciidoc,
+although a bit more complex than Markdown, provides more flexibility in formatting.
+</td>
+</tr>
+</table>
+</div>
 <div class="sect2">
 <h3 id="editing-documentation"><a class="link" href="#editing-documentation">4.1. Editing Documentation</a></h3>
 
@@ -466,20 +1169,39 @@ The following class plays an important role at the architecture level:</p>
 
 </div>
 <div class="sect2">
-<h3 id="converting-to-pdf-format"><a class="link" href="#converting-to-pdf-format">4.3. Converting to PDF format</a></h3>
+<h3 id="converting-documentation-to-pdf-format"><a class="link" href="#converting-documentation-to-pdf-format">4.3. Converting Documentation to PDF format</a></h3>
 
 </div>
 <div class="sect2">
-<h3 id="site-wide-documentation-settings"><a class="link" href="#site-wide-documentation-settings">4.4. Site-wide Documentation Settings</a></h3>
+<h3 id="per-file-documentation-settings"><a class="link" href="#per-file-documentation-settings">4.4. Per-file Documentation Settings</a></h3>
 
 </div>
 <div class="sect2">
-<h3 id="per-file-documentation-settings"><a class="link" href="#per-file-documentation-settings">4.5. Per-file Documentation Settings</a></h3>
-
+<h3 id="site-template"><a class="link" href="#site-template">4.5. Site Template</a></h3>
+<div class="paragraph">
+<p>The files in <a href="https://github.com/AY1920S1-CS2113T-W17-3/main/tree/master/docs/stylesheets"><code>docs/stylesheets</code></a> are the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS stylesheets</a> of the site.
+You can modify them to change some properties of the site&#8217;s design.</p>
 </div>
-<div class="sect2">
-<h3 id="site-template"><a class="link" href="#site-template">4.6. Site Template</a></h3>
-
+<div class="paragraph">
+<p>The files in <a href="https://github.com/AY1920S1-CS2113T-W17-3/main/tree/master/docs/templates"><code>docs/templates</code></a> controls the rendering of <code>.adoc</code> files into HTML5.
+These template files are written in a mixture of <a href="https://www.ruby-lang.org">Ruby</a> and <a href="http://slim-lang.com">Slim</a>.</p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Modifying the template files in <a href="https://github.com/AY1920S1-CS2113T-W17-3/main/tree/master/docs/templates"><code>docs/templates</code></a> requires some knowledge and experience with Ruby and Asciidoctor&#8217;s API.
+You should only modify them if you need greater control over the site&#8217;s layout than what stylesheets can provide.
+The SE-EDU team does not provide support for modified template files.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
 </div>
 </div>
 </div>
@@ -488,15 +1210,21 @@ The following class plays an important role at the architecture level:</p>
 <div class="sectionbody">
 <div class="sect2">
 <h3 id="running-tests"><a class="link" href="#running-tests">5.1. Running Tests</a></h3>
-
+<div class="paragraph">
+<p>To be added.</p>
+</div>
 </div>
 <div class="sect2">
 <h3 id="types-of-tests"><a class="link" href="#types-of-tests">5.2. Types of Tests</a></h3>
-
+<div class="paragraph">
+<p>To be added.</p>
+</div>
 </div>
 <div class="sect2">
 <h3 id="troubleshooting-tests"><a class="link" href="#troubleshooting-tests">5.3. Troubleshooting Tests</a></h3>
-
+<div class="paragraph">
+<p>To be added.</p>
+</div>
 </div>
 </div>
 </div>
@@ -505,27 +1233,39 @@ The following class plays an important role at the architecture level:</p>
 <div class="sectionbody">
 <div class="sect2">
 <h3 id="build-automation"><a class="link" href="#build-automation">6.1. Build Automation</a></h3>
-
+<div class="paragraph">
+<p>To be added.</p>
+</div>
 </div>
 <div class="sect2">
 <h3 id="continuous-integration"><a class="link" href="#continuous-integration">6.2. Continuous Integration</a></h3>
-
+<div class="paragraph">
+<p>To be added.</p>
+</div>
 </div>
 <div class="sect2">
 <h3 id="coverage-reporting"><a class="link" href="#coverage-reporting">6.3. Coverage Reporting</a></h3>
-
+<div class="paragraph">
+<p>To be added.</p>
+</div>
 </div>
 <div class="sect2">
 <h3 id="documentation-previews"><a class="link" href="#documentation-previews">6.4. Documentation Previews</a></h3>
-
+<div class="paragraph">
+<p>To be added.</p>
+</div>
 </div>
 <div class="sect2">
 <h3 id="making-a-release"><a class="link" href="#making-a-release">6.5. Making a Release</a></h3>
-
+<div class="paragraph">
+<p>To be added.</p>
+</div>
 </div>
 <div class="sect2">
 <h3 id="managing-dependencies"><a class="link" href="#managing-dependencies">6.6. Managing Dependencies</a></h3>
-
+<div class="paragraph">
+<p>To be added.</p>
+</div>
 </div>
 </div>
 </div>
@@ -3124,4 +3864,4 @@ The following class plays an important role at the architecture level:</p>
 <div class="sectionbody">
 
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-24 00:06:54 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-24 00:09:47 UTC</div></div></div></body></html>
