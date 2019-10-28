@@ -737,7 +737,7 @@ with a new income of $<code>5000</code>.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>/add /bankexpenditure /amount 1.20 /from JunBank Savings Account /date 28/09/2019 /description bubble tea /category
+<p><code>/add /bankexpenditure /amount 1.20 /from JunBank Savings Account /date 28/09/2019 /desc bubble tea /category
 Dining</code></p>
 </li>
 </ul>
@@ -877,7 +877,7 @@ AMOUNT] [/date DATE]</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>/add /deposit /to JunBank Savings Account /amount 300 /description FREELANCE WORK /date 10/10/2019</code></p>
+<p><code>/add /deposit /to JunBank Savings Account /amount 300 /desc FREELANCE WORK /date 10/10/2019</code></p>
 </li>
 </ul>
 </div>
@@ -1680,6 +1680,13 @@ achieve your short and long term goals in <strong>OwlMoney</strong>.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Indicates the number of days you wish to achieve your goal.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>DAYS</code> should contain digits up to <strong>365</strong> only.</p></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ACCOUNT_NAME</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Indicates the name of the savings account to link the goal for tracking purposes.</p>
+<p class="tableblock">(e.g. JunBank Savings Account)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ACCOUNT_NAME</code> should contain alphabetic characters, numeric characters, and spaces only.</p>
+<p class="tableblock"><code>ACCOUNT_NAME</code> is case-sensitive.</p></td>
+</tr>
 </tbody>
 </table>
 <div class="sect4">
@@ -1693,10 +1700,30 @@ like saving for your wedding or retirement, we got you covered!</p>
 <p><strong>Command Syntax</strong></p>
 </div>
 <div class="paragraph">
-<p><code>/add /goals /name GOAL_NAME /amount TARGET_AMOUNT /by DATE</code></p>
+<p><code>/add /goals /name GOAL_NAME /amount TARGET_AMOUNT /by DATE [/from ACCOUNT_NAME]</code></p>
 </div>
 <div class="paragraph">
-<p><code>/add /goals /name GOAL_NAME /amount TARGET_AMOUNT /in DAYS</code></p>
+<p><code>/add /goals /name GOAL_NAME /amount TARGET_AMOUNT /in DAYS [/from ACCOUNT_NAME]</code></p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p><code>ACCOUNT_NAME</code> can only be names of existing savings bank accounts and not investment accounts or credit cards.</p>
+</div>
+<div class="paragraph">
+<p><code>/by</code> and <code>/in</code> cannot be used together.</p>
+</div>
+<div class="paragraph">
+<p><code>TARGET_AMOUNT</code> is based on the total amount of money you aim to have in your savings bank account.</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p><strong>Example</strong></p>
@@ -1721,6 +1748,17 @@ like saving for your wedding or retirement, we got you covered!</p>
 <div class="paragraph">
 <p>Adds a goal named <code>BTO at Punggol Downpayment</code> which aims to save $<code>20000</code> by <code>10/10/2020</code>.</p>
 </div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>/add /goals /name GRAD TRIP /amount 2000 /by 30/12/2020 /from JunBank Savings Account</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Adds a goal named GRAD TRIP which aims to save $<code>2000</code> by <code>30/12/2019</code> and tie it to a savings account named <code>JunBank
+Savings Account</code>.</p>
+</div>
 </div>
 <div class="sect4">
 <h5 id="editing-financial-goals-code-edit-goals-code"><a class="link" href="#editing-financial-goals-code-edit-goals-code">4.2.4.2. Editing financial goals <code>/edit /goals</code></a></h5>
@@ -1731,7 +1769,7 @@ like saving for your wedding or retirement, we got you covered!</p>
 <p><strong>Command Syntax</strong></p>
 </div>
 <div class="paragraph">
-<p><code>/edit /goals /name GOAL_NAME [/newname GOAL_NAME] [/amount AMOUNT] [/in DAYS] [/by DATE]</code></p>
+<p><code>/edit /goals /name GOAL_NAME [/newname GOAL_NAME] [/amount AMOUNT] [/in DAYS] [/by DATE] [/from ACCOUNT_NAME]</code></p>
 </div>
 <div class="admonitionblock warning">
 <table>
@@ -1741,10 +1779,13 @@ like saving for your wedding or retirement, we got you covered!</p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>At least one of <code>/newname</code>, <code>/amount</code>, <code>/in</code> or <code>/by</code> must be used.</p>
+<p>At least one of <code>/newname</code>, <code>/amount</code>, <code>/in</code>, <code>/by</code> or <code>/from</code> must be used.</p>
 </div>
 <div class="paragraph">
 <p><code>/in</code> and <code>/by</code> cannot be used together at the same time</p>
+</div>
+<div class="paragraph">
+<p><code>ACCOUNT_NAME</code> can only be names of existing savings bank accounts and not investment accounts or credit cards.</p>
 </div>
 </td>
 </tr>
@@ -1782,6 +1823,30 @@ like saving for your wedding or retirement, we got you covered!</p>
 </div>
 <div class="paragraph">
 <p>Edits the goals of <code>BTO at Punggol Downpayment</code> to a new date of <code>11/11/2021</code>.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>/edit /goals /name BTO at Punggol Downpayment /from POBB Savings Account</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Edits the savings account tied to <code>BTO at Punggol Downpayment</code> to <code>POBB Savings Account</code>.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>You can also add a savings account if the existing goal has no account linked to it.</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect4">
@@ -1822,16 +1887,16 @@ Achieved your goals? You can safely delete them!</p>
 <p><strong>Command Syntax</strong></p>
 </div>
 <div class="paragraph">
-<p><code>/edit /profile /newname NAME</code></p>
+<p><code>/edit /profile /name NAME /newname NAME</code></p>
 </div>
 <div class="paragraph">
 <p><strong>Example</strong></p>
 </div>
 <div class="paragraph">
-<p><code>/edit /profile /newname JUNNY</code></p>
+<p><code>/edit /profile /name Jun /newname JUNNY</code></p>
 </div>
 <div class="paragraph">
-<p>Edits the profile name to JUNNY</p>
+<p>Edits the profile name from <code>Jun</code> to <code>JUNNY</code></p>
 </div>
 </div>
 </div>
@@ -1923,7 +1988,7 @@ your bank account as long as you remember part of your account name.</p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p><code>ACCOUNT_NAME</code> is case-sensitive.</p>
+<p><code>ACCOUNT_NAME</code> used for searching is case-insensitive.</p>
 </div>
 </td>
 </tr>
@@ -1963,7 +2028,7 @@ your bank account as long as you remember part of your account name.</p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p><code>ACCOUNT_NAME</code> is case-sensitive.</p>
+<p><code>ACCOUNT_NAME</code> used for searching is case-insensitive.</p>
 </div>
 </td>
 </tr>
@@ -2002,7 +2067,7 @@ your bank account as long as you remember part of your account name.</p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p><code>CARD_NAME</code> is case-sensitive.</p>
+<p><code>CARD_NAME</code> used for searching is case-insensitive.</p>
 </div>
 </td>
 </tr>
@@ -2042,10 +2107,10 @@ you various ways to do it!</p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p><code>BOND_NAME</code> is case-sensitive.</p>
+<p><code>BOND_NAME</code> used for searching is case-insensitive.</p>
 </div>
 <div class="paragraph">
-<p><code>ACCOUNT_NAME</code> is case-sensitive.</p>
+<p><code>ACCOUNT_NAME</code> used for searching is case-insensitive.</p>
 </div>
 </td>
 </tr>
@@ -2070,13 +2135,13 @@ Account.</p>
 <h5 id="finding-bank-transaction-details-code-find-banktransaction-code"><a class="link" href="#finding-bank-transaction-details-code-find-banktransaction-code">4.3.1.5. Finding bank transaction details <code>/find /banktransaction</code></a></h5>
 <div class="paragraph">
 <p>Looking for a transaction from a bank account? <strong>OwlMoney</strong> is able to help you with that by providing you various ways
-to do it!</p>
+to do it! It allows you to search by description, category or a date range!</p>
 </div>
 <div class="paragraph">
 <p><strong>Command Syntax</strong></p>
 </div>
 <div class="paragraph">
-<p><code>/find /banktransaction /name ACCOUNT_NAME /desc DESCRIPTION [/from DATE /to DATE]</code></p>
+<p><code>/find /banktransaction /name ACCOUNT_NAME /desc DESCRIPTION [/from DATE /to DATE] [/category CATEGORY]</code></p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -2092,32 +2157,156 @@ to do it!</p>
 </tr>
 </table>
 </div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>At least one of <code>/desc</code>, <code>/category</code>, or <code>/from</code> with <code>/to</code> must be used.</p>
+</div>
+<div class="paragraph">
+<p><code>DESCRIPTION</code> used for searching is case-insensitive.</p>
+</div>
+<div class="paragraph">
+<p><code>CATEGORY</code> used for searching is case-insensitive.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
 <p><strong>Example</strong></p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>/find /banktransaction /name JunBank Savings Account /desc bubble tea /from 1/1/2019 /to 7/1/2019</code></p>
+<p>`/find /banktransaction /name JunBank Savings Account /desc bubble tea</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>Finds all transactions with the description <code>bubble tea</code> charged to <code>JunBank Savings Account</code> between <code>1/1/2019</code> and
-<code>7/1/2019</code>.</p>
+<p>Finds and lists all transactions with the description <code>bubble tea</code> charged to <code>JunBank Savings Account</code>.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>/find /banktransaction /name JunBank Savings Account /from 1/1/2019 to 7/1/2019</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Finds and lists all transactions that fall between the date range of <code>1/1/2019</code> and <code>7/1/2019</code> from the bank named
+<code>JunBank Savings Account</code>.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>/find /banktransaction /name JunBank Savings Account /category food</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Finds and lists all transactions that matches the category <code>food</code> from the bank named <code>JunBank Savings Account</code></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>/find /banktransaction /name JunBank Savings Account /desc bubble tea /from 1/1/2019 /to 7/1/2019 /category food</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Finds and lists all transactions that matches any one of the categories:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>BANK_NAME &#8594; JunBank Savings Account | DESCRIPTION &#8594; bubble tea</p>
+</li>
+<li>
+<p>BANK_NAME &#8594; JunBank Savings Account | FROM &#8594; 1/1/2019  TO &#8594; 7/1/2019</p>
+</li>
+<li>
+<p>BANK_NAME &#8594; JunBank Savings Account | CATEGORY &#8594; food</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>In the last example above, <strong>OwlMoney</strong> provided you with the flexibility of performing <strong>3</strong> searches in one command:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Search by description</p>
+</li>
+<li>
+<p>Search by date range</p>
+</li>
+<li>
+<p>Search by category</p>
+</li>
+</ol>
+</div>
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect4">
 <h5 id="finding-card-transaction-details-code-find-cardtransaction-code"><a class="link" href="#finding-card-transaction-details-code-find-cardtransaction-code">4.3.1.6. Finding card transaction details <code>/find /cardtransaction</code></a></h5>
 <div class="paragraph">
 <p>Looking for transactions from a credit card? <strong>OwlMoney</strong> is able to help you with that by providing you various ways to
-do it!</p>
+do it! It allows you to search by description, category or a date range!</p>
 </div>
 <div class="paragraph">
 <p><strong>Command Syntax</strong></p>
 </div>
 <div class="paragraph">
-<p><code>/find /cardtransaction /name CARD_NAME /desc DESCRIPTION [/from DATE /to DATE]</code></p>
+<p><code>/find /cardtransaction /name CARD_NAME /desc DESCRIPTION [/from DATE /to DATE] [/category CATEGORY]</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Transactions includes both expenditures and deposits.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>At least one of <code>/desc</code>, <code>/category</code>, or <code>/from</code> with <code>/to</code> must be used.</p>
+</div>
+<div class="paragraph">
+<p><code>DESCRIPTION</code> used for searching is case-insensitive.</p>
+</div>
+<div class="paragraph">
+<p><code>CATEGORY</code> used for searching is case-insensitive.</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p><strong>Example</strong></p>
@@ -2125,13 +2314,73 @@ do it!</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>/find /cardtransaction /name POBB Tomorrow Card /desc bubble tea /from 1/1/2019 /to 7/1/2019</code></p>
+<p><code>/find /cardtransaction /name POBB Tomorrow Card /desc bubble tea</code></p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>Finds all transactions with the description <code>bubble tea</code> charged to <code>POBB Tomorrow Card</code> between <code>1/1/2019</code> and
- <code>7/1/2019</code>.</p>
+<p>Finds and list all transactions that matches with the description <code>bubble tea</code> from the credit card named <code>POBB
+Tomorrow Card1</code></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>/find /cardtransaction /name POBB Tomorrow Card /from 1/1/2019 /to 7/1/2019</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Finds all transactions charged to <code>POBB Tomorrow Card</code> between <code>1/1/2019</code> and <code>7/1/2019</code>.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>/find /cardtransaction /name POBB Tomorrow Card /desc bubble tea /from 1/1/2019 to 7/1/2019 /category food</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Finds and lists all transactions that matches any one of the categories:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>CARD_NAME &#8594; POBB Tomorrow Card | DESCRIPTION &#8594; bubble tea</p>
+</li>
+<li>
+<p>CARD_NAME &#8594; POBB Tomorrow Card | FROM &#8594; 1/1/2019  TO &#8594; 7/1/2019</p>
+</li>
+<li>
+<p>CARD_NAME &#8594; POBB Tomorrow Card | CATEGORY &#8594; food</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>In the last example above, <strong>OwlMoney</strong> provided you with the flexibility of performing <strong>3</strong> searches in one command:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Search by description</p>
+</li>
+<li>
+<p>Search by date range</p>
+</li>
+<li>
+<p>Search by category</p>
+</li>
+</ol>
+</div>
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
@@ -2147,6 +2396,9 @@ do it!</p>
 <p><code>/list /savings</code></p>
 </div>
 <div class="paragraph">
+<p><code>/list /investment</code></p>
+</div>
+<div class="paragraph">
 <p><code>/list /card</code></p>
 </div>
 <div class="paragraph">
@@ -2160,6 +2412,9 @@ do it!</p>
 </div>
 <div class="paragraph">
 <p><code>/list /cardexpenditure /from CARD_NAME [/num NUMBER]</code></p>
+</div>
+<div class="paragraph">
+<p><code>/list /deposit /from ACCOUNT_NAME [/num NUMBER]</code></p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -2206,7 +2461,7 @@ do it!</p>
 </ul>
 </div>
 <div class="paragraph">
-<p>Lists the most recent 60 transactions linked to JunBank Savings Account.</p>
+<p>Lists the most recent 60 expenditures tied to JunBank Savings Account.</p>
 </div>
 <div class="ulist">
 <ul>
@@ -2216,7 +2471,17 @@ do it!</p>
 </ul>
 </div>
 <div class="paragraph">
-<p>Lists the most recent 30 transactions tied to the POBB Tomorrow Card.</p>
+<p>Lists the most recent 30 expenditures tied to the POBB Tomorrow Card.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>/list /deposit /from JunBank Savings Account /num 10</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Lists the most recent 10 deposits tied to JunBank Savings Account.</p>
 </div>
 </div>
 <div class="sect3">
@@ -2238,7 +2503,8 @@ do it!</p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p><strong>OwlMoney</strong> allows you to transfer funds between investment and savings accounts.</p>
+<p><strong>OwlMoney</strong> provides you to the flexibility to transfer funds between different account types. (e.g. Savings to
+investment and vice-versa)</p>
 </div>
 </td>
 </tr>
@@ -2286,7 +2552,8 @@ do it!</p>
 <p><code>/add /recurbankexp /amount 72.90 /from JunBank Savings Account /desc Telco Bills /category Bills</code></p>
 </div>
 <div class="paragraph">
-<p>Adds a recurring expenditure that deducts $<code>72.90</code> every month to pay <code>Telco Bills</code> charged to <code>JunBank Savings
+<p>Adds a recurring expenditure that deducts $<code>72.90</code> every <strong>1st</strong> of the month to pay <code>Telco Bills</code> charged to <code>JunBank
+Savings
 Account</code> categorised under the <code>Bills</code> category.</p>
 </div>
 </div>
@@ -2405,6 +2672,18 @@ paying for the coverage.</p>
 <strong>A</strong>: You do not need to save the data manually. Whenever you run any commands that make changes, <strong>OwlMoney</strong>'s data are
 saved automatically in the <code>data</code> directory.</p>
 </div>
+<div class="paragraph">
+<p><strong>Q</strong>: Can I edit the data stored in the files of <code>data</code> directory?
+<strong>A</strong>: Yes you <strong>MAY</strong> do it! However, you <strong>RISK</strong> corrupting <strong>YOUR DATA</strong> if you enter malformed inputs as <strong>OwlMoney</strong>
+<strong>TRUSTS</strong> the modifications you make to the files. This is <strong>NOT A BUG</strong> and is designed as it is. <strong>OwlMoney</strong> <strong>MAY NOT</strong>
+function optimally if malformed inputs are loaded in from corrupted save files.</p>
+</div>
+<div class="paragraph">
+<p><strong>Q</strong>: How do I edit the data stored in the files of <code>data</code> directory?
+<strong>A</strong>: The data of the files are clearly labelled with column names in the <code>.csv</code> files and you can easily make sense of
+it! As long as you follow the constraints set out for each <code>PARAMETER</code> as mentioned in all previous sections, you
+should be fine!</p>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -2490,7 +2769,7 @@ saved automatically in the <code>data</code> directory.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Adding expenditures for savings bank account</strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Add a new expenditure record to the savings bank account specified.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>/add /bankexpenditure /amount AMOUNT /from ACCOUNT_NAME /date DATE /desc DESCRIPTION [/category CATEGORY]</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>/add /bankexpenditure /amount 1.20 /from JunBank Savings Account /date 28/09/2019 /description bubble tea /category
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>/add /bankexpenditure /amount 1.20 /from JunBank Savings Account /date 28/09/2019 /desc bubble tea /category
 Dining</code></p></td>
 </tr>
 <tr>
@@ -2510,7 +2789,7 @@ AMOUNT] [/date DATE]</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Adding deposit for savings bank account</strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Add a new deposit record to the savings bank account.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>/add /deposit /to ACCOUNT_NAME /amount AMOUNT /desc DESCRIPTION /date DATE</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>/add /deposit /to JunBank Savings Account /amount 300 /description FREELANCE WORK /date 10/10/2019</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>/add /deposit /to JunBank Savings Account /amount 300 /desc FREELANCE WORK /date 10/10/2019</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Editing deposit for savings bank account</strong></p></td>
@@ -2657,14 +2936,14 @@ AMOUNT] [/date DATE]</code></p></td>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Adding financial goals</strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Add a new financial goal to the user&#8217;s profile.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>/add /goals /name GOAL_NAME /amount TARGET_AMOUNT /by DATE</code></p>
-<p class="tableblock"><code>/add /goals /name GOAL_NAME /amount TARGET_AMOUNT /in DAYS</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>/add /goals /name BTO at Punggol Downpayment /amount 200000 /by 10/10/2020</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>/add /goals /name GOAL_NAME /amount TARGET_AMOUNT /by DATE [/from ACCOUNT_NAME]</code></p>
+<p class="tableblock"><code>/add /goals /name GOAL_NAME /amount TARGET_AMOUNT /in DAYS [/from ACCOUNT_NAME]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>/add /goals /name BTO at Punggol Downpayment /amount 200000 /by 10/10/2020 /from JunBank Savings Account</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Editing financial goals</strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Edit the financial goal&#8217;s details based on the new details given.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>/edit /goals /name GOAL_NAME [/newname GOAL_NAME] [/amount AMOUNT] [/in DAYS] [/by DATE]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>/edit /goals /name GOAL_NAME [/newname GOAL_NAME] [/amount AMOUNT] [/in DAYS] [/by DATE] [/from ACCOUNT_NAME]</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>/edit /goals /name BTO at Punggol Downpayment /newname BTO at Tampines Downpayment</code></p></td>
 </tr>
 <tr>
@@ -2695,8 +2974,8 @@ AMOUNT] [/date DATE]</code></p></td>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Editing profile details</strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Edit the profile details based on the new details given.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>/edit /profile /newname NAME</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>/edit /profile /newname JUNNY</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>/edit /profile /name NAME /newname NAME</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>/edit /profile /name Jun /newname JUNNY</code></p></td>
 </tr>
 </tbody>
 </table>
@@ -2740,4 +3019,4 @@ AMOUNT] [/date DATE]</code></p></td>
 </table>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-28 11:08:49 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-28 13:15:46 UTC</div></div></div></body></html>
