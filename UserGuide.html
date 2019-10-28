@@ -88,7 +88,11 @@
 </ul>
 </li>
 <li><a href="#listing-multiple-details-code-list-code">4.3.2. Listing multiple details <code>/list</code></a></li>
-<li><a href="#transferring-money-between-accounts-code-transfer-code">4.3.3. Transferring money between accounts <code>/transfer</code></a></li>
+<li><a href="#transferring-money-between-accounts-code-transfer-code">4.3.3. Transferring money between accounts <code>/transfer</code></a>
+<ul class="sectlevel4">
+<li><a href="#transferring-funds-between-different-bank-accounts-code-transfer-fund-code">4.3.3.1. Transferring funds between different bank accounts <code>/transfer /fund</code></a></li>
+</ul>
+</li>
 <li><a href="#adding-recurring-expenditures-code-add-recurbankexp-code">4.3.4. Adding recurring expenditures <code>/add /recurbankexp</code></a></li>
 <li><a href="#editing-recurring-expenditure-code-edit-recurbankexp-code">4.3.5. Editing recurring expenditure <code>/edit /recurbankexp</code></a></li>
 <li><a href="#deleting-recurring-expenditure-code-delete-recurbankexp-code">4.3.6. Deleting recurring expenditure <code>/delete /recurbankexp</code></a></li>
@@ -1213,7 +1217,7 @@ No worries! <strong>OwlMoney</strong> allows efficient tracking of your semi-ann
 <div class="ulist">
 <ul>
 <li>
-<p><code>/add /bonds /from DBB Vickers Account /name June SSB /amount 1000 /rate 1.92 /year 1</code></p>
+<p><code>/add /bonds /from DBB Vickers Account /name June SSB /amount 1000 /rate 1.92 /date 1/1/2019 /year 1</code></p>
 </li>
 </ul>
 </div>
@@ -1550,7 +1554,7 @@ AMOUNT] [/date DATE]</code></p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>At least one of <code>/desc</code>, <code>/category</code>, <code>/amount</code>, <code>/date</code> must be used.</p>
+<p>At least one of <code>/desc</code>, <code>/category</code>, <code>/amount</code> or <code>/date</code> must be used.</p>
 </div>
 </td>
 </tr>
@@ -1971,7 +1975,7 @@ that you require quickly out of <strong>OwlMoney</strong>.</p>
 <div class="sect4">
 <h5 id="finding-savings-account-details-code-find-savings-code"><a class="link" href="#finding-savings-account-details-code-find-savings-code">4.3.1.1. Finding savings account details <code>/find /savings</code></a></h5>
 <div class="paragraph">
-<p>Can&#8217;t remember the name of your savings account? Don&#8217;t worry <strong>OwlMoney</strong> allows you to find out details of
+<p>Can&#8217;t remember the name of your savings account? Don&#8217;t worry <strong>OwlMoney</strong> allows you to find out the details of
 your bank account as long as you remember part of your account name.</p>
 </div>
 <div class="paragraph">
@@ -2011,7 +2015,7 @@ your bank account as long as you remember part of your account name.</p>
 <div class="sect4">
 <h5 id="finding-investment-account-details-code-find-investment-code"><a class="link" href="#finding-investment-account-details-code-find-investment-code">4.3.1.2. Finding investment account details <code>/find /investment</code></a></h5>
 <div class="paragraph">
-<p>Can&#8217;t remember the name of your investment account? Don&#8217;t worry <strong>OwlMoney</strong> allows you to find out details of
+<p>Can&#8217;t remember the name of your investment account? Don&#8217;t worry <strong>OwlMoney</strong> allows you to find out the details of
 your bank account as long as you remember part of your account name.</p>
 </div>
 <div class="paragraph">
@@ -2051,7 +2055,7 @@ your bank account as long as you remember part of your account name.</p>
 <div class="sect4">
 <h5 id="finding-credit-card-details-code-find-card-code"><a class="link" href="#finding-credit-card-details-code-find-card-code">4.3.1.3. Finding credit card details <code>/find /card</code></a></h5>
 <div class="paragraph">
-<p>Searching for a Credit Card? <strong>OwlMoney</strong> helps you by providing you various ways to do it!</p>
+<p>Searching for a Credit Card but forgot the name? <strong>OwlMoney</strong> helps you by providing you various ways to do it!</p>
 </div>
 <div class="paragraph">
 <p><strong>Command Syntax</strong></p>
@@ -2487,13 +2491,56 @@ Tomorrow Card1</code></p>
 <div class="sect3">
 <h4 id="transferring-money-between-accounts-code-transfer-code"><a class="link" href="#transferring-money-between-accounts-code-transfer-code">4.3.3. Transferring money between accounts <code>/transfer</code></a></h4>
 <div class="paragraph">
+<p>In this section, you&#8217;ll be introduced to commands and parameters that help you to transfer funds between different
+bank accounts in <strong>OwlMoney</strong>.</p>
+</div>
+<div class="paragraph">
+<p>Below is a list of command parameters that you can expect to use for the commands in this section.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 18%;">
+<col style="width: 37%;">
+<col style="width: 45%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Parameter</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Acceptable Range of Values</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ACCOUNT_NAME</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Indicates the name of the bank account.</p>
+<p class="tableblock">(e.g. DBB Vickers Account)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ACCOUNT_NAME</code> should contain alphabetic characters, numeric characters, and spaces only.</p>
+<p class="tableblock"><code>ACCOUNT_NAME</code> is case-sensitive.</p>
+<p class="tableblock">Take note that there is a maximum of <strong>30</strong> character limit.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DATE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Indicates the date the expenditure was made.</p>
+<p class="tableblock">(e.g. 2/2/2019)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DATE</code> should be in <strong>DD/MM/YYYY</strong> format and cannot be a newer date than the current date.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>AMOUNT</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Indicates the amount of money.</p>
+<p class="tableblock">(e.g. 2113.30)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>AMOUNT</code> should contain only digits up to <strong>2</strong> decimal places and a maximum of <strong>9</strong> digits.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect4">
+<h5 id="transferring-funds-between-different-bank-accounts-code-transfer-fund-code"><a class="link" href="#transferring-funds-between-different-bank-accounts-code-transfer-fund-code">4.3.3.1. Transferring funds between different bank accounts <code>/transfer /fund</code></a></h5>
+<div class="paragraph">
 <p>Thinking of transferring money between different accounts? We can do that too.</p>
 </div>
 <div class="paragraph">
 <p><strong>Command Syntax</strong></p>
 </div>
 <div class="paragraph">
-<p><code>/transfer /fund /from ACCOUNT_NAME /to ACCOUNT_NAME /amount AMOUNT</code></p>
+<p><code>/transfer /fund /from ACCOUNT_NAME /to ACCOUNT_NAME /amount AMOUNT /date DATE</code></p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -2516,22 +2563,23 @@ investment and vice-versa)</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>/transfer /fund /from JunBank Savings Account /to POBB Savings Account /amount 500</code></p>
+<p><code>/transfer /fund /from JunBank Savings Account /to POBB Savings Account /amount 500 /date 1/1/2019</code></p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>Transfers $<code>500</code> from <code>JunBank Savings Account</code> to <code>POBB Savings Account</code>.</p>
+<p>Transfers $<code>500</code> from <code>JunBank Savings Account</code> to <code>POBB Savings Account</code> on <code>1/1/2019</code>.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>transfer /fund /from DBB Vickers Account /to JunBank Savings Account /amount 250</code></p>
+<p><code>transfer /fund /from DBB Vickers Account /to JunBank Savings Account /amount 250 /date 1/1/2019</code></p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>Transfers $<code>250</code> from <code>DBB Vickers Account</code> to <code>JunBank Savings Account</code>.</p>
+<p>Transfers $<code>250</code> from <code>DBB Vickers Account</code> to <code>JunBank Savings Account</code> on <code>1/1/2019</code>.</p>
+</div>
 </div>
 </div>
 <div class="sect3">
@@ -2574,7 +2622,7 @@ AMOUNT]</code></p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>At least one of <code>/desc</code>, <code>/category</code>, <code>/amount</code> must be used.</p>
+<p>At least one of <code>/desc</code>, <code>/category</code> or <code>/amount</code> must be used.</p>
 </div>
 </td>
 </tr>
@@ -2625,12 +2673,12 @@ AMOUNT]</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>/delete /recurexpenditure /from JunBank Savings Account /desc Telco Bills</code></p>
+<p><code>/delete /recurexpenditure /from JunBank Savings Account /transno 1</code></p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>Deletes a recurring expenditure from <code>JunBank Savings Account</code> with description <code>Telco Bills</code>.</p>
+<p>Deletes a recurring expenditure from <code>JunBank Savings Account</code> with transaction number <code>1</code>.</p>
 </div>
 </div>
 </div>
@@ -2844,7 +2892,7 @@ AMOUNT] [/date DATE]</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Adding investment bonds for investment bank account</strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Add an investment bond to the investment bank account specified.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>/add /bonds /from ACCOUNT_NAME /name BOND_NAME /amount AMOUNT /rate BOND_RATE /date DATE /year YEARS</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>/add /bonds /from DBB Vickers Account /name June SSB /amount 1000 /rate 1.92</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>/add /bonds /from DBB Vickers Account /name June SSB /amount 1000 /rate 1.92 /date 1/1/2019 /year 1</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Editing investment bonds for investment bank account</strong></p></td>
@@ -2998,25 +3046,62 @@ AMOUNT] [/date DATE]</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Example</strong></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>List details</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">List the details of the specified input.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>/list &#8230;&#8203;&#8230;&#8203;&#8230;&#8203;</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>/list &#8230;&#8203;&#8230;&#8203;&#8230;&#8203;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Listing general details of profile</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">List the general details of the bank accounts, cards or goals in the profile.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>/list /savings</code></p>
+<p class="tableblock"><code>/list /investment</code></p>
+<p class="tableblock"><code>/list /card</code></p>
+<p class="tableblock"><code>/list /goals</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>/list /savings</code></p>
+<p class="tableblock"><code>/list /investment</code></p>
+<p class="tableblock"><code>/list /card</code></p>
+<p class="tableblock"><code>/list /goals</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Find</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">List the details of the specified input.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>/find &#8230;&#8203;&#8230;&#8203;&#8230;&#8203;</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>/find &#8230;&#8203;&#8230;&#8203;&#8230;&#8203;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Listing specific details of cards, accounts, bonds etc.</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">List the general specific details of cards, accounts, bonds etc.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>/list /bonds /from ACCOUNT_NAME [/num NUMBER]</code></p>
+<p class="tableblock"><code>/list /bankexpenditure /from ACCOUNT_NAME [/num NUMBER]</code></p>
+<p class="tableblock"><code>/list /cardexpenditure /from CARD_NAME [/num NUMBER]</code></p>
+<p class="tableblock"><code>/list /deposit /from ACCOUNT_NAME [/num NUMBER]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>/list /bonds /from DBB Vickers Account</code></p>
+<p class="tableblock"><code>/list /bankexpenditure /from JunBank Savings Account /num 60</code></p>
+<p class="tableblock"><code>/list /cardexpenditure /from POBB Tomorrow Card</code></p>
+<p class="tableblock"><code>/list /deposit /from JunBank Savings Account /num 10</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Transferring Money</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">List the details of the specified input.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>/transfer &#8230;&#8203;&#8230;&#8203;&#8230;&#8203;</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>/transfer &#8230;&#8203;&#8230;&#8203;&#8230;&#8203;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Finding bank accounts or cards that matches with the keyword specified by the user</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">List the bank accounts or cards that matches with the keyword specified.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>/find /savings /name ACCOUNT_NAME</code></p>
+<p class="tableblock"><code>/find /investment /name ACCOUNT_NAME</code></p>
+<p class="tableblock"><code>/find /card /name CARD_NAME</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>/find /savings /name Jun</code></p>
+<p class="tableblock"><code>/find /investment /name Vickers</code></p>
+<p class="tableblock"><code>/find /card /name POBB</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Finding investment bonds within a specified investment account that matches with the keyword specified by the user</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">List the bonds' details within a specified investment account that matches with the keyword specified.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>/find /bonds /name BOND_NAME /from ACCOUNT_NAME</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>/find /bonds /name SSB /from DBB Vickers Account</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Finding transaction records within a specified bank account or card that matches with the keyword specified by the
+user</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">List the transaction records within a specified bank account or card that matches with the keyword specified.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>/find /banktransaction /name ACCOUNT_NAME /desc DESCRIPTION [/from DATE /to DATE] [/category CATEGORY]</code></p>
+<p class="tableblock"><code>/find /cardtransaction /name CARD_NAME /desc DESCRIPTION [/from DATE /to DATE] [/category CATEGORY]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>/find /banktransaction /name JunBank Savings Account /desc bubble tea /from 1/1/2019 /to 7/1/2019 /category food</code></p>
+<p class="tableblock"><code>/find /cardtransaction /name POBB Tomorrow Card /desc bubble tea /from 1/1/2019 to 7/1/2019 /category food</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Transferring funds between bank accounts</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Transfer funds from one account to another account based on the amount specified by the user.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>/transfer /fund /from ACCOUNT_NAME /to ACCOUNT_NAME /amount AMOUNT /date DATE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>/transfer /fund /from JunBank Savings Account /to POBB Savings Account /amount 500 /date 1/1/2019</code></p></td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-28 14:46:46 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-28 18:46:05 UTC</div></div></div></body></html>
