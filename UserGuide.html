@@ -2441,6 +2441,9 @@ bank accounts in <strong>OwlMoney</strong>.</p>
 <div class="paragraph">
 <p><code>/list /deposit /from ACCOUNT_NAME [/num NUMBER]</code></p>
 </div>
+<div class="paragraph">
+<p><code>/list /recurbankexp /from ACCOUNT_NAME</code></p>
+</div>
 <div class="admonitionblock tip">
 <table>
 <tr>
@@ -3084,11 +3087,13 @@ AMOUNT] [/date DATE]</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>/list /bonds /from ACCOUNT_NAME [/num NUMBER]</code></p>
 <p class="tableblock"><code>/list /bankexpenditure /from ACCOUNT_NAME [/num NUMBER]</code></p>
 <p class="tableblock"><code>/list /cardexpenditure /from CARD_NAME [/num NUMBER]</code></p>
-<p class="tableblock"><code>/list /deposit /from ACCOUNT_NAME [/num NUMBER]</code></p></td>
+<p class="tableblock"><code>/list /deposit /from ACCOUNT_NAME [/num NUMBER]</code></p>
+<p class="tableblock"><code>/list /recurbankexp /from ACCOUNT_NAME</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>/list /bonds /from DBB Vickers Account</code></p>
 <p class="tableblock"><code>/list /bankexpenditure /from JunBank Savings Account /num 60</code></p>
 <p class="tableblock"><code>/list /cardexpenditure /from POBB Tomorrow Card</code></p>
-<p class="tableblock"><code>/list /deposit /from JunBank Savings Account /num 10</code></p></td>
+<p class="tableblock"><code>/list /deposit /from JunBank Savings Account /num 10</code></p>
+<p class="tableblock"><code>/list /recurbankexp /from JunBankSavings Account</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Finding bank accounts or cards that matches with the keyword specified by the user</strong></p></td>
@@ -3121,8 +3126,26 @@ user</strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>/transfer /fund /from ACCOUNT_NAME /to ACCOUNT_NAME /amount AMOUNT /date DATE</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>/transfer /fund /from JunBank Savings Account /to POBB Savings Account /amount 500 /date 1/1/2019</code></p></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Adding recurring expenditure for bank account</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Add a new recurring expenditure record to the savings bank account specified.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>/add /recurbankexp /amount AMOUNT /from ACCOUNT_NAME /desc DESCRIPTION [/category CATEGORY]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>/add /recurbankexp /amount 72.90 /from JunBank Savings Account /desc Telco Bills /category Bills</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Editing recurring expenditure for bank account</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Edit an existing recurring expenditure record tied to the savings bank account based on the new details given.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>/edit /recurbankexp /from ACCOUNT_NAME /transno TRANSACTION_NUMBER [/desc DESCRIPTION] [/category CATEGORY] [/amount AMOUNT]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>/edit /recurbankexp /from JunBank Savings Account /transno 2 /desc Telco Bills /amount 119.90</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Deleting recurring expenditure for bank account</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Delete an existing expenditure record tied to the savings bank account.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>/delete /recurbankexp /from ACCOUNT_NAME /transno TRANSACTION_NUMBER</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>/delete /recurexpenditure /from JunBank Savings Account /transno 1</code></p></td>
+</tr>
 </tbody>
 </table>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-29 15:47:58 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-29 18:15:14 UTC</div></div></div></body></html>
