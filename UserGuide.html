@@ -21,8 +21,8 @@
 <ul class="sectlevel2">
 <li><a href="#general-commands">4.1. General Commands</a>
 <ul class="sectlevel3">
-<li><a href="#viewing-help-code-help-code">4.1.1. Viewing help: <code>/help</code></a></li>
-<li><a href="#undo-commands-code-undo-code">4.1.2. Undo Commands: <code>/undo</code></a></li>
+<li><a href="#viewing-help-code-help-code-not-available-in-v1-3">4.1.1. Viewing help: <code>/help</code> (Not Available in v1.3)</a></li>
+<li><a href="#undo-commands-code-undo-code-not-available-in-v1-3">4.1.2. Undo Commands: <code>/undo</code> (Not Available in v1.3)</a></li>
 <li><a href="#exiting-owlmoney-code-exit-code">4.1.3. Exiting OwlMoney : <code>/exit</code></a></li>
 </ul>
 </li>
@@ -139,7 +139,7 @@ interact with
 ease.</p>
 </div>
 <div class="paragraph">
-<p><strong>OwlMoney</strong> also comes with a minimalistic Graphical User Interface (GUI) that presents information in an organized
+<p><strong>OwlMoney</strong> also comes with a minimalistic Command Line Interface (CLI) that presents information in an organized
 manner.</p>
 </div>
 <div class="paragraph">
@@ -229,43 +229,19 @@ commands.</p>
 <div class="sect2">
 <h3 id="navigating-around-our-application"><a class="link" href="#navigating-around-our-application">2.2. Navigating Around Our Application</a></h3>
 <div class="paragraph">
-<p><strong>OwlMoney</strong> comes with a very clean and easy to use CLI and GUI, so don’t worry even if you are a new user!
+<p><strong>OwlMoney</strong> comes with a very clean and easy to use CLI , so don’t worry even if you are a new user!
 You can expect to navigate around our application with ease!</p>
 </div>
-<div id="GUI" class="imageblock">
+<div id="CLI" class="imageblock">
 <div class="content">
-<img src="images/UiLabelled.png" alt="UiLabelled" width="970">
+<img src="images/UiReadMe.png" alt="UiReadMe" width="970">
 </div>
-<div class="title">Figure 1. OwlMoney&#8217;s Graphical User Interface</div>
+<div class="title">Figure 1. OwlMoney&#8217;s Command Line Interface</div>
 </div>
 <div class="paragraph">
-<p><strong>OwlMoney</strong> has two main sections that you will need to know before you get started!
-The two main sections are explained below.</p>
+<p>As long as you have some experience using a command line interface, the moment you type your command and
+press <kbd>Enter</kbd>, the result appears immediately!</p>
 </div>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 33.3333%;">
-<col style="width: 33.3334%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Section</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Name</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description</strong></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Command Box</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">This is where you can enter and run commands.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Result Box</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">This provides you with information on whether a command is successful.</p></td>
-</tr>
-</tbody>
-</table>
 </div>
 </div>
 </div>
@@ -278,13 +254,25 @@ The two main sections are explained below.</p>
 <p>Ensure you have <strong>Java Version 11</strong> installed on your computer.</p>
 </li>
 <li>
-<p>Download the latest <code>OwlMoney.jar</code> <a href="https://github.com/AY1920S1-CS2113T-W17-3/main/releases/latest">here</a>.</p>
+<p>Download the latest <code>OwlMoney-v1.3.zip</code> <a href="https://github.com/AY1920S1-CS2113T-W17-3/main/releases/latest">here</a>.</p>
 </li>
 <li>
-<p>Copy the <code>OwlMoney.jar</code> file to the folder you want to use as the home folder for <strong>OwlMoney</strong>.</p>
+<p>Copy the <code>OwlMoney-v1.3.zip</code> file to the folder you want to use as the home folder for <strong>OwlMoney</strong>.</p>
 </li>
 <li>
-<p>Double-click the file to start the app. The GUI should appear in a few seconds.</p>
+<p>Extract all contents in the zip file into a target folder, including the <code>data</code> directory which should be <strong>empty</strong>.</p>
+</li>
+<li>
+<p>Open a <strong>Command Prompt</strong> or <strong>Powershell</strong>, navigate to the target folder and type <code>java -jar ./OwlMoney-v1.3.jar</code> to
+start <strong>OwlMoney</strong>.
+<strong>OwlMoney</strong> should appear in a few seconds.</p>
+</li>
+<li>
+<p>Maximise the screen to enjoy the best experience of <strong>OwlMoney</strong>.</p>
+</li>
+<li>
+<p>As this is your first time starting up this program, you have to create a profile by
+typing your <code>USERNAME</code> <strong>(e.g. John)</strong> when prompted and pressing <kbd>Enter</kbd></p>
 <div class="imageblock">
 <div class="content">
 <img src="images/Ui.png" alt="Ui" width="970">
@@ -293,12 +281,8 @@ The two main sections are explained below.</p>
 </div>
 </li>
 <li>
-<p>As this is your first time starting up this program, you have to create a profile by
-typing your <code>USERNAME</code> <strong>(e.g. John)</strong> when prompted and pressing <kbd>Enter</kbd></p>
-</li>
-<li>
 <p>You can now try entering commands in the <strong>command box</strong> and press <kbd>Enter</kbd> to execute it!<br>
-e.g. try typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> will list down the commands available.</p>
+e.g. try typing <strong><code>/help</code> (Not available in v1.3)</strong> and pressing <kbd>Enter</kbd> will list down the commands available.</p>
 </li>
 <li>
 <p>Some example commands you can try:</p>
@@ -418,7 +402,7 @@ entertainment]</code> (with optional <code>category</code> parameter)</p>
 <div class="sect2">
 <h3 id="general-commands"><a class="link" href="#general-commands">4.1. General Commands</a></h3>
 <div class="sect3">
-<h4 id="viewing-help-code-help-code"><a class="link" href="#viewing-help-code-help-code">4.1.1. Viewing help: <code>/help</code></a></h4>
+<h4 id="viewing-help-code-help-code-not-available-in-v1-3"><a class="link" href="#viewing-help-code-help-code-not-available-in-v1-3">4.1.1. Viewing help: <code>/help</code> (Not Available in v1.3)</a></h4>
 <div class="paragraph">
 <p>Don&#8217;t worry if you are feeling lost! You can use this User Guide document to gain a better understanding of
 <strong>OwlMoney</strong>'s commands.</p>
@@ -442,7 +426,7 @@ entertainment]</code> (with optional <code>category</code> parameter)</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="undo-commands-code-undo-code"><a class="link" href="#undo-commands-code-undo-code">4.1.2. Undo Commands: <code>/undo</code></a></h4>
+<h4 id="undo-commands-code-undo-code-not-available-in-v1-3"><a class="link" href="#undo-commands-code-undo-code-not-available-in-v1-3">4.1.2. Undo Commands: <code>/undo</code> (Not Available in v1.3)</a></h4>
 <div class="paragraph">
 <p>Accidentally typed a wrong command? Don&#8217;t worry, simply type the <code>/undo</code> command and you will be back to where you
 started!</p>
@@ -3141,4 +3125,4 @@ user</strong></p></td>
 </table>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-29 15:11:00 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-29 15:24:38 UTC</div></div></div></body></html>
