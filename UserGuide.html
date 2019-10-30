@@ -58,7 +58,9 @@
 <li><a href="#deleting-credit-card-code-delete-card-code">4.2.3.3. Deleting credit card <code>/delete /card</code></a></li>
 <li><a href="#adding-expenditures-for-credit-cards-code-add-cardexpenditure-code">4.2.3.4. Adding expenditures for credit cards <code>/add /cardexpenditure</code></a></li>
 <li><a href="#editing-expenditures-for-credit-cards-code-edit-cardexpenditure-code">4.2.3.5. Editing expenditures for credit cards <code>/edit /cardexpenditure</code></a></li>
-<li><a href="#deleting-expenditures-for-credit-cards-code-cardexpenditure-code">4.2.3.6. Deleting expenditures for credit cards <code>/cardexpenditure</code></a></li>
+<li><a href="#deleting-expenditures-for-credit-cards-code-delete-cardexpenditure-code">4.2.3.6. Deleting expenditures for credit cards <code>/delete /cardexpenditure</code></a></li>
+<li><a href="#adding-monthly-credit-card-bill-to-savings-account-add-cardbill">4.2.3.7. Adding monthly credit card bill to savings account /add /cardbill</a></li>
+<li><a href="#deleting-credit-card-bill-from-savings-account-delete-cardbill">4.2.3.8. Deleting credit card bill from savings account /delete /cardbill</a></li>
 </ul>
 </li>
 <li><a href="#financial-goal-management">4.2.4. Financial Goal Management</a>
@@ -254,13 +256,10 @@ press <kbd>Enter</kbd>, the result appears immediately!</p>
 <p>Ensure you have <strong>Java Version 11</strong> installed on your computer.</p>
 </li>
 <li>
-<p>Download the latest <code>OwlMoney-v1.3.zip</code> <a href="https://github.com/AY1920S1-CS2113T-W17-3/main/releases/latest">here</a>.</p>
+<p>Download the latest <code>OwlMoney-v1.3.jar</code> <a href="https://github.com/AY1920S1-CS2113T-W17-3/main/releases/latest">here</a>.</p>
 </li>
 <li>
-<p>Copy the <code>OwlMoney-v1.3.zip</code> file to the folder you want to use as the home folder for <strong>OwlMoney</strong>.</p>
-</li>
-<li>
-<p>Extract all contents in the zip file into a target folder, including the <code>data</code> directory which should be <strong>empty</strong>.</p>
+<p>Copy the <code>OwlMoney-v1.3.jar</code> file to the folder you want to use as the home folder for <strong>OwlMoney</strong>.</p>
 </li>
 <li>
 <p>Open a <strong>Command Prompt</strong> or <strong>Powershell</strong>, navigate to the target folder and type <code>java -jar ./OwlMoney-v1.3.jar</code> to
@@ -268,7 +267,7 @@ start <strong>OwlMoney</strong>.
 <strong>OwlMoney</strong> should appear in a few seconds.</p>
 </li>
 <li>
-<p>Maximise the screen to enjoy the best experience of <strong>OwlMoney</strong>.</p>
+<p>Maximise the screen to enjoy the best experience of <strong>OwlMoney</strong>, it performs best on displays <strong>1920x1080</strong> and above.</p>
 </li>
 <li>
 <p>As this is your first time starting up this program, you have to create a profile by
@@ -1311,6 +1310,14 @@ expenditures associated with it in <strong>OwlMoney</strong>.</p>
 <p class="tableblock">Take note that there is a maximum of <strong>30</strong> character limit.</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ACCOUNT_NAME</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Indicates the name of the savings bank account.</p>
+<p class="tableblock">(e.g. JunBank Savings Account)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ACCOUNT_NAME</code> should contain alphabetic characters, numeric characters, and spaces only.</p>
+<p class="tableblock"><code>ACCOUNT_NAME</code> is case-sensitive.</p>
+<p class="tableblock">Take note that there is a maximum of <strong>30</strong> character limit.</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>CARD_LIMIT</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Indicates the credit limit of the credit card.</p>
 <p class="tableblock">(e.g. 5000.00)</p></td>
@@ -1319,8 +1326,8 @@ expenditures associated with it in <strong>OwlMoney</strong>.</p>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>CASHBACK_RATE</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Indicates the cashback returns rate of the credit card in percentage.</p>
-<p class="tableblock">(e.g. 3.1)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>CASHBACK_RATE</code> should contain only digits and up to 2 decimal places up to a maximum of <strong>20.00</strong></p></td>
+<p class="tableblock">(e.g. 20 for 20%)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>CASHBACK_RATE</code> should contain only digits and up to 2 decimal places up to a maximum of <strong>20</strong>%</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>AMOUNT</code></p></td>
@@ -1333,6 +1340,12 @@ expenditures associated with it in <strong>OwlMoney</strong>.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Indicates the date the expenditure was made.</p>
 <p class="tableblock">(e.g. 2/2/2019)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>DATE</code> should be in <strong>DD/MM/YYYY</strong> format and cannot be a newer date than the current date.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>YEARMONTH</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Indicates the month and year the expenditure was made.</p>
+<p class="tableblock">(e.g. 10/2019)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>YEARMONTH</code> should be in <strong>MM/YYYY</strong> format and cannot be ahead of the current month.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>DESCRIPTION</code></p></td>
@@ -1350,6 +1363,16 @@ expenditures associated with it in <strong>OwlMoney</strong>.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>TRANSACTION_NUMBER</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Indicates the transaction number in the list when displayed. It is used for editing or deleting expenditures.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>TRANSACTION_NUMBER</code> should contain positive numbers only up to a maximum of <strong>9</strong> digits.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>BILL_EXPENDITURE_NUMBER</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Indicates the credit card bill transaction number in your savings account.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>BILL_EXPENDITURE_NUMBER</code> should contain positive numbers only up to a maximum of <strong>9</strong> digits.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>BILL_DEPOSIT_NUMBER</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Indicates the credit card bill rebate transaction number in your savings account.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>BILL_DEPOSIT_NUMBER</code> should contain positive numbers only up to a maximum of <strong>9</strong> digits.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1415,6 +1438,9 @@ cashback rate of <code>1.5</code>%</p>
 <div class="paragraph">
 <p>At least one of <code>/newname</code>, <code>/limit</code> or <code>/rebate</code> must be used.</p>
 </div>
+<div class="paragraph">
+<p><code>/limit cannot be edited when there are unpaid credit card expenditures.</code></p>
+</div>
 </td>
 </tr>
 </table>
@@ -1445,12 +1471,12 @@ cashback rate of <code>1.5</code>%</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>/edit /card /name POBB Tomorrow Card /rebate 2.05</code></p>
+<p><code>/edit /card /name POBB Tomorrow Card /rebate 2.25</code></p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>Edits the cashback rate of <code>POBB Tomorrow Card</code> to <code>2.05</code>%.</p>
+<p>Edits the cashback rate of <code>POBB Tomorrow Card</code> to <code>2.25</code>%.</p>
 </div>
 </div>
 <div class="sect4">
@@ -1583,7 +1609,7 @@ AMOUNT] [/date DATE]</code></p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="deleting-expenditures-for-credit-cards-code-cardexpenditure-code"><a class="link" href="#deleting-expenditures-for-credit-cards-code-cardexpenditure-code">4.2.3.6. Deleting expenditures for credit cards <code>/cardexpenditure</code></a></h5>
+<h5 id="deleting-expenditures-for-credit-cards-code-delete-cardexpenditure-code"><a class="link" href="#deleting-expenditures-for-credit-cards-code-delete-cardexpenditure-code">4.2.3.6. Deleting expenditures for credit cards <code>/delete /cardexpenditure</code></a></h5>
 <div class="paragraph">
 <p>Accidentally added a transaction that did not happen? You can delete it!</p>
 </div>
@@ -1619,6 +1645,120 @@ AMOUNT] [/date DATE]</code></p>
 </div>
 <div class="paragraph">
 <p>Deletes an expenditure from <code>POBB Tomorrow Card</code> with transaction number <code>1</code>.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="adding-monthly-credit-card-bill-to-savings-account-add-cardbill"><a class="link" href="#adding-monthly-credit-card-bill-to-savings-account-add-cardbill">4.2.3.7. Adding monthly credit card bill to savings account /add /cardbill</a></h5>
+<div class="paragraph">
+<p>Charge your credit card monthly bill to your savings account! This will add a credit card bill expenditure and also
+deposit the monthly rebate to your savings account.</p>
+</div>
+<div class="paragraph">
+<p><strong>Command Syntax</strong></p>
+</div>
+<div class="paragraph">
+<p><code>/add /cardbill /card CARD_NAME /date YEARMONTH /bank ACCOUNT_NAME</code></p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The credit card bill expenditure and rebates deposit will be reflected in the savings account dated today.</p>
+</div>
+<div class="paragraph">
+<p>Rebates will be calculated based on the current credit card rebate, no matter which month the credit card transaction
+is from.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><strong>Example</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>/add /cardbill /card POBB Tomorrow Card /date 10/2019 /bank JunBank Savings Account</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Adds a credit card bill expenditure dated today to <code>JunBank Savings Account</code> with total card expenditures from <code>POBB
+Tomorrow Card</code> in the month and year of <code>10/2019</code>.</p>
+</div>
+<div class="paragraph">
+<p>Rebates for the month will also be deposited back to <code>JunBank Savings Account</code>.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="deleting-credit-card-bill-from-savings-account-delete-cardbill"><a class="link" href="#deleting-credit-card-bill-from-savings-account-delete-cardbill">4.2.3.8. Deleting credit card bill from savings account /delete /cardbill</a></h5>
+<div class="paragraph">
+<p>Made a mistake in charging of credit card bill or decided to add more card transaction for an already paid month? You
+can delete your credit card bill, which will delete the bill expenditure and rebate deposit from your savings account!</p>
+</div>
+<div class="paragraph">
+<p><strong>Command Syntax</strong></p>
+</div>
+<div class="paragraph">
+<p><code>/delete /cardbill /card CARD_NAME /date YEARMONTH /bank ACCOUNT_NAME /expno BILL_EXPENDITURE_NUMBER /depno
+BILL_DEPOSIT_NUMBER</code></p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>To find out the expenditure and deposit number, use the /list or /find function to find the expenditure number in
+your savings account.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Do not use the <code>/delete /bankexpenditure</code> or <code>/delete /deposit</code> command to remove your credit card bill. By doing so,
+you will be unable to reverse your credit card bill and hence unable to add more credit card expenditures to
+previously paid months.</p>
+</div>
+<div class="paragraph">
+<p>If you specify an incorrect <code>/expno</code>, but if the bank transaction amount matches the total card expenditures from
+<code>/date</code>, the incorrect bank expenditure will be deleted.</p>
+</div>
+<div class="paragraph">
+<p>If you specify an incorrect <code>/depno</code>, it will be deleted immediately if <code>/expno</code> leads to a deletion.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><strong>Example</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>/delete /cardbill /card POBB Tomorrow Card /date 10/2019 /bank JunBank Savings Account /expno 1 /depno 2</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Deletes credit card bill expenditure <code>1</code> and rebate deposit <code>2</code> from <code>JunBank Savings Account</code>. All credit card
+expenditures from <code>10/2019</code> will be marked as unpaid from <code>POBB Tomorrow Card</code>.</p>
 </div>
 </div>
 </div>
@@ -2212,13 +2352,13 @@ to do it! It allows you to search by description, category or a date range!</p>
 <div class="ulist">
 <ul>
 <li>
-<p>BANK_NAME &#8594; JunBank Savings Account | DESCRIPTION &#8594; bubble tea</p>
+<p>ACCOUNT_NAME &#8594; JunBank Savings Account | DESCRIPTION &#8594; bubble tea</p>
 </li>
 <li>
-<p>BANK_NAME &#8594; JunBank Savings Account | FROM &#8594; 1/1/2019  TO &#8594; 7/1/2019</p>
+<p>ACCOUNT_NAME &#8594; JunBank Savings Account | FROM &#8594; 1/1/2019  TO &#8594; 7/1/2019</p>
 </li>
 <li>
-<p>BANK_NAME &#8594; JunBank Savings Account | CATEGORY &#8594; food</p>
+<p>ACCOUNT_NAME &#8594; JunBank Savings Account | CATEGORY &#8594; food</p>
 </li>
 </ul>
 </div>
@@ -2986,6 +3126,18 @@ AMOUNT] [/date DATE]</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>/delete /cardexpenditure /from CARD_NAME /transno TRANSACTION_NUMBER</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>/delete /cardexpenditure /from POBB Tomorrow Card /transno 1</code></p></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Adding credit card bill</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Add a credit card bill expenditure and rebate deposit into savings account.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>/add /cardbill /card CARD_NAME /date YEARMONTH /bank ACCOUNT_NAME</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>/add /cardbill /card POBB Tomorrow Card /date 10/2019 /bank JunBank Savings Account</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Deleting credit card bill</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Delete a credit card bill expenditure and rebate deposit from savings account.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>/delete /cardbill /card CARD_NAME /date YEARMONTH /bank ACCOUNT_NAME /expno 1 /depno 2</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>/delete /cardbill /card POBB Tomorrow Card /date 10/2019 /bank JunBank Savings Account /expno 1 /depno 2</code></p></td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -3148,4 +3300,4 @@ user</strong></p></td>
 </table>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-29 18:15:14 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-30 13:59:07 UTC</div></div></div></body></html>
