@@ -465,7 +465,7 @@ will proceed to create an instance of the appropriate command class and return i
 <h4 id="command"><a class="link" href="#command">3.3.2. Command</a></h4>
 <div class="imageblock">
 <div class="content">
-<img src="images/LogicCommandBankPackage.png" alt="LogicCommandBankPackage" width="970">
+<img src="images/LogicCommandBankPackage.png" alt="LogicCommandBankPackage" width="800">
 </div>
 <div class="title">Figure 5. Bank Command Class Diagram</div>
 </div>
@@ -732,7 +732,7 @@ into the the specific Parser classes in <code>ParseTypeMenu</code>.</p>
 <h3 id="adding-savings"><a class="link" href="#adding-savings">4.2. Adding Savings</a></h3>
 <div class="imageblock">
 <div class="content">
-<img src="images/AddSavingCommand.png" alt="AddSavingCommand" width="970">
+<img src="images/AddSavingCommand.png" alt="AddSavingCommand" width="800">
 </div>
 <div class="title">Figure 13. Sequence Diagram of Adding Savings</div>
 </div>
@@ -2183,7 +2183,7 @@ specific bank account, credit card or bonds with ease.</p></td>
 </div>
 <div class="paragraph">
 <p><strong>Actor: User</strong><br>
-<a id="UC-2"></a> <strong>Use case: UC2 - Add <span class="underline">bank</span> (savings / investment) account</strong><br>
+<a id="UC-2"></a> <strong>Use case: UC2 - Add savings account</strong><br>
 <strong>Preconditions:</strong></p>
 </div>
 <div class="ulist">
@@ -2199,16 +2199,16 @@ specific bank account, credit card or bonds with ease.</p></td>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User chooses to add a <span class="underline">bank</span> (savings / investment) account.</p>
+<p>User chooses to add a savings account.</p>
 </li>
 <li>
-<p>System requests for <span class="underline">bank</span> (savings / investment) details.</p>
+<p>System requests for savings account details.</p>
 </li>
 <li>
-<p>User enters details for the new <span class="underline">bank</span> (savings / investment) account.</p>
+<p>User enters details for the new savings account.</p>
 </li>
 <li>
-<p>System creates a new <span class="underline">bank</span> (savings / investment) account with the details specified.</p>
+<p>System creates a new savings account with the details specified.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -2221,17 +2221,17 @@ specific bank account, credit card or bonds with ease.</p></td>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>3a. System detects invalid details for the new <span class="underline">bank</span> (savings / investment) account.</p>
+<p>3a. System detects invalid details for the new savings account.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>3a1. System requests for the correct details.</p>
+<p>3a1. System requests for the correct savings account details.</p>
 </li>
 <li>
-<p>3a2. User re-enters the details for new <span class="underline">bank</span> (savings / investment) account.</p>
+<p>3a2. User re-enters the details for new savings account.</p>
 </li>
 <li>
-<p>Steps 3a1-3a2 are repeated until the details for new <span class="underline">bank</span> (savings / investment) account is entered correctly.</p>
+<p>Steps 3a1-3a2 are repeated until the details for new savings account is entered correctly.</p>
 </li>
 <li>
 <p>Use case resumes from step 4.</p>
@@ -2363,7 +2363,7 @@ specific bank account, credit card or bonds with ease.</p></td>
 </div>
 <div class="paragraph">
 <p><strong>Actor: Existing User</strong><br>
-<a id="UC-5"></a> <strong>Use case: UC5 - Edit <span class="underline">bank</span> (savings / investment) account details</strong><br>
+<a id="UC-5"></a> <strong>Use case: UC5 - Edit savings account details</strong><br>
 <strong>Preconditions:</strong></p>
 </div>
 <div class="ulist">
@@ -2372,7 +2372,7 @@ specific bank account, credit card or bonds with ease.</p></td>
 <p><strong>User has a profile created</strong><br></p>
 </li>
 <li>
-<p><strong>User has an existing <span class="underline">bank</span> (savings / investment) account</strong><br></p>
+<p><strong>User has an existing savings account</strong><br></p>
 </li>
 </ul>
 </div>
@@ -2382,16 +2382,16 @@ specific bank account, credit card or bonds with ease.</p></td>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User chooses to edit his/her <span class="underline">bank</span> (savings / investment) account details.</p>
+<p>User chooses to edit his/her specific savings account details.</p>
 </li>
 <li>
-<p>System requests for new <span class="underline">bank</span> (savings / investment) account details.</p>
+<p>System requests for the savings account and newly specified information of savings account details.</p>
 </li>
 <li>
-<p>User enters new <span class="underline">bank</span> (savings / investment) account details.</p>
+<p>User enters the savings account with new savings account information he/she like to change.</p>
 </li>
 <li>
-<p>System update the <span class="underline">bank</span> (savings / investment) account details.</p>
+<p>System updates the savings account with new savings account details.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -2404,17 +2404,18 @@ specific bank account, credit card or bonds with ease.</p></td>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>3a. System detects invalid <span class="underline">bank</span> (savings / investment) accounts details.</p>
+<p>3a. System detects invalid savings account or invalid new savings account details.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>3a1. System requests for the correct <span class="underline">bank</span> (savings / investment) account details.</p>
+<p>3a1. System requests for the correct savings account and savings account details.</p>
 </li>
 <li>
-<p>3a2. User re-enters the <span class="underline">bank</span> (savings / investment) account details.</p>
+<p>3a2. User re-enters the savings account and new savings account details.</p>
 </li>
 <li>
-<p>Steps 3a1-3a2 are repeated until the <span class="underline">bank</span> (savings / investment) account details entered are correct.</p>
+<p>Steps 3a1-3a2 are repeated until the savings account and savings account details are entered
+correctly.</p>
 </li>
 <li>
 <p>Use case resumes from step 4.</p>
@@ -4591,4 +4592,4 @@ Expected: Updated years of the September SSB <code>bond</code> being displayed a
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-31 13:18:30 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-31 14:59:28 UTC</div></div></div></body></html>
