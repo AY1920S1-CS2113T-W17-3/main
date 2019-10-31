@@ -69,7 +69,17 @@
 <li><a href="#use-cases">Appendix C: Use Cases</a></li>
 <li><a href="#non-functional-requirements">Appendix D: Non Functional Requirements</a></li>
 <li><a href="#glossary">Appendix E: Glossary</a></li>
-<li><a href="#instructions-for-manual-testing">Appendix F: Instructions for Manual Testing</a></li>
+<li><a href="#instructions-for-manual-testing">Appendix F: Instructions for Manual Testing</a>
+<ul class="sectlevel2">
+<li><a href="#launch-and-shutdown">F.1. Launch and Shutdown</a></li>
+<li><a href="#adding-a-savings-account">F.2. Adding a savings account</a></li>
+<li><a href="#adding-an-investment-account">F.3. Adding an investment account</a></li>
+<li><a href="#editing-a-savings-account">F.4. Editing a savings account</a></li>
+<li><a href="#editing-an-investment-account">F.5. Editing an investment account</a></li>
+<li><a href="#adding-an-investment-bond">F.6. Adding an investment bond</a></li>
+<li><a href="#editing-an-investment-bond">F.7. Editing an investment bond</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -813,6 +823,19 @@ of the <strong>successful</strong> addition of the savings object.</p>
 </div>
 <div class="sect2">
 <h3 id="editing-bonds"><a class="link" href="#editing-bonds">4.3. Editing Bonds</a></h3>
+<div class="paragraph">
+<p>The <code>/edit /bonds</code> feature aims to help users update the specific details of the investment <code>bonds</code> that they
+purchase. This is to enable them to not go through the trouble of deleting and re-adding the <code>bond</code> if they enter the
+details wrongly by mistake.</p>
+</div>
+<div class="sect3">
+<h4 id="current-implementation"><a class="link" href="#current-implementation">4.3.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>The current implementation of editing <code>bonds</code> only allows for the edition of <code>rate</code> and <code>year</code> where the <code>year</code>
+parameter can only be changed to a higher integer than the original <code>year</code> currently stored. The reason behind only
+allowing these <strong>2</strong> parameters to be changed was because we wanted consistency across all records of crediting
+interest throughout the lifespan of the investment <code>bond</code>.</p>
+</div>
 <div class="imageblock">
 <div class="content">
 <img src="images/editBondCommand.png" alt="editBondCommand" width="970">
@@ -952,6 +975,105 @@ maturity through the method <code>editBondYear</code>.</p>
 of the <strong>successful</strong> editing of the bond.</p>
 </li>
 </ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">4.3.2. Design Considerations</a></h4>
+<div class="paragraph">
+<p>This section describes the various design considerations taken when implementing the <code>/edit /bonds</code> feature.</p>
+</div>
+<div class="paragraph">
+<p><strong>Aspect: Choice of whether to allow editing of the bond to tie to which investment account as well as its name</strong></p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 18%;">
+<col style="width: 37%;">
+<col style="width: 45%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><strong>Approach</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Pros</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Cons</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>1.</strong> Allowing changing of the investment bank account that the bond ties to.</p></td>
+<td class="tableblock halign-left valign-top"><div><div class="ulist">
+<ul>
+<li>
+<p>More room for customisability from the user&#8217;s perspective.</p>
+</li>
+</ul>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="ulist">
+<ul>
+<li>
+<p>Difficult to implement, have to take care of issues such as whether there is enough space to store bonds in
+the other bank account.</p>
+</li>
+<li>
+<p>All transaction records have to be migrated over to the other bank account and might cause issues such as
+transaction records not appearing in order.</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>2.</strong> Allowing the changing of bond&#8217;s name.</p></td>
+<td class="tableblock halign-left valign-top"><div><div class="ulist">
+<ul>
+<li>
+<p>Allows the user to change the name of the bond if the user entered it wrongly the first time.</p>
+</li>
+</ul>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="ulist">
+<ul>
+<li>
+<p>If interest has already been credited, it is not feasible to change the names of past records as it might cause
+confusion and conflict to the end user, especially when the names clash with the name of another bond which has
+expired prior to making this edit. This might confuse users as they might think that they earned much more interest
+from the same bond.</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p><strong>3.</strong> Disallowing the changing of both parameters.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="ulist">
+<ul>
+<li>
+<p>Easier to implement in terms of code.</p>
+</li>
+<li>
+<p>Users are less likely to get confused after editing records to become conflicting.</p>
+</li>
+</ul>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="ulist">
+<ul>
+<li>
+<p>Less flexibility for the user.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>After weighting the pros and cons, <strong>approach 3</strong> was taken.</p>
+</div>
+<div class="paragraph">
+<p>Firstly, doing so would reduce the coupling and dependencies between transactions and investment banks. Although it may
+seem restrictive to limit the type and number of parameters that can be changed, it is beneficial both to you, the
+developer and the user, when developing and using the program. Developing the alternative ideas would result in a
+high risk of logic and coding errors, leaving room for bugs to be exploited.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 <div class="sect2">
@@ -4227,6 +4349,246 @@ specific bank account, credit card or bonds with ease.</p></td>
 <div class="sect1">
 <h2 id="instructions-for-manual-testing"><a class="link" href="#instructions-for-manual-testing">Appendix F: Instructions for Manual Testing</a></h2>
 <div class="sectionbody">
-
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+These instructions only provide a starting point for testers to work on; testers are expected to do more <em>exploratory</em> testing.
+</td>
+</tr>
+</table>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-31 12:55:25 UTC</div></div></div></body></html>
+<div class="paragraph">
+<p>Persistent Storage for card related function are not enabled.</p>
+</div>
+<div class="sect2">
+<h3 id="launch-and-shutdown"><a class="link" href="#launch-and-shutdown">F.1. Launch and Shutdown</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Initial launch</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Download <code>OwlMoney-v1.3.jar</code> file and copy into an empty folder.</p>
+</li>
+<li>
+<p>Open a <strong>Command Prompt</strong> or <strong>Powershell</strong>, navigate to the folder where you placed <code>OwlMoney-v1.3.jar</code>
+in and type <code>java -jar ./OwlMoney-v1.3.jar</code> to start <strong>OwlMoney</strong>.<br>
+   Expected: Shows the CLI stating that a profile cannot be loaded since this is the first time <strong>OwlMoney</strong> is
+starting up. <strong>Maximise</strong> the <strong>Command Prompt</strong> or <strong>Powershell</strong> to enjoy the best experience <strong>OwlMoney</strong> has to offer.</p>
+</li>
+<li>
+<p>Enter your name to create your profile for the first time. (e.g. john)</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="adding-a-savings-account"><a class="link" href="#adding-a-savings-account">F.2. Adding a savings account</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Adding a new <code>savings</code> account</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: There are currently no <code>savings</code> or <code>investment</code> account with the same name.</p>
+</li>
+<li>
+<p>Test case: <code>/add /savings /name JunBank Savings Account /amount 15000 /income 5000</code><br>
+Expected: New <code>savings</code> account is added into the profile.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Adding a duplicate <code>savings</code> account</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: A <code>savings</code> or <code>investment</code> account with the same name has already been created.</p>
+</li>
+<li>
+<p>Test case: <code>/add /savings /name JunBank Savings Account /amount 15000 /income 5000</code><br>
+Expected: Error saying that there is already an existing bank account with the same name.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="adding-an-investment-account"><a class="link" href="#adding-an-investment-account">F.3. Adding an investment account</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Adding a new <code>investment</code> account</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: There are currently no <code>investment</code> or <code>savings</code> account with the
+same name.</p>
+</li>
+<li>
+<p>Test case: <code>/add /investment /name DBB Vickers Account /amount 20000</code><br>
+Expected: New <code>investment</code> is added into the profile.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Adding a duplicate <code>investment</code> account</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: A <code>savings</code> or <code>investment</code> account with the same name has already been created.</p>
+</li>
+<li>
+<p>Test case: <code>/add /investment /name DBB Vickers Account /amount 20000</code><br>
+Expected: Error saying that there is already an existing bank account with the same name.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="editing-a-savings-account"><a class="link" href="#editing-a-savings-account">F.4. Editing a savings account</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Editing the name of a <code>savings</code> account</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: There is an existing <code>savings</code> account to be edited.</p>
+</li>
+<li>
+<p>Test case: <code>/edit /savings /name JunBank Savings Account /newname BunBank Savings Account</code><br>
+Expected: Updated name of the <code>savings</code> account being displayed after being edited.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Editing the amount of a <code>savings</code> account</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: There is an existing <code>savings</code> account to be edited.</p>
+</li>
+<li>
+<p>Test case: <code>/edit /savings /name BunBank Savings Account /amount 21000</code><br>
+Expected: Updated amount of the <code>savings</code> account being displayed after being edited.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="editing-an-investment-account"><a class="link" href="#editing-an-investment-account">F.5. Editing an investment account</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Editing the name of a <code>investment</code> account</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: There is an existing <code>investment</code> account to be edited.</p>
+</li>
+<li>
+<p>Test case: <code>/edit /investment /name DBB Vickers Account /newname BBB Vickers Account</code><br>
+Expected: Updated name of the <code>investment</code> account being displayed after being edited.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Editing the amount of a <code>investment</code> account</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: There is an existing <code>investment</code> account to be edited.</p>
+</li>
+<li>
+<p>Test case: <code>/edit /investment /name BBB Vickers Account /amount 21000</code><br>
+Expected: Updated amount of the <code>investment</code> account being displayed after being edited.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="adding-an-investment-bond"><a class="link" href="#adding-an-investment-bond">F.6. Adding an investment bond</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Adding a new <code>investment</code> <code>bond</code> tied to an existing <code>investment account</code></p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: There is an existing <code>investment</code> account to tie the <code>bond</code> to.</p>
+</li>
+<li>
+<p>Test case:
+<code>/add /bonds /name September SSB /amount 1000 /rate 1.65 /year 7 /date 1/10/2019 /from BBB Vickers Account</code><br>
+Expected: New details of the September SSB <code>bond</code> being displayed after being added.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="editing-an-investment-bond"><a class="link" href="#editing-an-investment-bond">F.7. Editing an investment bond</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Editing the rate of an existing <code>investment</code> <code>bond</code> tied to an existing <code>investment account</code></p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: There is an existing <code>bond</code> tied to an existing <code>investment</code> account.</p>
+</li>
+<li>
+<p>Test case:
+<code>/edit /bonds /from BBB Vickers Account /name September SSB /rate 1.90</code><br>
+Expected: Updated rate of the September SSB <code>bond</code> being displayed after being edited.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Editing the years of an existing <code>investment</code> <code>bond</code> tied to an existing <code>investment account</code></p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: There is an existing <code>bond</code> tied to an existing <code>investment</code> account.</p>
+</li>
+<li>
+<p>Test case:
+<code>/edit /bonds /from BBB Vickers Account /name September SSB /year 10</code><br>
+Expected: Updated years of the September SSB <code>bond</code> being displayed after being edited.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-31 13:18:30 UTC</div></div></div></body></html>
