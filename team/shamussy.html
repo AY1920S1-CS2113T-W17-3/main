@@ -6,10 +6,8 @@
 <div class="paragraph">
 <p>Hello there, I am <em>Shamus</em>.
 I am currently pursuing a degree in Information Security at the National University of Singapore (NUS).<br>
-I enjoy server and network administration as well as building and breaking applications.</p>
-</div>
-<div class="paragraph">
-<p>This portfolio serves to document my extensive involvement and contribution in a team-based project CS2113T (Software
+I enjoy server and network administration as well as building and breaking applications.<br>
+This portfolio serves to document my extensive involvement and contribution in a team-based project CS2113T (Software
 Engineering &amp; Object-Oriented Programming) module by NUS.
 This project spans over a period of about eight weeks, and was completed together with a team of five members
 (consisting of <a href="mong-nus.html">Mong Zheng Wei</a>, <a href="briantkm.html">Brian Tan Kian Ming</a>, <a href="terencetanwt.html">Terence Tan Wee Theng</a>,
@@ -19,16 +17,84 @@ This project spans over a period of about eight weeks, and was completed togethe
 <h3 id="about-the-project"><a class="link" href="#about-the-project">About the project</a></h3>
 <div class="paragraph">
 <p>My team and I were tasked with enhancing a basic Command Line Interface (CLI) based personal assistant, named Duke
-for our Software Engineering Project. We chose to morph it into a financial tracker and management application called
-<strong>OwlMoney</strong>. This enhanced application targets undergraduates and fresh graduates and aims to help them track and manage
-their finances. Some features of <strong>OwlMoney</strong> include tracking of both expenses and expenditures as well as tracking
+for our Software Engineering Project. We chose to morph it into a financial tracker and investment management
+application called <strong>OwlMoney</strong>. This enhanced application targets undergraduates and fresh graduates and aims to help
+them track and manage their finances.<br>
+Some features of <strong>OwlMoney</strong> include tracking of both expenses and expenditures as well as tracking
 credit cards and investments such as investment bonds.<br>
 My role as a team leader was to perform project management as well as to write the baseline code for the team to get
 started. On top of that, I was also in charge of writing codes for the <code>investment</code>, <code>bonds</code>, <code>storage</code> and
 some parts of the <code>commands</code> section.<br>
+Lastly, I played a major role while collaborating with my team to implement a <strong>custom string parser</strong>, which was
+instrumental in enabling users to be able to enter the parameters of complex commands in any order.
 The following sections illustrates these enhancements in more details,
-illustrates the relevant sections I have contributed to the project as a whole, as well as the relevant sections I have added to the
-user and developer guides in relation to these enhancements.</p>
+illustrates the relevant sections I have contributed to the project as a whole, as well as the relevant sections I
+have added to the user and developer guides in relation to these enhancements.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="understanding-this-project-portfolio"><a class="link" href="#understanding-this-project-portfolio">Understanding this Project Portfolio</a></h3>
+<div class="paragraph">
+<p>The following symbols are used through this project portfolio:</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>This symbol denotes information that you may want to take note of.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>This symbol denotes a tip that you may find useful when using our application.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>This symbol denotes a warning message which you need to be careful of when using our application.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Additionally, you may also encounter the following text styles:</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Commands, parameters, and file paths will be in this <code>format</code></p>
+</li>
+<li>
+<p>Important messages will be <strong>bold</strong></p>
+</li>
+</ul>
+</div>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -148,7 +214,7 @@ platform independent.</p>
 </li>
 <li>
 <p>Integrated <a href="https://app.netlify.com/sites/ay1920s1-cs2113t-w17-3/deploys">Netlify</a>
-&amp; <a href="https://github.com/shamussy/main/deployments">GitHub Deployment</a> <strong>Deployment preview</strong> tool to the
+&amp; <a href="https://github.com/shamussy/main/deployments">GitHub Deployment</a> <strong>Deployment preview</strong> tools to the
 team&#8217;s repository (examples: PRs <a href="https://github.com/AY1920S1-CS2113T-W17-3/main/pull/119">#119</a>, <a href="https://github.com/AY1920S1-CS2113T-W17-3/main/pull/101">#101</a>, <a href="https://github.com/AY1920S1-CS2113T-W17-3/main/pull/103">#103</a>)</p>
 </li>
 <li>
@@ -178,7 +244,67 @@ the team&#8217;s <a href="https://github.com/AY1920S1-CS2113T-W17-3/main/project
 </tbody>
 </table>
 <div class="sect3">
-<h4 id=""><a class="link" href="#">&#160;</a></h4>
+<h4 id="investment-account-management"><a class="link" href="#investment-account-management">Investment Account Management</a></h4>
+<div class="paragraph">
+<p>In this section, you&#8217;ll be introduced to commands and parameters that help you to manage your investment account
+and bonds that you can track in <strong>OwlMoney</strong>.</p>
+</div>
+<div class="paragraph">
+<p>Below is a list of command parameters that you can expect to use for the commands in this section.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 18%;">
+<col style="width: 37%;">
+<col style="width: 45%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Parameter</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Acceptable Range of Values</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ACCOUNT_NAME</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Indicates the name of the investment bank account.</p>
+<p class="tableblock">(e.g. DBB Vickers Account)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ACCOUNT_NAME</code> should contain alphabetic characters, numeric characters, and spaces only.</p>
+<p class="tableblock"><code>ACCOUNT_NAME</code> is case-sensitive.</p>
+<p class="tableblock">Take note that there is a maximum of <strong>30</strong> character limit.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>AMOUNT</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Indicates the amount of money.</p>
+<p class="tableblock">(e.g. 2113.30)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>AMOUNT</code> should contain only digits up to <strong>2</strong> decimal places and a maximum of <strong>9</strong> digits.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>BOND_NAME</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Indicates the name of the investment bond purchased.</p>
+<p class="tableblock">(e.g. June SSB)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>BOND_NAME</code> should contain alphabetic characters, numeric characters, and spaces only.</p>
+<p class="tableblock"><code>BOND_NAME</code> is case-sensitive.</p>
+<p class="tableblock">Take note that there is a maximum of <strong>30</strong> character limit.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>BOND_RATE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Indicates the coupon rate of the investment bond in percentage.</p>
+<p class="tableblock">(e.g. 1.92)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>BOND_RATE</code> should contain only digits up to <strong>2</strong> decimal places with a maximum of <strong>99.99</strong>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DATE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Indicates the date the bond was purchased.</p>
+<p class="tableblock">(e.g. 2/2/2019)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DATE</code> should be in <strong>DD/MM/YYYY</strong> format and cannot be a newer date than the current date.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>YEARS</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Indicates the number of years the investment bond lasts.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>YEARS</code> should contain only digits from <strong>1</strong> to <strong>9</strong>.</p></td>
+</tr>
+</tbody>
+</table>
 <div class="sect4">
 <h5 id="adding-investment-bank-account-code-add-investment-code"><a class="link" href="#adding-investment-bank-account-code-add-investment-code">Adding investment bank account <code>/add /investment</code></a></h5>
 <div class="paragraph">
@@ -435,10 +561,6 @@ credited will not be edited.</p>
 </div>
 </div>
 </div>
-<div class="sect3">
-<h4 id="-2"><a class="link" href="#-2">&#160;</a></h4>
-
-</div>
 </div>
 <div class="sect2">
 <h3 id="contributions-to-developer-guide"><a class="link" href="#contributions-to-developer-guide">Contributions to Developer Guide</a></h3>
@@ -667,9 +789,9 @@ transaction records not appearing in order.</p>
 <ul>
 <li>
 <p>If interest has already been credited, it is not feasible to change the names of past records as it might cause
-confusion and conflict to the end user, especially when the names clash with the name of another bond which has
-expired prior to making this edit. This might confuse users as they might think that they earned much more interest
-from the same bond.</p>
+confusion to the end user. This becomes more apparent when the names clash with the name of another investment bond
+which had expired prior to making this edit. This might confuse users as they might think that they earned much more
+interest from the same bond.</p>
 </li>
 </ul>
 </div></div></td>
@@ -694,7 +816,10 @@ from the same bond.</p>
 <p>Less flexibility for the user.</p>
 </li>
 </ul>
-</div>
+</div></div></td>
+</tr>
+</tbody>
+</table>
 <div class="paragraph">
 <p>After weighting the pros and cons, <strong>approach 3</strong> was taken.</p>
 </div>
@@ -703,15 +828,8 @@ from the same bond.</p>
 seem restrictive to limit the type and number of parameters that can be changed, it is beneficial both to you, the
 developer and the user, when developing and using the program. Developing the alternative ideas would result in a
 high risk of logic and coding errors, leaving room for bugs to be exploited.</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect3">
-<h4 id="-3"><a class="link" href="#-3">&#160;</a></h4>
-
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-31 15:39:24 UTC</div></div></div></body></html>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-31 16:04:51 UTC</div></div></div></body></html>
