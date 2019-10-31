@@ -31,11 +31,9 @@
 <li><a href="#implementation">4. Implementation</a>
 <ul class="sectlevel2">
 <li><a href="#parsing-commands-in-general">4.1. Parsing Commands in General</a></li>
-<li><a href="#adding-savings">4.2. Adding Savings</a></li>
-<li><a href="#editing-bonds">4.3. Editing Bonds</a></li>
-<li><a href="#deleting-credit-card">4.4. Deleting Credit Card</a></li>
-<li><a href="#listing-credit-cards">4.5. Listing Credit Cards</a></li>
-<li><a href="#transferring-funds">4.6. Transferring Funds</a></li>
+<li><a href="#deleting-credit-card">4.2. Deleting Credit Card</a></li>
+<li><a href="#listing-credit-cards">4.3. Listing Credit Cards</a></li>
+<li><a href="#transferring-funds">4.4. Transferring Funds</a></li>
 </ul>
 </li>
 <li><a href="#documentation">5. Documentation</a>
@@ -725,16 +723,10 @@ into the the specific Parser classes in <code>ParseTypeMenu</code>.</p>
 <code>ParseAddBond</code>, <code>ParseDeleteInvestment</code>) which will return a <code>Command</code> object back to main to prepare for execution.</p>
 </div>
 <div class="paragraph">
-<p>The execution of commands will be elaborated in subsequent diagrams below.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="adding-savings"><a class="link" href="#adding-savings">4.2. Adding Savings</a></h3>
-<div class="imageblock">
-<div class="content">
-<img src="images/AddSavingCommand.png" alt="AddSavingCommand" width="800">
-</div>
-<div class="title">Figure 13. Sequence Diagram of Adding Savings</div>
+<p>The execution of commands will be elaborated in subsequent diagrams below.
+=== Adding Savings
+.Sequence Diagram of Adding Savings
+image::AddSavingCommand.png[width="800"]</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -816,20 +808,18 @@ bank objects.</p>
 </li>
 <li>
 <p>Once the savings object has been added, the details of the new savings object will be displayed to inform the user
-of the <strong>successful</strong> addition of the savings object.</p>
+of the <strong>successful</strong> addition of the savings object.
+=== Editing Bonds</p>
 </li>
 </ol>
 </div>
-</div>
-<div class="sect2">
-<h3 id="editing-bonds"><a class="link" href="#editing-bonds">4.3. Editing Bonds</a></h3>
 <div class="paragraph">
 <p>The <code>/edit /bonds</code> feature aims to help users update the specific details of the investment <code>bonds</code> that they
 purchase. This is to enable them to not go through the trouble of deleting and re-adding the <code>bond</code> if they enter the
 details wrongly by mistake.</p>
 </div>
 <div class="sect3">
-<h4 id="current-implementation"><a class="link" href="#current-implementation">4.3.1. Current Implementation</a></h4>
+<h4 id="current-implementation"><a class="link" href="#current-implementation">4.1.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The current implementation of editing <code>bonds</code> only allows for the edition of <code>rate</code> and <code>year</code> where the <code>year</code>
 parameter can only be changed to a higher integer than the original <code>year</code> currently stored. The reason behind only
@@ -840,7 +830,7 @@ interest throughout the lifespan of the investment <code>bond</code>.</p>
 <div class="content">
 <img src="images/editBondCommand.png" alt="editBondCommand" width="970">
 </div>
-<div class="title">Figure 14. Sequence Diagram of Editing Bonds</div>
+<div class="title">Figure 13. Sequence Diagram of Editing Bonds</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -978,7 +968,7 @@ of the <strong>successful</strong> editing of the bond.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations"><a class="link" href="#design-considerations">4.3.2. Design Considerations</a></h4>
+<h4 id="design-considerations"><a class="link" href="#design-considerations">4.1.2. Design Considerations</a></h4>
 <div class="paragraph">
 <p>This section describes the various design considerations taken when implementing the <code>/edit /bonds</code> feature.</p>
 </div>
@@ -1077,12 +1067,12 @@ high risk of logic and coding errors, leaving room for bugs to be exploited.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-credit-card"><a class="link" href="#deleting-credit-card">4.4. Deleting Credit Card</a></h3>
+<h3 id="deleting-credit-card"><a class="link" href="#deleting-credit-card">4.2. Deleting Credit Card</a></h3>
 <div class="imageblock">
 <div class="content">
 <img src="images/DeleteCardCommand.png" alt="DeleteCardCommand" width="970">
 </div>
-<div class="title">Figure 15. Model Component Diagram</div>
+<div class="title">Figure 14. Model Component Diagram</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1161,12 +1151,12 @@ of the <strong>successful</strong> deletion of the card object.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="listing-credit-cards"><a class="link" href="#listing-credit-cards">4.5. Listing Credit Cards</a></h3>
+<h3 id="listing-credit-cards"><a class="link" href="#listing-credit-cards">4.3. Listing Credit Cards</a></h3>
 <div class="imageblock">
 <div class="content">
 <img src="images/listCardCommand.png" alt="listCardCommand" width="970">
 </div>
-<div class="title">Figure 16. Model Component Diagram</div>
+<div class="title">Figure 15. Model Component Diagram</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1231,12 +1221,12 @@ The sequence diagram presented above is assumed to be a valid command which will
 </div>
 </div>
 <div class="sect2">
-<h3 id="transferring-funds"><a class="link" href="#transferring-funds">4.6. Transferring Funds</a></h3>
+<h3 id="transferring-funds"><a class="link" href="#transferring-funds">4.4. Transferring Funds</a></h3>
 <div class="imageblock">
 <div class="content">
 <img src="images/TransferCommand.png" alt="TransferCommand" width="970">
 </div>
-<div class="title">Figure 17. Model Component Diagram</div>
+<div class="title">Figure 16. Model Component Diagram</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1394,7 +1384,7 @@ Alternatively, you can download the AsciiDoc plugin for IntelliJ, which allows y
 <div class="content">
 <img src="images/chrome_save_as_pdf.png" alt="chrome save as pdf" width="800">
 </div>
-<div class="title">Figure 18. Saving documentation as PDF files in Chrome</div>
+<div class="title">Figure 17. Saving documentation as PDF files in Chrome</div>
 </div>
 </div>
 <div class="sect2">
@@ -4592,4 +4582,4 @@ Expected: Updated years of the September SSB <code>bond</code> being displayed a
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-31 14:59:28 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-31 15:39:24 UTC</div></div></div></body></html>
