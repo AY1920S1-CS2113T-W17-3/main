@@ -32,10 +32,13 @@
 <ul class="sectlevel4">
 <li><a href="#adding-savings-bank-account-code-add-savings-code">4.2.1.1. Adding savings bank account <code>/add /savings</code></a></li>
 <li><a href="#editing-savings-bank-account-code-edit-savings-code">4.2.1.2. Editing savings bank account <code>/edit /savings</code></a></li>
-<li><a href="#adding-expenditures-for-savings-bank-account-code-add-bankexpenditure-code">4.2.1.3. Adding expenditures for savings bank account <code>/add /bankexpenditure</code></a></li>
-<li><a href="#editing-expenditures-for-savings-bank-account-code-edit-bankexpenditure-code">4.2.1.4. Editing expenditures for savings bank account <code>/edit /bankexpenditure</code></a></li>
-<li><a href="#adding-deposit-to-savings-bank-account-code-add-deposit-code">4.2.1.5. Adding deposit to savings bank account <code>/add /deposit</code></a></li>
-<li><a href="#editing-deposit-details-for-savings-bank-account-code-edit-deposit-code">4.2.1.6. Editing deposit details for savings bank account <code>/edit /deposit</code></a></li>
+<li><a href="#deleting-savings-bank-account-code-delete-savings-code">4.2.1.3. Deleting savings bank account <code>/delete /savings</code></a></li>
+<li><a href="#adding-expenditures-for-savings-bank-account-code-add-bankexpenditure-code">4.2.1.4. Adding expenditures for savings bank account <code>/add /bankexpenditure</code></a></li>
+<li><a href="#editing-expenditures-for-savings-bank-account-code-edit-bankexpenditure-code">4.2.1.5. Editing expenditures for savings bank account <code>/edit /bankexpenditure</code></a></li>
+<li><a href="#deleting-expenditures-for-savings-bank-account-code-delete-bankexpenditure-code">4.2.1.6. Deleting expenditures for savings bank account <code>/delete /bankexpenditure</code></a></li>
+<li><a href="#adding-deposit-to-savings-bank-account-code-add-deposit-code">4.2.1.7. Adding deposit to savings bank account <code>/add /deposit</code></a></li>
+<li><a href="#editing-deposit-details-for-savings-bank-account-code-edit-deposit-code">4.2.1.8. Editing deposit details for savings bank account <code>/edit /deposit</code></a></li>
+<li><a href="#deleting-deposit-for-savings-bank-account-code-delete-deposit-code">4.2.1.9. Deleting deposit for savings bank account <code>/delete /deposit</code></a></li>
 </ul>
 </li>
 <li><a href="#investment-account-management">4.2.2. Investment Account Management</a>
@@ -72,44 +75,54 @@
 <li><a href="#editing-profile-details-code-edit-profile-code">4.2.5.1. Editing profile details <code>/edit /profile</code></a></li>
 </ul>
 </li>
-<li><a href="#finding-information-stored-in-owlmoney-code-find-code">4.2.6. Finding information stored in OwlMoney <code>/find</code></a>
-<ul class="sectlevel4">
-<li><a href="#finding-savings-account-details-code-find-savings-code">4.2.6.1. Finding savings account details <code>/find /savings</code></a></li>
-<li><a href="#finding-investment-account-details-code-find-investment-code">4.2.6.2. Finding investment account details <code>/find /investment</code></a></li>
-<li><a href="#finding-credit-card-details-code-find-card-code">4.2.6.3. Finding credit card details <code>/find /card</code></a></li>
-<li><a href="#finding-bond-details-code-find-bonds-code">4.2.6.4. Finding bond details <code>/find /bonds</code></a></li>
-<li><a href="#finding-bank-transaction-details-code-find-banktransaction-code">4.2.6.5. Finding bank transaction details <code>/find /banktransaction</code></a></li>
-<li><a href="#finding-card-transaction-details-code-find-cardtransaction-code">4.2.6.6. Finding card transaction details <code>/find /cardtransaction</code></a></li>
 </ul>
 </li>
-<li><a href="#listing-multiple-details-code-list-code">4.2.7. Listing multiple details <code>/list</code></a></li>
-<li><a href="#transferring-money-between-accounts-code-transfer-code">4.2.8. Transferring money between accounts <code>/transfer</code></a>
-<ul class="sectlevel4">
-<li><a href="#transferring-funds-between-different-bank-accounts-code-transfer-fund-code">4.2.8.1. Transferring funds between different bank accounts <code>/transfer /fund</code></a></li>
-</ul>
-</li>
-<li><a href="#editing-recurring-expenditure-code-edit-recurbankexp-code">4.2.9. Editing recurring expenditure <code>/edit /recurbankexp</code></a></li>
-<li><a href="#deleting-recurring-expenditure-code-delete-recurbankexp-code">4.2.10. Deleting recurring expenditure <code>/delete /recurbankexp</code></a></li>
-</ul>
-</li>
-<li><a href="#support-for-stocks-code-stocks-code">4.3. Support for Stocks <code>/stocks</code></a></li>
-<li><a href="#insurance-tracking-code-insurance-code">4.4. Insurance tracking <code>/insurance</code></a></li>
-</ul>
-</li>
-<li><a href="#faq">5. FAQ</a></li>
-<li><a href="#command-summary">6. Command Summary</a>
-<ul class="sectlevel2">
-<li><a href="#general-commands-2">6.1. General Commands</a></li>
-<li><a href="#detailed-management-commands-2">6.2. Detailed Management Commands</a>
+<li><a href="#utility-commands">4.3. Utility Commands</a>
 <ul class="sectlevel3">
-<li><a href="#savings-account-management-2">6.2.1. Savings Account Management</a></li>
-<li><a href="#savings-account-management-3">6.2.2. Savings Account Management</a></li>
-<li><a href="#credit-card-management-2">6.2.3. Credit Card Management</a></li>
-<li><a href="#financial-goal-management-2">6.2.4. Financial Goal Management</a></li>
-<li><a href="#profile-management-2">6.2.5. Profile Management</a></li>
+<li><a href="#finding-information-stored-in-owlmoney-code-find-code">4.3.1. Finding information stored in OwlMoney <code>/find</code></a>
+<ul class="sectlevel4">
+<li><a href="#finding-savings-account-details-code-find-savings-code">4.3.1.1. Finding savings account details <code>/find /savings</code></a></li>
+<li><a href="#finding-investment-account-details-code-find-investment-code">4.3.1.2. Finding investment account details <code>/find /investment</code></a></li>
+<li><a href="#finding-credit-card-details-code-find-card-code">4.3.1.3. Finding credit card details <code>/find /card</code></a></li>
+<li><a href="#finding-bond-details-code-find-bonds-code">4.3.1.4. Finding bond details <code>/find /bonds</code></a></li>
+<li><a href="#finding-bank-transaction-details-code-find-banktransaction-code">4.3.1.5. Finding bank transaction details <code>/find /banktransaction</code></a></li>
+<li><a href="#finding-card-transaction-details-code-find-cardtransaction-code">4.3.1.6. Finding card transaction details <code>/find /cardtransaction</code></a></li>
 </ul>
 </li>
-<li><a href="#utility-commands">6.3. Utility Commands</a></li>
+<li><a href="#listing-multiple-details-code-list-code">4.3.2. Listing multiple details <code>/list</code></a></li>
+<li><a href="#transferring-money-between-accounts-code-transfer-code">4.3.3. Transferring money between accounts <code>/transfer</code></a>
+<ul class="sectlevel4">
+<li><a href="#transferring-funds-between-different-bank-accounts-code-transfer-fund-code">4.3.3.1. Transferring funds between different bank accounts <code>/transfer /fund</code></a></li>
+</ul>
+</li>
+<li><a href="#adding-recurring-expenditures-code-add-recurbankexp-code">4.3.4. Adding recurring expenditures <code>/add /recurbankexp</code></a></li>
+<li><a href="#editing-recurring-expenditure-code-edit-recurbankexp-code">4.3.5. Editing recurring expenditure <code>/edit /recurbankexp</code></a></li>
+<li><a href="#deleting-recurring-expenditure-code-delete-recurbankexp-code">4.3.6. Deleting recurring expenditure <code>/delete /recurbankexp</code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#future-enhancements-code-coming-in-v2-0-code">5. Future Enhancements <code>[coming in v2.0]</code></a>
+<ul class="sectlevel2">
+<li><a href="#multi-currency-support-code-currency-usd-code">5.1. Multi-Currency Support <code>/currency USD</code></a></li>
+<li><a href="#support-for-stocks-code-stocks-code">5.2. Support for Stocks <code>/stocks</code></a></li>
+<li><a href="#insurance-tracking-code-insurance-code">5.3. Insurance tracking <code>/insurance</code></a></li>
+</ul>
+</li>
+<li><a href="#faq">6. FAQ</a></li>
+<li><a href="#command-summary">7. Command Summary</a>
+<ul class="sectlevel2">
+<li><a href="#general-commands-2">7.1. General Commands</a></li>
+<li><a href="#detailed-management-commands-2">7.2. Detailed Management Commands</a>
+<ul class="sectlevel3">
+<li><a href="#savings-account-management-2">7.2.1. Savings Account Management</a></li>
+<li><a href="#savings-account-management-3">7.2.2. Savings Account Management</a></li>
+<li><a href="#credit-card-management-2">7.2.3. Credit Card Management</a></li>
+<li><a href="#financial-goal-management-2">7.2.4. Financial Goal Management</a></li>
+<li><a href="#profile-management-2">7.2.5. Profile Management</a></li>
+</ul>
+</li>
+<li><a href="#utility-commands-2">7.3. Utility Commands</a></li>
 </ul>
 </li>
 </ul>
@@ -604,8 +617,14 @@ every start of the month.</p>
 </ul>
 </div>
 <div class="paragraph">
-<p>Edits <code>JunBank Savings Account</code> name to <code>JulyBank Savings Account</code>.
-* <code>/edit /savings /name JunBank Savings Account /newname JulyBank Savings Account /amount 2000.25</code></p>
+<p>Edits <code>JunBank Savings Account</code> name to <code>JulyBank Savings Account</code>.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>/edit /savings /name JunBank Savings Account /newname JulyBank Savings Account /amount 2000.25</code></p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
 <p>Edits <code>JunBank Savings Account</code> name to <code>JulyBank Savings Account</code> and sets the new amount in the account to $<code>2000.25</code>.</p>
@@ -649,9 +668,13 @@ with a new income of $<code>5000</code>.</p>
 </ul>
 </div>
 <div class="paragraph">
-<p>Edits <code>JunBank Savings Account</code> by setting the income to $<code>5000</code>.
-===== Deleting savings bank account <code>/delete /savings</code>
-Closed your savings bank account? You can reflect that on <code>OwlMoney</code> as well!</p>
+<p>Edits <code>JunBank Savings Account</code> by setting the income to $<code>5000</code>.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="deleting-savings-bank-account-code-delete-savings-code"><a class="link" href="#deleting-savings-bank-account-code-delete-savings-code">4.2.1.3. Deleting savings bank account <code>/delete /savings</code></a></h5>
+<div class="paragraph">
+<p>Closed your savings bank account? You can reflect that on <code>OwlMoney</code> as well!</p>
 </div>
 <div class="paragraph">
 <p><strong>Command Syntax</strong></p>
@@ -688,7 +711,7 @@ Closed your savings bank account? You can reflect that on <code>OwlMoney</code> 
 </div>
 </div>
 <div class="sect4">
-<h5 id="adding-expenditures-for-savings-bank-account-code-add-bankexpenditure-code"><a class="link" href="#adding-expenditures-for-savings-bank-account-code-add-bankexpenditure-code">4.2.1.3. Adding expenditures for savings bank account <code>/add /bankexpenditure</code></a></h5>
+<h5 id="adding-expenditures-for-savings-bank-account-code-add-bankexpenditure-code"><a class="link" href="#adding-expenditures-for-savings-bank-account-code-add-bankexpenditure-code">4.2.1.4. Adding expenditures for savings bank account <code>/add /bankexpenditure</code></a></h5>
 <div class="paragraph">
 <p>Spending is a daily affair and it is difficult to keep track of so many of them. Fret not!
 <code>OwlMoney</code> allows you to keep track of your spending and categorise them as well!</p>
@@ -730,7 +753,7 @@ the description of <code>bubble tea</code> and category of <code>Dining</code>.<
 </div>
 </div>
 <div class="sect4">
-<h5 id="editing-expenditures-for-savings-bank-account-code-edit-bankexpenditure-code"><a class="link" href="#editing-expenditures-for-savings-bank-account-code-edit-bankexpenditure-code">4.2.1.4. Editing expenditures for savings bank account <code>/edit /bankexpenditure</code></a></h5>
+<h5 id="editing-expenditures-for-savings-bank-account-code-edit-bankexpenditure-code"><a class="link" href="#editing-expenditures-for-savings-bank-account-code-edit-bankexpenditure-code">4.2.1.5. Editing expenditures for savings bank account <code>/edit /bankexpenditure</code></a></h5>
 <div class="paragraph">
 <p>Spent lesser than you initially recorded? You can edit them here!</p>
 </div>
@@ -780,8 +803,14 @@ AMOUNT] [/date DATE]</code></p>
 </ul>
 </div>
 <div class="paragraph">
-<p>Edits expenditure <code>2</code> that was charged to <code>JunBank Savings Account</code> to a new description of <code>Uniwlo Shirt</code>.
-* <code>/edit /bankexpenditure /from JunBank Savings Account /transno 4 /category miscellaneous</code></p>
+<p>Edits expenditure <code>2</code> that was charged to <code>JunBank Savings Account</code> to a new description of <code>Uniwlo Shirt</code>.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>/edit /bankexpenditure /from JunBank Savings Account /transno 4 /category miscellaneous</code></p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
 <p>Edits expenditure <code>4</code> that was charged to <code>JunBank Savings Account</code> to a new category of <code>miscellaneous</code>.</p>
@@ -794,9 +823,11 @@ AMOUNT] [/date DATE]</code></p>
 </ul>
 </div>
 <div class="paragraph">
-<p>Edits expenditure <code>5</code> that was charged to <code>JunBank Savings Account</code> to an amount of $<code>3.50</code>.
-===== Deleting expenditures for savings bank account <code>/delete /bankexpenditure</code></p>
+<p>Edits expenditure <code>5</code> that was charged to <code>JunBank Savings Account</code> to an amount of $<code>3.50</code>.</p>
 </div>
+</div>
+<div class="sect4">
+<h5 id="deleting-expenditures-for-savings-bank-account-code-delete-bankexpenditure-code"><a class="link" href="#deleting-expenditures-for-savings-bank-account-code-delete-bankexpenditure-code">4.2.1.6. Deleting expenditures for savings bank account <code>/delete /bankexpenditure</code></a></h5>
 <div class="paragraph">
 <p>Accidentally added a transaction that did not happen? You can delete it!</p>
 </div>
@@ -835,7 +866,7 @@ AMOUNT] [/date DATE]</code></p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="adding-deposit-to-savings-bank-account-code-add-deposit-code"><a class="link" href="#adding-deposit-to-savings-bank-account-code-add-deposit-code">4.2.1.5. Adding deposit to savings bank account <code>/add /deposit</code></a></h5>
+<h5 id="adding-deposit-to-savings-bank-account-code-add-deposit-code"><a class="link" href="#adding-deposit-to-savings-bank-account-code-add-deposit-code">4.2.1.7. Adding deposit to savings bank account <code>/add /deposit</code></a></h5>
 <div class="paragraph">
 <p>Saved up some spare cash to deposit into your bank account? Record them here!</p>
 </div>
@@ -860,7 +891,7 @@ AMOUNT] [/date DATE]</code></p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="editing-deposit-details-for-savings-bank-account-code-edit-deposit-code"><a class="link" href="#editing-deposit-details-for-savings-bank-account-code-edit-deposit-code">4.2.1.6. Editing deposit details for savings bank account <code>/edit /deposit</code></a></h5>
+<h5 id="editing-deposit-details-for-savings-bank-account-code-edit-deposit-code"><a class="link" href="#editing-deposit-details-for-savings-bank-account-code-edit-deposit-code">4.2.1.8. Editing deposit details for savings bank account <code>/edit /deposit</code></a></h5>
 <div class="paragraph">
 <p>Accidentally added more zeroes than expected when entering your deposit? Edit them here!</p>
 </div>
@@ -910,13 +941,21 @@ AMOUNT] [/date DATE]</code></p>
 </div>
 <div class="paragraph">
 <p>Edits the <code>deposit</code> with transaction number <code>11</code> deposited to <code>JunBank Savings Account</code> to a new description of
-<code>FREELANCE WORK</code>, setting a new amount of $<code>270</code> and a new date of <code>29/11/2019</code>
-* <code>/edit /deposit /from JunBank Savings Account /transno 11 /amount 500</code></p>
+<code>FREELANCE WORK</code>, setting a new amount of $<code>270</code> and a new date of <code>29/11/2019</code></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>/edit /deposit /from JunBank Savings Account /transno 11 /amount 500</code></p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
-<p>Edits the <code>deposit</code> with transaction number <code>11</code> deposited to <code>JunBank Savings Account</code> to a new amount of $<code>500</code>.
-===== Deleting deposit for savings bank account <code>/delete /deposit</code></p>
+<p>Edits the <code>deposit</code> with transaction number <code>11</code> deposited to <code>JunBank Savings Account</code> to a new amount of $<code>500</code>.</p>
 </div>
+</div>
+<div class="sect4">
+<h5 id="deleting-deposit-for-savings-bank-account-code-delete-deposit-code"><a class="link" href="#deleting-deposit-for-savings-bank-account-code-delete-deposit-code">4.2.1.9. Deleting deposit for savings bank account <code>/delete /deposit</code></a></h5>
 <div class="paragraph">
 <p>Accidentally added a deposit that you have not done? You can delete it here!</p>
 </div>
@@ -2023,19 +2062,21 @@ Or achieved your goal? You can safely delete them!</p>
 <p><code>/edit /profile /name Jun /newname JUNNY</code></p>
 </div>
 <div class="paragraph">
-<p>Edits the profile name from <code>Jun</code> to <code>JUNNY</code>
-=== Utility Commands</p>
+<p>Edits the profile name from <code>Jun</code> to <code>JUNNY</code></p>
 </div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="utility-commands"><a class="link" href="#utility-commands">4.3. Utility Commands</a></h3>
 <div class="paragraph">
 <p><strong>OwlMoney</strong> provides commands that are available for usage throughout the application.</p>
 </div>
 <div class="paragraph">
 <p>They include capabilities like finding, listing, transferring money and advanced automation features!</p>
 </div>
-</div>
-</div>
 <div class="sect3">
-<h4 id="finding-information-stored-in-owlmoney-code-find-code"><a class="link" href="#finding-information-stored-in-owlmoney-code-find-code">4.2.6. Finding information stored in OwlMoney <code>/find</code></a></h4>
+<h4 id="finding-information-stored-in-owlmoney-code-find-code"><a class="link" href="#finding-information-stored-in-owlmoney-code-find-code">4.3.1. Finding information stored in OwlMoney <code>/find</code></a></h4>
 <div class="paragraph">
 <p>In this section, you&#8217;ll be introduced to commands and parameters that help you to find and sieve information
 that you require quickly out of <strong>OwlMoney</strong>.</p>
@@ -2094,7 +2135,7 @@ that you require quickly out of <strong>OwlMoney</strong>.</p>
 </tbody>
 </table>
 <div class="sect4">
-<h5 id="finding-savings-account-details-code-find-savings-code"><a class="link" href="#finding-savings-account-details-code-find-savings-code">4.2.6.1. Finding savings account details <code>/find /savings</code></a></h5>
+<h5 id="finding-savings-account-details-code-find-savings-code"><a class="link" href="#finding-savings-account-details-code-find-savings-code">4.3.1.1. Finding savings account details <code>/find /savings</code></a></h5>
 <div class="paragraph">
 <p>Can&#8217;t remember the name of your savings account? Don&#8217;t worry <strong>OwlMoney</strong> allows you to find out the details of
 your bank account as long as you remember part of your account name.</p>
@@ -2134,7 +2175,7 @@ your bank account as long as you remember part of your account name.</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="finding-investment-account-details-code-find-investment-code"><a class="link" href="#finding-investment-account-details-code-find-investment-code">4.2.6.2. Finding investment account details <code>/find /investment</code></a></h5>
+<h5 id="finding-investment-account-details-code-find-investment-code"><a class="link" href="#finding-investment-account-details-code-find-investment-code">4.3.1.2. Finding investment account details <code>/find /investment</code></a></h5>
 <div class="paragraph">
 <p>Can&#8217;t remember the name of your investment account? Don&#8217;t worry <strong>OwlMoney</strong> allows you to find out the details of
 your bank account as long as you remember part of your account name.</p>
@@ -2174,7 +2215,7 @@ your bank account as long as you remember part of your account name.</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="finding-credit-card-details-code-find-card-code"><a class="link" href="#finding-credit-card-details-code-find-card-code">4.2.6.3. Finding credit card details <code>/find /card</code></a></h5>
+<h5 id="finding-credit-card-details-code-find-card-code"><a class="link" href="#finding-credit-card-details-code-find-card-code">4.3.1.3. Finding credit card details <code>/find /card</code></a></h5>
 <div class="paragraph">
 <p>Searching for a Credit Card but forgot the name? <strong>OwlMoney</strong> helps you by providing you various ways to do it!</p>
 </div>
@@ -2213,7 +2254,7 @@ your bank account as long as you remember part of your account name.</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="finding-bond-details-code-find-bonds-code"><a class="link" href="#finding-bond-details-code-find-bonds-code">4.2.6.4. Finding bond details <code>/find /bonds</code></a></h5>
+<h5 id="finding-bond-details-code-find-bonds-code"><a class="link" href="#finding-bond-details-code-find-bonds-code">4.3.1.4. Finding bond details <code>/find /bonds</code></a></h5>
 <div class="paragraph">
 <p>Searching for an investment bond within an investment account? <strong>OwlMoney</strong> can help you with that by providing
 you various ways to do it!</p>
@@ -2257,7 +2298,7 @@ Account.</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="finding-bank-transaction-details-code-find-banktransaction-code"><a class="link" href="#finding-bank-transaction-details-code-find-banktransaction-code">4.2.6.5. Finding bank transaction details <code>/find /banktransaction</code></a></h5>
+<h5 id="finding-bank-transaction-details-code-find-banktransaction-code"><a class="link" href="#finding-bank-transaction-details-code-find-banktransaction-code">4.3.1.5. Finding bank transaction details <code>/find /banktransaction</code></a></h5>
 <div class="paragraph">
 <p>Looking for a transaction from a bank account? <strong>OwlMoney</strong> is able to help you with that by providing you various ways
 to do it! It allows you to search by description, category or a date range!</p>
@@ -2388,7 +2429,7 @@ to do it! It allows you to search by description, category or a date range!</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="finding-card-transaction-details-code-find-cardtransaction-code"><a class="link" href="#finding-card-transaction-details-code-find-cardtransaction-code">4.2.6.6. Finding card transaction details <code>/find /cardtransaction</code></a></h5>
+<h5 id="finding-card-transaction-details-code-find-cardtransaction-code"><a class="link" href="#finding-card-transaction-details-code-find-cardtransaction-code">4.3.1.6. Finding card transaction details <code>/find /cardtransaction</code></a></h5>
 <div class="paragraph">
 <p>Looking for transactions from a credit card? <strong>OwlMoney</strong> is able to help you with that by providing you various ways to
 do it! It allows you to search by description, category or a date range!</p>
@@ -2510,7 +2551,7 @@ Tomorrow Card1</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="listing-multiple-details-code-list-code"><a class="link" href="#listing-multiple-details-code-list-code">4.2.7. Listing multiple details <code>/list</code></a></h4>
+<h4 id="listing-multiple-details-code-list-code"><a class="link" href="#listing-multiple-details-code-list-code">4.3.2. Listing multiple details <code>/list</code></a></h4>
 <div class="paragraph">
 <p>Curious to find out your transactions for your accounts? Let us show you how it can be done!</p>
 </div>
@@ -2650,7 +2691,7 @@ bank accounts in <strong>OwlMoney</strong>.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="transferring-money-between-accounts-code-transfer-code"><a class="link" href="#transferring-money-between-accounts-code-transfer-code">4.2.8. Transferring money between accounts <code>/transfer</code></a></h4>
+<h4 id="transferring-money-between-accounts-code-transfer-code"><a class="link" href="#transferring-money-between-accounts-code-transfer-code">4.3.3. Transferring money between accounts <code>/transfer</code></a></h4>
 <div class="paragraph">
 <p>In this section, you&#8217;ll be introduced to commands and parameters that help you to transfer funds between different
 bank accounts in <strong>OwlMoney</strong>.</p>
@@ -2693,7 +2734,7 @@ bank accounts in <strong>OwlMoney</strong>.</p>
 </tbody>
 </table>
 <div class="sect4">
-<h5 id="transferring-funds-between-different-bank-accounts-code-transfer-fund-code"><a class="link" href="#transferring-funds-between-different-bank-accounts-code-transfer-fund-code">4.2.8.1. Transferring funds between different bank accounts <code>/transfer /fund</code></a></h5>
+<h5 id="transferring-funds-between-different-bank-accounts-code-transfer-fund-code"><a class="link" href="#transferring-funds-between-different-bank-accounts-code-transfer-fund-code">4.3.3.1. Transferring funds between different bank accounts <code>/transfer /fund</code></a></h5>
 <div class="paragraph">
 <p>Thinking of transferring money between different accounts? We can do that too.</p>
 </div>
@@ -2739,9 +2780,12 @@ investment and vice-versa)</p>
 </ul>
 </div>
 <div class="paragraph">
-<p>Transfers $<code>250</code> from <code>DBB Vickers Account</code> to <code>JunBank Savings Account</code> on <code>1/1/2019</code>.
-==== Adding recurring expenditures <code>/add /recurbankexp</code></p>
+<p>Transfers $<code>250</code> from <code>DBB Vickers Account</code> to <code>JunBank Savings Account</code> on <code>1/1/2019</code>.</p>
 </div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="adding-recurring-expenditures-code-add-recurbankexp-code"><a class="link" href="#adding-recurring-expenditures-code-add-recurbankexp-code">4.3.4. Adding recurring expenditures <code>/add /recurbankexp</code></a></h4>
 <div class="paragraph">
 <p>Postpaid mobile plan bills that are consistent monthly? We can save you the hassle from adding them every month!</p>
 </div>
@@ -2763,9 +2807,8 @@ Savings
 Account</code> categorised under the <code>Bills</code> category.</p>
 </div>
 </div>
-</div>
 <div class="sect3">
-<h4 id="editing-recurring-expenditure-code-edit-recurbankexp-code"><a class="link" href="#editing-recurring-expenditure-code-edit-recurbankexp-code">4.2.9. Editing recurring expenditure <code>/edit /recurbankexp</code></a></h4>
+<h4 id="editing-recurring-expenditure-code-edit-recurbankexp-code"><a class="link" href="#editing-recurring-expenditure-code-edit-recurbankexp-code">4.3.5. Editing recurring expenditure <code>/edit /recurbankexp</code></a></h4>
 <div class="paragraph">
 <p><strong>Command Syntax</strong></p>
 </div>
@@ -2802,7 +2845,7 @@ AMOUNT]</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="deleting-recurring-expenditure-code-delete-recurbankexp-code"><a class="link" href="#deleting-recurring-expenditure-code-delete-recurbankexp-code">4.2.10. Deleting recurring expenditure <code>/delete /recurbankexp</code></a></h4>
+<h4 id="deleting-recurring-expenditure-code-delete-recurbankexp-code"><a class="link" href="#deleting-recurring-expenditure-code-delete-recurbankexp-code">4.3.6. Deleting recurring expenditure <code>/delete /recurbankexp</code></a></h4>
 <div class="paragraph">
 <p>Cancelled your recurring bill? You can delete it!</p>
 </div>
@@ -2837,24 +2880,32 @@ AMOUNT]</code></p>
 </ul>
 </div>
 <div class="paragraph">
-<p>Deletes a recurring expenditure from <code>JunBank Savings Account</code> with transaction number <code>1</code>.
-== Future Enhancements <code>[coming in v2.0]</code>
-=== Multi-Currency Support <code>/currency USD</code>
-Multiple most currently used currencies will be supported in future releases. This will enable OwlMoney to support a
+<p>Deletes a recurring expenditure from <code>JunBank Savings Account</code> with transaction number <code>1</code>.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="future-enhancements-code-coming-in-v2-0-code"><a class="link" href="#future-enhancements-code-coming-in-v2-0-code">5. Future Enhancements <code>[coming in v2.0]</code></a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="multi-currency-support-code-currency-usd-code"><a class="link" href="#multi-currency-support-code-currency-usd-code">5.1. Multi-Currency Support <code>/currency USD</code></a></h3>
+<div class="paragraph">
+<p>Multiple most currently used currencies will be supported in future releases. This will enable OwlMoney to support a
 wider range of users around the globe as well as to account for expenses made overseas, given the rise in online
 shopping.</p>
 </div>
 </div>
-</div>
 <div class="sect2">
-<h3 id="support-for-stocks-code-stocks-code"><a class="link" href="#support-for-stocks-code-stocks-code">4.3. Support for Stocks <code>/stocks</code></a></h3>
+<h3 id="support-for-stocks-code-stocks-code"><a class="link" href="#support-for-stocks-code-stocks-code">5.2. Support for Stocks <code>/stocks</code></a></h3>
 <div class="paragraph">
 <p>Plans for stocks and options investment type will be supported in future releases. This will provide support for
 users who are more financially savvy in terms of growing their money with higher risk instruments.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="insurance-tracking-code-insurance-code"><a class="link" href="#insurance-tracking-code-insurance-code">4.4. Insurance tracking <code>/insurance</code></a></h3>
+<h3 id="insurance-tracking-code-insurance-code"><a class="link" href="#insurance-tracking-code-insurance-code">5.3. Insurance tracking <code>/insurance</code></a></h3>
 <div class="paragraph">
 <p>Insurance is an important part of financial literacy. Ensuring that you are properly covered is important as medical
 bills are not cheap. Therefore, this feature will enable you to know what illnesses are covered and how much you are
@@ -2864,7 +2915,7 @@ paying for the coverage.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="faq"><a class="link" href="#faq">5. FAQ</a></h2>
+<h2 id="faq"><a class="link" href="#faq">6. FAQ</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p><strong>Q</strong>: How do I save my data in the application?<br>
@@ -2886,13 +2937,13 @@ should be fine!</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="command-summary"><a class="link" href="#command-summary">6. Command Summary</a></h2>
+<h2 id="command-summary"><a class="link" href="#command-summary">7. Command Summary</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>This section provides a quick reference for all commands available in <strong>OwlMoney</strong>.</p>
 </div>
 <div class="sect2">
-<h3 id="general-commands-2"><a class="link" href="#general-commands-2">6.1. General Commands</a></h3>
+<h3 id="general-commands-2"><a class="link" href="#general-commands-2">7.1. General Commands</a></h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 25%;">
@@ -2929,9 +2980,9 @@ should be fine!</p>
 </table>
 </div>
 <div class="sect2">
-<h3 id="detailed-management-commands-2"><a class="link" href="#detailed-management-commands-2">6.2. Detailed Management Commands</a></h3>
+<h3 id="detailed-management-commands-2"><a class="link" href="#detailed-management-commands-2">7.2. Detailed Management Commands</a></h3>
 <div class="sect3">
-<h4 id="savings-account-management-2"><a class="link" href="#savings-account-management-2">6.2.1. Savings Account Management</a></h4>
+<h4 id="savings-account-management-2"><a class="link" href="#savings-account-management-2">7.2.1. Savings Account Management</a></h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 25%;">
@@ -3006,7 +3057,7 @@ AMOUNT] [/date DATE]</code></p></td>
 </table>
 </div>
 <div class="sect3">
-<h4 id="savings-account-management-3"><a class="link" href="#savings-account-management-3">6.2.2. Savings Account Management</a></h4>
+<h4 id="savings-account-management-3"><a class="link" href="#savings-account-management-3">7.2.2. Savings Account Management</a></h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 25%;">
@@ -3061,7 +3112,7 @@ AMOUNT] [/date DATE]</code></p></td>
 </table>
 </div>
 <div class="sect3">
-<h4 id="credit-card-management-2"><a class="link" href="#credit-card-management-2">6.2.3. Credit Card Management</a></h4>
+<h4 id="credit-card-management-2"><a class="link" href="#credit-card-management-2">7.2.3. Credit Card Management</a></h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 25%;">
@@ -3129,7 +3180,7 @@ AMOUNT] [/date DATE]</code></p></td>
 </table>
 </div>
 <div class="sect3">
-<h4 id="financial-goal-management-2"><a class="link" href="#financial-goal-management-2">6.2.4. Financial Goal Management</a></h4>
+<h4 id="financial-goal-management-2"><a class="link" href="#financial-goal-management-2">7.2.4. Financial Goal Management</a></h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 25%;">
@@ -3167,7 +3218,7 @@ AMOUNT] [/date DATE]</code></p></td>
 </table>
 </div>
 <div class="sect3">
-<h4 id="profile-management-2"><a class="link" href="#profile-management-2">6.2.5. Profile Management</a></h4>
+<h4 id="profile-management-2"><a class="link" href="#profile-management-2">7.2.5. Profile Management</a></h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 25%;">
@@ -3193,7 +3244,7 @@ AMOUNT] [/date DATE]</code></p></td>
 </div>
 </div>
 <div class="sect2">
-<h3 id="utility-commands"><a class="link" href="#utility-commands">6.3. Utility Commands</a></h3>
+<h3 id="utility-commands-2"><a class="link" href="#utility-commands-2">7.3. Utility Commands</a></h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 25%;">
@@ -3287,4 +3338,4 @@ user</strong></p></td>
 </table>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-31 16:18:04 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-01 04:54:59 UTC</div></div></div></body></html>
