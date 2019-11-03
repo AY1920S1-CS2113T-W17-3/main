@@ -95,9 +95,14 @@
 <li><a href="#transferring-funds-between-different-bank-accounts-code-transfer-fund-code">4.3.3.1. Transferring funds between different bank accounts <code>/transfer /fund</code></a></li>
 </ul>
 </li>
-<li><a href="#adding-recurring-expenditures-code-add-recurbankexp-code">4.3.4. Adding recurring expenditures <code>/add /recurbankexp</code></a></li>
-<li><a href="#editing-recurring-expenditure-code-edit-recurbankexp-code">4.3.5. Editing recurring expenditure <code>/edit /recurbankexp</code></a></li>
-<li><a href="#deleting-recurring-expenditure-code-delete-recurbankexp-code">4.3.6. Deleting recurring expenditure <code>/delete /recurbankexp</code></a></li>
+<li><a href="#recurring-expenditures-management">4.3.4. Recurring expenditures management</a>
+<ul class="sectlevel4">
+<li><a href="#adding-recurring-expenditures-code-add-recurbankexp-code">4.3.4.1. Adding recurring expenditures <code>/add /recurbankexp</code></a></li>
+<li><a href="#editing-recurring-expenditure-code-edit-recurbankexp-code">4.3.4.2. Editing recurring expenditure <code>/edit /recurbankexp</code></a></li>
+<li><a href="#deleting-recurring-expenditure-code-delete-recurbankexp-code">4.3.4.3. Deleting recurring expenditure <code>/delete /recurbankexp</code></a></li>
+</ul>
+</li>
+<li><a href="#updating-profile">4.3.5. Updating profile</a></li>
 </ul>
 </li>
 </ul>
@@ -528,7 +533,8 @@ expenditures associated with it in <strong>OwlMoney</strong>.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>CATEGORY</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The category that the expenditure can be tagged to.</p>
 <p class="tableblock">(e.g. Dining)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>CATEGORY</code> should contain alphabetic characters and spaces only.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>CATEGORY</code> should contain alphabetic characters and spaces only.</p>
+<p class="tableblock">Take note that there is a maximum of <strong>15</strong> character limit.</p></td>
 </tr>
 </tbody>
 </table>
@@ -2767,7 +2773,57 @@ investment and vice-versa)</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="adding-recurring-expenditures-code-add-recurbankexp-code"><a class="link" href="#adding-recurring-expenditures-code-add-recurbankexp-code">4.3.4. Adding recurring expenditures <code>/add /recurbankexp</code></a></h4>
+<h4 id="recurring-expenditures-management"><a class="link" href="#recurring-expenditures-management">4.3.4. Recurring expenditures management</a></h4>
+<div class="paragraph">
+<p>In this section, you&#8217;ll be introduced to commands and parameters that help you to manage
+recurring expenditures in <strong>OwlMoney</strong>.</p>
+</div>
+<div class="paragraph">
+<p>Below is a list of command parameters that you can expect to use for the commands in this section.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 18%;">
+<col style="width: 37%;">
+<col style="width: 45%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Parameter</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Acceptable Range of Values</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ACCOUNT_NAME</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Indicates the name of the bank account.</p>
+<p class="tableblock">(e.g. DBB Vickers Account)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ACCOUNT_NAME</code> should contain alphabetic characters, numeric characters, and spaces only.</p>
+<p class="tableblock"><code>ACCOUNT_NAME</code> is case-sensitive.</p>
+<p class="tableblock">Take note that there is a maximum of <strong>30</strong> character limit.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>AMOUNT</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Indicates the amount of money.</p>
+<p class="tableblock">(e.g. 2113.30)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>AMOUNT</code> should contain only digits up to <strong>2</strong> decimal places and a maximum of <strong>9</strong> digits.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DESCRIPTION</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Indicates the description of the transaction.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DESCRIPTION</code> should contain alphabetic characters, numeric characters, and spaces only.</p>
+<p class="tableblock">Take note that there is a maximum of <strong>50</strong> character limit.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>CATEGORY</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The category that the expenditure can be tagged to.</p>
+<p class="tableblock">(e.g. Bills)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>CATEGORY</code> should contain alphabetic characters and spaces only.</p>
+<p class="tableblock">Take note that there is a maximum of <strong>15</strong> character limit.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect4">
+<h5 id="adding-recurring-expenditures-code-add-recurbankexp-code"><a class="link" href="#adding-recurring-expenditures-code-add-recurbankexp-code">4.3.4.1. Adding recurring expenditures <code>/add /recurbankexp</code></a></h5>
 <div class="paragraph">
 <p>Postpaid mobile plan bills that are consistent monthly? We can save you the hassle from adding them every month!</p>
 </div>
@@ -2789,8 +2845,8 @@ Savings
 Account</code> categorised under the <code>Bills</code> category.</p>
 </div>
 </div>
-<div class="sect3">
-<h4 id="editing-recurring-expenditure-code-edit-recurbankexp-code"><a class="link" href="#editing-recurring-expenditure-code-edit-recurbankexp-code">4.3.5. Editing recurring expenditure <code>/edit /recurbankexp</code></a></h4>
+<div class="sect4">
+<h5 id="editing-recurring-expenditure-code-edit-recurbankexp-code"><a class="link" href="#editing-recurring-expenditure-code-edit-recurbankexp-code">4.3.4.2. Editing recurring expenditure <code>/edit /recurbankexp</code></a></h5>
 <div class="paragraph">
 <p><strong>Command Syntax</strong></p>
 </div>
@@ -2826,8 +2882,8 @@ AMOUNT]</code></p>
 <p>Edits recurring expenditure number <code>2</code> description to <code>Telco Bills</code> to charge $<code>119.90</code>.</p>
 </div>
 </div>
-<div class="sect3">
-<h4 id="deleting-recurring-expenditure-code-delete-recurbankexp-code"><a class="link" href="#deleting-recurring-expenditure-code-delete-recurbankexp-code">4.3.6. Deleting recurring expenditure <code>/delete /recurbankexp</code></a></h4>
+<div class="sect4">
+<h5 id="deleting-recurring-expenditure-code-delete-recurbankexp-code"><a class="link" href="#deleting-recurring-expenditure-code-delete-recurbankexp-code">4.3.4.3. Deleting recurring expenditure <code>/delete /recurbankexp</code></a></h5>
 <div class="paragraph">
 <p>Cancelled your recurring bill? You can delete it!</p>
 </div>
@@ -2863,6 +2919,17 @@ AMOUNT]</code></p>
 </div>
 <div class="paragraph">
 <p>Deletes a recurring expenditure from <code>JunBank Savings Account</code> with transaction number <code>1</code>.</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="updating-profile"><a class="link" href="#updating-profile">4.3.5. Updating profile</a></h4>
+<div class="paragraph">
+<p>Have some recurring transactions which have not been reflected yet? You can update your profile!</p>
+</div>
+<div class="paragraph">
+<p><strong>Command Syntax</strong>
+<code>/update</code></p>
 </div>
 </div>
 </div>
@@ -3316,8 +3383,14 @@ user</strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>/delete /recurbankexp /from ACCOUNT_NAME /transno TRANSACTION_NUMBER</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>/delete /recurexpenditure /from JunBank Savings Account /transno 1</code></p></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Update outdated profile</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Checks all recurring transactions and update the profile if needed.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>/update</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>/update</code></p></td>
+</tr>
 </tbody>
 </table>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-02 15:04:46 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-03 10:40:27 UTC</div></div></div></body></html>
