@@ -78,6 +78,17 @@
 <li><a href="#editing-an-investment-account">F.5. Editing an investment account</a></li>
 <li><a href="#adding-an-investment-bond">F.6. Adding an investment bond</a></li>
 <li><a href="#editing-an-investment-bond">F.7. Editing an investment bond</a></li>
+<li><a href="#adding-a-credit-card">F.8. Adding a credit card</a></li>
+<li><a href="#editing-a-credit-card">F.9. Editing a credit card</a></li>
+<li><a href="#deleting-a-credit-card">F.10. Deleting a credit card</a></li>
+<li><a href="#transferring-fund">F.11. Transferring fund</a></li>
+<li><a href="#finding-savings-accounts">F.12. Finding savings accounts</a></li>
+<li><a href="#finding-investment-accounts">F.13. Finding investment accounts</a></li>
+<li><a href="#finding-cards">F.14. Finding cards</a></li>
+<li><a href="#finding-bonds">F.15. Finding bonds</a></li>
+<li><a href="#finding-bank-transactions">F.16. Finding bank transactions</a></li>
+<li><a href="#finding-card-transactions">F.17. Finding card transactions</a></li>
+<li><a href="#finding-recurring-expenditure-in-savings-account">F.18. Finding recurring expenditure in savings account</a></li>
 </ul>
 </li>
 </ul>
@@ -4664,5 +4675,414 @@ Expected: Updated years of the September SSB <code>bond</code> being displayed a
 </ol>
 </div>
 </div>
+<div class="sect2">
+<h3 id="adding-a-credit-card"><a class="link" href="#adding-a-credit-card">F.8. Adding a credit card</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Adding a new card</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: There are currently no <code>card</code> with the same name.</p>
+</li>
+<li>
+<p>Test case:
+<code>/add /card /name POBB Tomorrow Card /limit 10000 /rebate 1.5</code><br>
+Expected: New <code>card</code> is added into the profile.</p>
+</li>
+</ol>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-05 14:43:30 UTC</div></div></div></body></html>
+</li>
+<li>
+<p>Adding a duplicate <code>card</code></p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: There are currently a <code>card</code> with the same name.</p>
+</li>
+<li>
+<p>Test case:
+<code>/add /card /name POBB Tomorrow Card /limit 10000 /rebate 1.5</code><br>
+Expected: Error saying that there is already an existing card with the same name.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="editing-a-credit-card"><a class="link" href="#editing-a-credit-card">F.9. Editing a credit card</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Editing the name of the <code>card</code></p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: There is an existing <code>card</code> to be edited.</p>
+</li>
+<li>
+<p>Test case:
+<code>/edit /card /name POBB Tomorrow Card /newname JunBank GoodVibes Card</code><br>
+Expected: Updated name of the <code>card</code> being displayed after being edited.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Editing the limit of the <code>card</code></p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: There is an existing <code>card</code> to be edited.</p>
+</li>
+<li>
+<p>Test case:
+<code>/edit /card /name POBB Tomorrow Card /limit 10000</code><br>
+Expected: Updated limit of the <code>card</code> being displayed after being edited.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="deleting-a-credit-card"><a class="link" href="#deleting-a-credit-card">F.10. Deleting a credit card</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Deleting a <code>card</code> that exist</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: The <code>card</code> to be deleted exist.</p>
+</li>
+<li>
+<p>Test case:
+<code>/delete /card /name POBB Tomorrow Card</code><br>
+Expected: Deleted <code>card</code> details will be displayed after being deleted.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Deleting a <code>card</code> that do not exist</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: The <code>card</code> to be deleted does not exist.</p>
+</li>
+<li>
+<p>Test case:
+<code>/delete /card /name POBB Tomorrow Card</code><br>
+Expected: Error saying <code>card</code> to be deleted does not exist.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="transferring-fund"><a class="link" href="#transferring-fund">F.11. Transferring fund</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Transferring fund between <code>bank</code> account (sufficient fund for transfer)</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: There are at least two existing <code>bank</code> accounts, and the sender account have sufficient fund for the
+transfer.</p>
+</li>
+<li>
+<p>Test case:
+<code>/transfer /fund /from JunBank Savings Account /to POBB Savings Account /amount 500 /date 1/1/2019</code><br>
+Expected: Fund successfully transfer between the <code>bank</code> account with the transaction being displayed.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Transferring fund between <code>bank</code> account (insufficient fund for transfer)</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: There are at least two existing <code>bank</code> accounts, and the sender account do not have sufficient fund
+for the transfer.</p>
+</li>
+<li>
+<p>Test case:
+<code>/transfer /fund /from JunBank Savings Account /to POBB Savings Account /amount 500 /date 1/1/2019</code><br>
+Expected: Error saying that sender account has insufficient fund to be transferred.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="finding-savings-accounts"><a class="link" href="#finding-savings-accounts">F.12. Finding savings accounts</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Searching for existing <code>savings</code> account</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: There are at least one existing <code>savings</code> accounts.</p>
+</li>
+<li>
+<p>Test case:
+<code>/find /savings /name Jun</code><br>
+Expected: Found matching <code>savings</code> account and displays the results.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Searching for non-existing <code>savings</code> account</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: There are currently no existing <code>savings</code> accounts.</p>
+</li>
+<li>
+<p>Test case:
+<code>/find /savings /name Jun</code><br>
+Expected: Error sayings that there is no <code>savings</code> account found.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="finding-investment-accounts"><a class="link" href="#finding-investment-accounts">F.13. Finding investment accounts</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Searching for existing <code>investment</code> account</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: There are at least one existing <code>investment</code> accounts.</p>
+</li>
+<li>
+<p>Test case:
+<code>/find /investment /name Vickers</code><br>
+Expected: Found matching <code>investment</code> account and displays the results.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Searching for non-existing <code>investment</code> account</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: There are currently no existing <code>investment</code> accounts.</p>
+</li>
+<li>
+<p>Test case:
+<code>/find /investment /name Vickers</code><br>
+Expected: Error sayings that there is no <code>investment</code> account found.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="finding-cards"><a class="link" href="#finding-cards">F.14. Finding cards</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Searching for existing <code>card</code></p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: There are at least one existing <code>card</code>.</p>
+</li>
+<li>
+<p>Test case:
+<code>/find /card /name POBB</code><br>
+Expected: Found matching <code>card</code> and displays the results.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Searching for non-existing <code>card</code></p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: There are currently no existing <code>card</code>.</p>
+</li>
+<li>
+<p>Test case:
+<code>/find /card /name POBB</code><br>
+Expected: Error sayings that there is no <code>card</code> found.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="finding-bonds"><a class="link" href="#finding-bonds">F.15. Finding bonds</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Searching for existing <code>bond</code></p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: There are at least one existing <code>bond</code> within the <code>investment</code> account.</p>
+</li>
+<li>
+<p>Test case:
+<code>/find /bonds /name SSB /from DBB Vickers Account</code><br>
+Expected: Found matching <code>bond</code> and displays the results.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Searching for non-existing <code>bond</code></p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: There are currently no <code>bond</code> within the <code>investment</code> account.</p>
+</li>
+<li>
+<p>Test case:
+<code>/find /bonds /name SSB /from DBB Vickers Account</code><br>
+Expected: Error sayings that there is no <code>bond</code> found.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="finding-bank-transactions"><a class="link" href="#finding-bank-transactions">F.16. Finding bank transactions</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Searching for existing transaction records based on description</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: There are at least one transaction record and the <code>bank</code> to be search must exist.</p>
+</li>
+<li>
+<p>Test case:
+<code>/find /banktransaction /name JunBank Savings Account /desc bubble tea</code><br>
+Expected: Found matching <code>bank</code> transaction record and displays the results.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Searching for existing transaction records based on category</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: There are at least one transaction record and the <code>bank</code> to be search must exist.</p>
+</li>
+<li>
+<p>Test case:
+<code>/find /banktransaction /name JunBank Savings Account /category food</code><br>
+Expected: Found matching <code>bank</code> transaction record and displays the results.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="finding-card-transactions"><a class="link" href="#finding-card-transactions">F.17. Finding card transactions</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Searching for existing transaction records based on description</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: There are at least one transaction record and the <code>card</code> to be search must exist.</p>
+</li>
+<li>
+<p>Test case:
+<code>/find /cardtransaction /name POBB Tomorrow Card /desc bubble tea</code><br>
+Expected: Found matching <code>card</code> transaction record and displays the results.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Searching for existing transaction records based on category</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: There are at least one transaction record and the <code>card</code> to be search must exist.</p>
+</li>
+<li>
+<p>Test case:
+<code>/find /cardtransaction /name POBB Tomorrow Card /category food</code><br>
+Expected: Found matching <code>card</code> transaction record and displays the results.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="finding-recurring-expenditure-in-savings-account"><a class="link" href="#finding-recurring-expenditure-in-savings-account">F.18. Finding recurring expenditure in savings account</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Searching for existing recurring expenditure based on description</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: There are at least one recurring expenditure and the <code>savings</code> account to be search must exist.</p>
+</li>
+<li>
+<p>Test case:
+<code>/find /recurbankexp /name JunBank Savings Account /desc bubble tea</code><br>
+Expected: Found matching recurring expenditure in <code>savings</code> account and displays the results.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Searching for existing recurring expenditure based on category</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: There are at least one recurring expenditure and the <code>savings</code> account to be search must exist.</p>
+</li>
+<li>
+<p>Test case:
+<code>/find /recurbankexp /name JunBank Savings Account /category food</code><br>
+Expected: Found matching recurring expenditure in <code>savings</code> account and displays the results.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-05 14:45:06 UTC</div></div></div></body></html>

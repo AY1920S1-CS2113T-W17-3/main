@@ -1,10 +1,660 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>Mong Zheng Wei - Project Portfolio</title><link rel="stylesheet" href="../stylesheets/gh-pages.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">OwlMoney</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/AY1920S1-CS2113T-W17-3/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Mong Zheng Wei - Project Portfolio</h1></div><div id="content"><div class="sect1">
-<h2 id="project-owlmoney"><a class="link" href="#project-owlmoney">PROJECT: OwlMoney</a></h2>
+<h2 id="1-overview"><a class="link" href="#1-overview">1. Overview</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Hello there I am Zheng Wei.</p>
+<p>This portfolio documents my contributions towards <strong>OwlMoney</strong> for the module CS2113T Software Engineering &amp;
+Object-Oriented Programming. It aims to demonstrate the theoretical and practical knowledge I have gained in this module
+ over the semester.</p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-05 14:43:30 UTC</div></div></div></body></html>
+</div>
+<div class="sect1">
+<h2 id="2-project-owlmoney"><a class="link" href="#2-project-owlmoney">2. Project: OwlMoney</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>OwlMoney</strong> is an application designed to assist undergraduates and fresh graduates to track and manage their finances
+conveniently and effectively - all in one place. <strong>OwlMoney</strong> provides a Command Line Interface (CLI) for the user to
+interact with. The commands used to interact with <strong>OwlMoney</strong> are designed to be simple and intuitive. Rest assured, you
+will be able to use <strong>OwlMoney</strong> with ease, even if you are unfamiliar with CLI.</p>
+</div>
+<div class="paragraph">
+<p>The following 3 symbols will be used throughout the documentation which you may wish to pay attention to as it may
+contain important details:</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>This symbol denotes information that you might want to read as it might contain some important information.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>This symbol denotes a tip that you may find useful when using our application, but it is up to you to decide.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>This symbol denotes a warning message which you need to be careful of when using our application. You are strongly
+advised to read the content within this block.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="3-summary-of-contributions"><a class="link" href="#3-summary-of-contributions">3. Summary of contributions</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Below are my contributions in terms of feature enhancements, project management, and documentation:</p>
+</div>
+<div class="sect2">
+<h3 id="3-1-features-enhancement"><a class="link" href="#3-1-features-enhancement">3.1 Features enhancement</a></h3>
+<div class="sect3">
+<h4 id="3-1-1-enhancement-added-strong-card-strong-feature"><a class="link" href="#3-1-1-enhancement-added-strong-card-strong-feature">3.1.1 Enhancement added: <strong>Card</strong> feature</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>What it does</strong>: Allows the users to maintain a list of credit cards that they own.</p>
+</li>
+<li>
+<p><strong>Justification</strong>: The <strong>Card</strong> feature work together with the <strong>Card Expenditure</strong> feature and provides the user the
+capability of tracking their expenses for each credit card that they own. As such, provides the user with a convenient
+way to review their credit card expenses.</p>
+</li>
+<li>
+<p><strong>Highlights</strong>: This enhancement involves adding several new commands to <strong>OwlMoney</strong>. As such it requires an
+understanding of the underlying architecture and the components <code>logic</code>, <code>model</code> and <code>storage</code>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="3-1-2-enhancement-added-strong-find-strong-feature"><a class="link" href="#3-1-2-enhancement-added-strong-find-strong-feature">3.1.2 Enhancement added: <strong>Find</strong> feature</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>What it does</strong>: Allows the user to search for specific information such as transaction records, bank account and more.</p>
+</li>
+<li>
+<p><strong>Justification</strong>: It can be messy and tedious for the user to track and manage their finances after using <strong>OwlMoney</strong>
+for some time. This is because the user might have thousand of transactions record stored within <strong>OwlMoney</strong>. With the
+ <strong>Find</strong> feature, it allows the user to search and view specific transaction records with ease.</p>
+</li>
+<li>
+<p><strong>Highlights</strong>: For this enhancement to be implemented, it depends on other features such
+as <strong>Card</strong>, <strong>Bank</strong>, and <strong>Transaction</strong>. Therefore, the implementation of <strong>Find</strong> feature was challenging as it requires an
+in-depth analysis and understanding of other features.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="3-1-3-enhancement-added-strong-transfer-strong-feature"><a class="link" href="#3-1-3-enhancement-added-strong-transfer-strong-feature">3.1.3 Enhancement added: <strong>Transfer</strong> feature</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>What it does</strong>: Allows the users to transfer funds from one bank account to another account.</p>
+</li>
+<li>
+<p><strong>Justification</strong>:  It provides the user with great flexibility to transfer funds from one bank account to another bank
+account. This helps to simulate a realistic flow of funds between different accounts such as transferring money from
+saving account to investment account to invest.</p>
+</li>
+<li>
+<p><strong>Highlights</strong>: For this enhancement to be implemented, it depends on other features such
+as <strong>Bank</strong> and <strong>Transaction</strong>. Therefore, the implementation of <strong>Transfer</strong> feature was challenging as it requires an
+in-depth analysis and understanding of other features.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="3-1-4-enhancement-added-strong-display-strong-feature"><a class="link" href="#3-1-4-enhancement-added-strong-display-strong-feature">3.1.4 Enhancement added: <strong>Display</strong> feature</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>What it does</strong>: Allows the users to list their financial information in a neat and tidy table format.</p>
+</li>
+<li>
+<p><strong>Justification</strong>: By listing the financial information such as transaction records or bank account details in a table
+format, it allows the user to review the information with ease. Hence, making our application user-friendly for the
+user.</p>
+</li>
+<li>
+<p><strong>Highlights</strong>: For this enhancement to be implemented, it depends on all other features such
+as <strong>Bank</strong>, <strong>Transaction</strong>, and <strong>Goal</strong>. Therefore, the implementation of <strong>Display</strong> feature was challenging as it requires
+an in-depth analysis and understanding of other features.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="3-2-code-contributions"><a class="link" href="#3-2-code-contributions">3.2 Code contributions</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The lines of codes (LOC) contributed by me for <strong>OwlMoney</strong> can be viewed
+<a href="https://nuscs2113-ay1920s1.github.io/dashboard/#search=mong&amp;sort=groupTitle&amp;sortWithin=title&amp;since=2019-09-21
+&amp;timeframe=commit&amp;mergegroup=false&amp;groupSelect=groupByRepos&amp;breakdown=false&amp;tabOpen=false">here</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="3-3-other-contributions"><a class="link" href="#3-3-other-contributions">3.3 Other contributions</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="3-3-1-project-management"><a class="link" href="#3-3-1-project-management">3.3.1 Project Management:</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Organised and Coordinated Team Meeting</p>
+</li>
+<li>
+<p>Managed issue tracker and merging of pull requests (PRs)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="3-3-2-documentation"><a class="link" href="#3-3-2-documentation">3.3.2 Documentation:</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>User Guide (UG)</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Contributed and wrote command syntax and explanation for
+<a href="https://github.com/AY1920S1-CS2113T-W17-3/main/blob/master/docs/UserGuide.adoc#Features">Features</a>,
+<a href="https://github.com/AY1920S1-CS2113T-W17-3/main/blob/master/docs/UserGuide.adoc#utility-commands">Utility Commands</a>,
+<a href="https://github.com/AY1920S1-CS2113T-W17-3/main/blob/master/docs/UserGuide.adoc#command-summary">Command Summary</a>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Developer Guide (DG)</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Drew
+<a href="https://github.com/AY1920S1-CS2113T-W17-3/main/blob/master/docs/DeveloperGuide.adoc#implementation">Sequence
+Diagram</a>
+and
+<a href="https://github.com/AY1920S1-CS2113T-W17-3/main/blob/master/docs/DeveloperGuide.adoc#Design">Class
+Diagram</a>.</p>
+</li>
+<li>
+<p>Wrote explanation for
+<a href="https://github.com/AY1920S1-CS2113T-W17-3/main/blob/master/docs/DeveloperGuide.adoc#implementation">Sequence
+Diagram</a>
+and
+<a href="https://github.com/AY1920S1-CS2113T-W17-3/main/blob/master/docs/DeveloperGuide.adoc#Design">Class
+Diagram</a>.</p>
+</li>
+<li>
+<p>Wrote
+<a href="https://github.com/AY1920S1-CS2113T-W17-3/main/blob/master/docs/DeveloperGuide.adoc#user-stories">User
+Stories</a>
+and
+<a href="https://github.com/AY1920S1-CS2113T-W17-3/main/blob/master/docs/DeveloperGuide.adoc#use-cases">Use Cases</a>.</p>
+</li>
+<li>
+<p>Vetted and resolved Developer Guide Error (Issue number
+<a href="https://github.com/AY1920S1-CS2113T-W17-3/main/issues/159">#159</a>,
+<a href="https://github.com/AY1920S1-CS2113T-W17-3/main/issues/160">#160</a>,
+<a href="https://github.com/AY1920S1-CS2113T-W17-3/main/issues/161">#161</a>,
+)</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="3-4-community"><a class="link" href="#3-4-community">3.4 Community</a></h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Reviewed Pull Requests (with non-trivial review comments):
+<a href="https://github.com/AY1920S1-CS2113T-W17-3/main/pull/66">#66</a>,
+<a href="https://github.com/AY1920S1-CS2113T-W17-3/main/pull/71">#71</a>,
+<a href="https://github.com/AY1920S1-CS2113T-W17-3/main/pull/77">#77</a>,
+<a href="https://github.com/AY1920S1-CS2113T-W17-3/main/pull/85">#85</a>,
+<a href="https://github.com/AY1920S1-CS2113T-W17-3/main/pull/92">#92</a>,
+<a href="https://github.com/AY1920S1-CS2113T-W17-3/main/pull/94">#94</a>,
+<a href="https://github.com/AY1920S1-CS2113T-W17-3/main/pull/105">#105</a>,
+<a href="https://github.com/AY1920S1-CS2113T-W17-3/main/pull/108">#108</a>,
+<a href="https://github.com/AY1920S1-CS2113T-W17-3/main/pull/122">#122</a>,
+<a href="https://github.com/AY1920S1-CS2113T-W17-3/main/pull/125">#125</a>,
+<a href="https://github.com/AY1920S1-CS2113T-W17-3/main/pull/127">#127</a>,
+<a href="https://github.com/AY1920S1-CS2113T-W17-3/main/pull/134">#134</a>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="4-contributions-to-the-user-guide"><a class="link" href="#4-contributions-to-the-user-guide">4. Contributions to the User Guide</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The following sections below showcase extracts of my contributions to the User Guide and my ability to write
+documentation targeting end-users with little or no technical knowledge. In this section, it will only
+showcase the <strong>Find</strong> feature due to the page limit restriction. You can find more information about other features
+implemented by me
+<a href="https://github.com/AY1920S1-CS2113T-W17-3/main/blob/master/docs/UserGuide.adoc">here</a>.</p>
+</div>
+<div class="sect2">
+<h3 id="4-1-finding-command-code-find-code"><a class="link" href="#4-1-finding-command-code-find-code">4.1 Finding Command: <code>/find</code></a></h3>
+<div class="paragraph">
+<p>This command allows the user to find different kind of information which will be demonstrated below:</p>
+</div>
+<div class="sect3">
+<h4 id="4-1-1-finding-savings-account-details-code-find-savings-code"><a class="link" href="#4-1-1-finding-savings-account-details-code-find-savings-code">4.1.1 Finding savings account details <code>/find /savings</code></a></h4>
+<div class="paragraph">
+<p>Scenario: Let&#8217;s say that you can only recall part of your savings account&#8217;s name and would like to find out the
+details of the savings account. Don&#8217;t worry <strong>OwlMoney</strong> allows you to find it with ease.</p>
+</div>
+<div class="paragraph">
+<p>Command Example: <code>/find /savings /name Jun</code></p>
+</div>
+<div class="paragraph">
+<p>The command example allows the user to find and list all savings account that matches the keyword "Jun". This can
+be seen from Figure 2 below.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/FindSavingAccountCommand.png" alt="FindSavingAccountCommand">
+</div>
+<div class="title">Figure 2: Find Investment Account</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Keyword use for the search is case-insensitive, providing users greater flexibility during the search.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="4-1-2-finding-investment-account-details-code-find-investment-code"><a class="link" href="#4-1-2-finding-investment-account-details-code-find-investment-code">4.1.2 Finding investment account details <code>/find /investment</code></a></h4>
+<div class="paragraph">
+<p>Scenario: Let&#8217;s say that you can only recall part of your investment account&#8217;s name and would like to find out the
+details of the investment account. Don&#8217;t worry <strong>OwlMoney</strong> allows you to find it with ease.</p>
+</div>
+<div class="paragraph">
+<p>Command Example: <code>/find /savings /name Vickers</code></p>
+</div>
+<div class="paragraph">
+<p>The command example allows the user to find and list all investment account that matches the keyword "Vickers".
+This can be seen from Figure 3 below.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/FindInvestmentAccountCommand.png" alt="FindInvestmentAccountCommand">
+</div>
+<div class="title">Figure 3: Find Investment Account</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Keyword use for the search is case-insensitive, providing users greater flexibility during the search.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="4-1-3-finding-card-details-code-find-card-code"><a class="link" href="#4-1-3-finding-card-details-code-find-card-code">4.1.3 Finding card details <code>/find /card</code></a></h4>
+<div class="paragraph">
+<p>Scenario: Let&#8217;s say that you can only recall part of your card&#8217;s name and would like to find out the
+details of the card. Don&#8217;t worry <strong>OwlMoney</strong> allows you to find it with ease.</p>
+</div>
+<div class="paragraph">
+<p>Command Example: <code>/find /card /name POBB</code></p>
+</div>
+<div class="paragraph">
+<p>The command example allows the user to find and list all card that matches with the keyword "POBB". This can
+be seen from Figure 4 below.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/FindCardCommand.png" alt="FindCardCommand">
+</div>
+<div class="title">Figure 4: Find Card</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Keyword use for the search is case-insensitive, providing users greater flexibility during the search.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="4-1-3-finding-bond-details-code-find-bonds-code"><a class="link" href="#4-1-3-finding-bond-details-code-find-bonds-code">4.1.3 Finding bond details <code>/find /bonds</code></a></h4>
+<div class="paragraph">
+<p>Scenario: Let&#8217;s say that you can only recall part of your bond&#8217;s name and would like to find out the
+details of the bond. Don&#8217;t worry <strong>OwlMoney</strong> allows you to find it with ease.</p>
+</div>
+<div class="paragraph">
+<p>Command Example: <code>/find /bonds /name SSB /from DBB Vickers Account</code></p>
+</div>
+<div class="paragraph">
+<p>The command example allows the user to find and list all bonds within DBB Vicker Account that matches the
+keyword "SSB". This can be seen from Figure 5 below.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/FindBondCommand.png" alt="FindBondCommand">
+</div>
+<div class="title">Figure 5: Find Bonds</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Keyword use for the search is case-insensitive, providing users greater flexibility during the search.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="4-1-3-finding-bank-transaction-code-find-banktransaction-code"><a class="link" href="#4-1-3-finding-bank-transaction-code-find-banktransaction-code">4.1.3 Finding bank transaction <code>/find /banktransaction</code></a></h4>
+<div class="paragraph">
+<p>Scenario: Let&#8217;s say that you have thousands of bank transaction records and you want to find the
+details of a specific bank transaction&#8217;s records. Don&#8217;t worry <strong>OwlMoney</strong> allows you to find it with ease.</p>
+</div>
+<div class="paragraph">
+<p>Command Example: <code>/find /banktransaction /name JunBank Savings Account /desc bubble tea /from 1/1/2019 /to 7/1/2019
+/category food</code></p>
+</div>
+<div class="paragraph">
+<p>The command example allows the user to find and list all savings account that matches the keyword "DBB". This can
+be seen from Figure 6 below.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/FindBankTransactionCommand.png" alt="FindBankTransactionCommand">
+</div>
+<div class="title">Figure 6: Find Bank Transaction</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Keyword use for description and category is case-insensitive, providing users greater flexibility during the
+search.</p>
+</div>
+<div class="paragraph">
+<p>The date range for /from and /to is inclusive of the date specified.</p>
+</div>
+<div class="paragraph">
+<p>The search will list transaction records that match with either one of the parameters; description, category or date
+range.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="4-1-3-finding-card-transaction-code-find-cardtransaction-code"><a class="link" href="#4-1-3-finding-card-transaction-code-find-cardtransaction-code">4.1.3 Finding card transaction <code>/find /cardtransaction</code></a></h4>
+<div class="paragraph">
+<p>Scenario: Let&#8217;s say that you have thousands of card transaction records and you want to find the
+details of a specific card transaction&#8217;s records. Don&#8217;t worry <strong>OwlMoney</strong> allows you to find it with ease.</p>
+</div>
+<div class="paragraph">
+<p>Command Example: <code>/find /cardtransaction /name POBB Tomorrow Card /desc bubble tea /from 1/1/2019 /to 7/1/2019 /category
+food</code></p>
+</div>
+<div class="paragraph">
+<p>The command example allows the user to find and list all savings account that matches the keyword "DBB". This can
+be seen from Figure 7 below.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/FindCardTransactionCommand.png" alt="FindCardTransactionCommand">
+</div>
+<div class="title">Figure 7: Find Card Transaction</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Keyword use for description and category is case-insensitive, providing users greater flexibility during the
+search.</p>
+</div>
+<div class="paragraph">
+<p>The date range for /from and /to is inclusive of the date specified.</p>
+</div>
+<div class="paragraph">
+<p>The search will list transaction records that match with either one of the parameters; description, category or date
+range.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="5-contributions-to-the-developer-guide"><a class="link" href="#5-contributions-to-the-developer-guide">5. Contributions to the Developer Guide</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The following sections below showcase extracts of my contributions to the Developer Guide and my ability to write
+documentation targeting end-users with little or no technical knowledge. In this section, it will only
+showcase the <strong>Find</strong> feature due to the page limit restriction. You can find more information about other features
+implemented by me
+<a href="https://github.com/AY1920S1-CS2113T-W17-3/main/blob/master/docs/DeveloperGuide.adoc">here</a>.</p>
+</div>
+<div class="sect2">
+<h3 id="5-1-design-for-find-feature"><a class="link" href="#5-1-design-for-find-feature">5.1 Design for Find Feature</a></h3>
+<div class="imageblock">
+<div class="content">
+<img src="../images/classdiagram.png" alt="classdiagram">
+</div>
+<div class="title">Figure 8: Find Command Class Diagram</div>
+</div>
+<div class="paragraph">
+<p>The <code>logic.command.find</code> package consist of <code>Find</code> classes with the ability to find any:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Bank account</p>
+</li>
+<li>
+<p>Cards</p>
+</li>
+<li>
+<p>Bonds</p>
+</li>
+<li>
+<p>Card transaction</p>
+</li>
+<li>
+<p>Bank transaction</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><code>Main</code> will call the specific <code>Find</code> command class that will construct the <strong>required parameters</strong> before calling the
+<code>Profile</code> class in <code>Model</code> to <strong>execute</strong>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="5-2-implementation-for-find-feature"><a class="link" href="#5-2-implementation-for-find-feature">5.2 Implementation for Find feature</a></h3>
+<div class="paragraph">
+<p>The following section describes the specific implementation for the <strong>finding of savings account</strong> and how data flows
+across
+various objects and methods to obtain a successful execution. In this section, we will be showcasing the data flow of
+finding a savings account.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/sequencediagram.png" alt="sequencediagram">
+</div>
+<div class="title">Figure 9: Sequence Diagram for finding savings account</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The sequence diagram presented above is assumed to be a valid command which will produce a successful result.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The above sequence diagram depicts the interaction between the <code>Logic</code>, <code>Model</code> and <code>Ui</code> component for running
+<code>FindBankOrCardCommand</code>.</p>
+</div>
+<div class="paragraph">
+<p>The <code>FindBankOrCardCommand</code> requires <strong>2</strong> inputs:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Savings Account&#8217;s name that acts as a keyword for the search.</p>
+</li>
+<li>
+<p>Type of item to be searched (e.g. cards, savings or investment account)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>When the user executes the <code>FindBankOrCardCommand</code>, the following steps are taken by the application:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>When the <code>FindBankOrCardCommand</code> is executed, it will invoke <code>findBankOrCard</code>.</p>
+</li>
+<li>
+<p>Once invoked, <code>findBankOrCard</code> will perform the following checks:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Check the type of items to be searched is either card, savings or investment account.</p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+<div class="olist arabic">
+<ol class="arabic" start="3">
+<li>
+<p>After passing the above checks, <code>findBankOrCard</code> will invoke <code>findBankAccount</code>.</p>
+</li>
+<li>
+<p>Within the invocation of <code>findBankAccount</code>, it will perform the following checks:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Check for matching savings account&#8217;s name with the keyword among all savings account stored in the ArrayList.</p>
+</li>
+<li>
+<p>Check whether the savings account that matches the keyword is indeed a savings account.</p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<code>findBankAccount</code> will throw an error if all bank accounts within the application fail the above checks.
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<ol class="arabic" start="5">
+<li>
+<p>Once the search has been completed, the details of the all matching savings account will be displayed to inform the
+user of the <strong>successful</strong> matches.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-05 14:45:06 UTC</div></div></div></body></html>
