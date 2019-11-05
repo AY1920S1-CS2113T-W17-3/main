@@ -2070,6 +2070,14 @@ specific bank account, credit card or bonds with ease.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">view my financial details in a user friendly format</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">so that I can review my expenses with ease.</p></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">40</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">* *</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">existing user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">search for specific recurring expenditure</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">search and view the details of the
+specific recurring expenditure.</p></td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -4292,6 +4300,72 @@ correctly.</p>
 </li>
 </ol>
 </div>
+<div class="paragraph">
+<p><strong>Actor: Existing user</strong><br>
+<a id="UC-40"></a> <strong>Use case: UC40 - Search for specific recurring expenditure</strong><br>
+<strong>Preconditions:</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>User has a profile created</strong></p>
+</li>
+<li>
+<p><strong>User has added a savings account to the profile</strong></p>
+</li>
+<li>
+<p><strong>User has added recurring expenditure to the savings account</strong></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Main success scenario:</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User choose to search for specific recurring expenditure.</p>
+</li>
+<li>
+<p>System requests for the keyword to be used for searching.</p>
+</li>
+<li>
+<p>User specifies the keyword to be used for searching.</p>
+</li>
+<li>
+<p>System displays information found from the search.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3a. System detects invalid keyword to be used for searching.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>3a1. System requests for the correct keyword to be used for searching.</p>
+</li>
+<li>
+<p>3a2. User re-enters the keyword to be used for searching.</p>
+</li>
+<li>
+<p>Steps 3a1-3a2 are repeated until the keyword to be used for searching is entered correctly.</p>
+</li>
+<li>
+<p>Use case resumes from step 4.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -4591,4 +4665,4 @@ Expected: Updated years of the September SSB <code>bond</code> being displayed a
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-05 08:25:47 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-05 09:38:33 UTC</div></div></div></body></html>
