@@ -21,8 +21,8 @@
 <ul class="sectlevel2">
 <li><a href="#general-commands">4.1. General Commands</a>
 <ul class="sectlevel3">
-<li><a href="#viewing-help-code-help-code-not-available-in-v1-3">4.1.1. Viewing help: <code>/help</code> (Not Available in v1.3)</a></li>
-<li><a href="#undo-commands-code-undo-code-not-available-in-v1-3">4.1.2. Undo Commands: <code>/undo</code> (Not Available in v1.3)</a></li>
+<li><a href="#viewing-help-code-help-code">4.1.1. Viewing help: <code>/help</code></a></li>
+<li><a href="#undo-commands-code-undo-code-coming-in-v2-0">4.1.2. Undo Commands: <code>/undo</code> (Coming in v2.0)</a></li>
 <li><a href="#exiting-owlmoney-code-exit-code">4.1.3. Exiting OwlMoney : <code>/exit</code></a></li>
 </ul>
 </li>
@@ -262,13 +262,13 @@ press <kbd>Enter</kbd>, the result appears immediately!</p>
 <p>Ensure you have <strong>Java Version 11</strong> installed on your computer.</p>
 </li>
 <li>
-<p>Download the latest <code>OwlMoney-v1.3.jar</code> <a href="https://github.com/AY1920S1-CS2113T-W17-3/main/releases/latest">here</a>.</p>
+<p>Download the latest <code>OwlMoney-v1.4.jar</code> <a href="https://github.com/AY1920S1-CS2113T-W17-3/main/releases/latest">here</a>.</p>
 </li>
 <li>
-<p>Copy the <code>OwlMoney-v1.3.jar</code> file to the folder you want to use as the home folder for <strong>OwlMoney</strong>.</p>
+<p>Copy the <code>OwlMoney-v1.4.jar</code> file to the folder you want to use as the home folder for <strong>OwlMoney</strong>.</p>
 </li>
 <li>
-<p>Open a <strong>Command Prompt</strong> or <strong>Powershell</strong>, navigate to the target folder and type <code>java -jar ./OwlMoney-v1.3.jar</code> to
+<p>Open a <strong>Command Prompt</strong> or <strong>Powershell</strong>, navigate to the target folder and type <code>java -jar ./OwlMoney-v1.4.jar</code> to
 start <strong>OwlMoney</strong>.
 <strong>OwlMoney</strong> should appear in a few seconds.</p>
 </li>
@@ -287,7 +287,7 @@ typing your <code>USERNAME</code> <strong>(e.g. John)</strong> when prompted and
 </li>
 <li>
 <p>You can now try entering commands in the <strong>command box</strong> and press <kbd>Enter</kbd> to execute it!<br>
-e.g. try typing <strong><code>/help</code> (Not available in v1.3)</strong> and pressing <kbd>Enter</kbd> will list down the commands available.</p>
+e.g. try typing <strong><code>/help</code></strong> and pressing <kbd>Enter</kbd> will list down the commands available.</p>
 </li>
 <li>
 <p>Some example commands you can try:</p>
@@ -314,6 +314,9 @@ e.g. try typing <strong><code>/help</code> (Not available in v1.3)</strong> and 
 </li>
 <li>
 <p>Refer to, <a href="#Features">Section 4, &#8220;Features&#8221;</a> for details of each command.</p>
+</li>
+<li>
+<p>Refer to, <a href="#faq">Section 6, &#8220;FAQ&#8221;</a> for a list of common questions that have been answered.</p>
 </li>
 </ol>
 </div>
@@ -422,7 +425,7 @@ along this user guide!</p>
 <div class="sect2">
 <h3 id="general-commands"><a class="link" href="#general-commands">4.1. General Commands</a></h3>
 <div class="sect3">
-<h4 id="viewing-help-code-help-code-not-available-in-v1-3"><a class="link" href="#viewing-help-code-help-code-not-available-in-v1-3">4.1.1. Viewing help: <code>/help</code> (Not Available in v1.3)</a></h4>
+<h4 id="viewing-help-code-help-code"><a class="link" href="#viewing-help-code-help-code">4.1.1. Viewing help: <code>/help</code></a></h4>
 <div class="paragraph">
 <p>Don&#8217;t worry if you are feeling lost! You can use this User Guide document to gain a better understanding of
 <strong>OwlMoney</strong>'s commands.</p>
@@ -446,7 +449,7 @@ along this user guide!</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="undo-commands-code-undo-code-not-available-in-v1-3"><a class="link" href="#undo-commands-code-undo-code-not-available-in-v1-3">4.1.2. Undo Commands: <code>/undo</code> (Not Available in v1.3)</a></h4>
+<h4 id="undo-commands-code-undo-code-coming-in-v2-0"><a class="link" href="#undo-commands-code-undo-code-coming-in-v2-0">4.1.2. Undo Commands: <code>/undo</code> (Coming in v2.0)</a></h4>
 <div class="paragraph">
 <p>Accidentally typed a wrong command? Don&#8217;t worry, simply type the <code>/undo</code> command and you will be back to where you
 started!</p>
@@ -1104,6 +1107,12 @@ Here&#8217;s how you can use the <code>/add /investment</code> command.</p>
 <p>Adds an investment account named <code>DBB Vickers Account</code> which has an initial amount
 of $<code>10000</code> inside that you can start investing with.</p>
 </div>
+<div class="imageblock">
+<div class="content">
+<img src="images/InvestmentAdd.png" alt="InvestmentAdd" width="970">
+</div>
+<div class="title">Figure 3. Successful addition of investment account after using <code>/add /investment</code></div>
+</div>
 </div>
 <div class="sect4">
 <h5 id="editing-investment-bank-account-code-edit-investment-code"><a class="link" href="#editing-investment-bank-account-code-edit-investment-code">4.2.2.2. Editing investment bank account <code>/edit /investment</code></a></h5>
@@ -1142,6 +1151,12 @@ of $<code>10000</code> inside that you can start investing with.</p>
 </div>
 <div class="paragraph">
 <p>Edits the name of the account from <code>DBB Vickers Account</code> to <code>OBOB Securities Account</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/InvestmentEdit.png" alt="InvestmentEdit" width="970">
+</div>
+<div class="title">Figure 4. Successful edition of investment account after using <code>/edit /investment</code></div>
 </div>
 <div class="ulist">
 <ul>
@@ -1203,6 +1218,12 @@ to $<code>50000</code>.</p>
 <div class="paragraph">
 <p>Deletes an investment account named <code>DBB Vickers Account</code>.</p>
 </div>
+<div class="imageblock">
+<div class="content">
+<img src="images/InvestmentDelete.png" alt="InvestmentDelete" width="970">
+</div>
+<div class="title">Figure 5. Successful deletion of investment account after using <code>/delete /investment</code></div>
+</div>
 </div>
 <div class="sect4">
 <h5 id="adding-investment-bonds-code-add-bonds-code"><a class="link" href="#adding-investment-bonds-code-add-bonds-code">4.2.2.4. Adding investment bonds <code>/add /bonds</code></a></h5>
@@ -1229,6 +1250,9 @@ No worries! <strong>OwlMoney</strong> allows efficient tracking of your semi-ann
 <div class="paragraph">
 <p>Bonds can only be added to investment accounts.</p>
 </div>
+<div class="paragraph">
+<p>There can only be a maximum of <strong>20</strong> investment bonds per investment account.</p>
+</div>
 </td>
 </tr>
 </table>
@@ -1246,6 +1270,12 @@ No worries! <strong>OwlMoney</strong> allows efficient tracking of your semi-ann
 <div class="paragraph">
 <p>Adds a bond named <code>June SSB</code> charged to <code>DBB Vickers Account</code> at $<code>1000</code> with an interest rate of <code>1.92</code>% bought on
 <code>1/1/2019</code> for <code>1</code> year(s).</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/BondAdd.png" alt="BondAdd" width="970">
+</div>
+<div class="title">Figure 6. Successful addition of investment bond after using <code>/add /bonds</code></div>
 </div>
 </div>
 <div class="sect4">
@@ -1294,6 +1324,12 @@ credited will not be edited.</p>
 <div class="paragraph">
 <p>Edits the bond named <code>June SSB</code> charged to <code>DBB Vickers Account</code> with a new interest rate of <code>1.98</code>%.</p>
 </div>
+<div class="imageblock">
+<div class="content">
+<img src="images/BondEdit.png" alt="BondEdit" width="970">
+</div>
+<div class="title">Figure 7. Successful edition of investment bond after using <code>/edit /bonds</code></div>
+</div>
 </div>
 <div class="sect4">
 <h5 id="deleting-bonds-code-delete-bonds-code"><a class="link" href="#deleting-bonds-code-delete-bonds-code">4.2.2.6. Deleting bonds <code>/delete /bonds</code></a></h5>
@@ -1316,6 +1352,12 @@ credited will not be edited.</p>
 </div>
 <div class="paragraph">
 <p>Deletes the bond named <code>June SSB</code> charged to <code>DBB Vickers Account</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/BondDelete.png" alt="BondDelete" width="970">
+</div>
+<div class="title">Figure 8. Successful deletion of investment bond after using <code>/edit /bonds</code></div>
 </div>
 </div>
 </div>
@@ -3133,6 +3175,12 @@ function optimally if malformed inputs are loaded in from corrupted save files.<
 it! As long as you follow the constraints set out for each <code>PARAMETER</code> as mentioned in all previous sections, you
 should be fine!</p>
 </div>
+<div class="paragraph">
+<p><strong>Q</strong>: Does <strong>OwlMoney</strong> support other languages or locales?<br>
+<strong>A</strong>: <strong>OwlMoney</strong> currently <strong>DOES NOT</strong> support other languages or locales other than english. If your <strong>system language
+is not english</strong>, please change it before launching <strong>OwlMoney</strong> as we will not guarantee the smooth performance of
+<strong>OwlMoney</strong> in other environments.</p>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -3553,4 +3601,4 @@ specified by the user</strong></p></td>
 </table>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-05 15:44:37 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-05 15:50:27 UTC</div></div></div></body></html>
