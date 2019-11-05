@@ -76,19 +76,30 @@
 <li><a href="#adding-an-investment-account">F.3. Adding an investment account</a></li>
 <li><a href="#editing-a-savings-account">F.4. Editing a savings account</a></li>
 <li><a href="#editing-an-investment-account">F.5. Editing an investment account</a></li>
-<li><a href="#adding-an-investment-bond">F.6. Adding an investment bond</a></li>
-<li><a href="#editing-an-investment-bond">F.7. Editing an investment bond</a></li>
-<li><a href="#adding-a-credit-card">F.8. Adding a credit card</a></li>
-<li><a href="#editing-a-credit-card">F.9. Editing a credit card</a></li>
-<li><a href="#deleting-a-credit-card">F.10. Deleting a credit card</a></li>
-<li><a href="#transferring-fund">F.11. Transferring fund</a></li>
-<li><a href="#finding-savings-accounts">F.12. Finding savings accounts</a></li>
-<li><a href="#finding-investment-accounts">F.13. Finding investment accounts</a></li>
-<li><a href="#finding-cards">F.14. Finding cards</a></li>
-<li><a href="#finding-bonds">F.15. Finding bonds</a></li>
-<li><a href="#finding-bank-transactions">F.16. Finding bank transactions</a></li>
-<li><a href="#finding-card-transactions">F.17. Finding card transactions</a></li>
-<li><a href="#finding-recurring-expenditure-in-savings-account">F.18. Finding recurring expenditure in savings account</a></li>
+<li><a href="#deleting-a-savings-account">F.6. Deleting a savings account</a></li>
+<li><a href="#delete-an-investment-account">F.7. Delete an investment account</a></li>
+<li><a href="#adding-an-investment-bond">F.8. Adding an investment bond</a></li>
+<li><a href="#editing-an-investment-bond">F.9. Editing an investment bond</a></li>
+<li><a href="#adding-a-bank-expenditure-transaction">F.10. Adding a bank expenditure transaction</a></li>
+<li><a href="#editing-a-bank-expenditure-transaction">F.11. Editing a bank expenditure transaction</a></li>
+<li><a href="#deleting-a-bank-expenditure-transaction">F.12. Deleting a bank expenditure transaction</a></li>
+<li><a href="#adding-a-deposit-transaction">F.13. Adding a deposit transaction</a></li>
+<li><a href="#editing-a-deposit-transaction">F.14. Editing a deposit transaction</a></li>
+<li><a href="#deleting-a-deposit-transaction">F.15. Deleting a deposit transaction</a></li>
+<li><a href="#adding-a-recurring-bank-expenditure-transaction">F.16. Adding a recurring bank expenditure transaction</a></li>
+<li><a href="#editing-a-recurring-bank-expenditure-transaction">F.17. Editing a recurring bank expenditure transaction</a></li>
+<li><a href="#deleting-a-recurring-bank-expenditure-transaction">F.18. Deleting a recurring bank expenditure transaction</a></li>
+<li><a href="#adding-a-credit-card">F.19. Adding a credit card</a></li>
+<li><a href="#editing-a-credit-card">F.20. Editing a credit card</a></li>
+<li><a href="#deleting-a-credit-card">F.21. Deleting a credit card</a></li>
+<li><a href="#transferring-fund">F.22. Transferring fund</a></li>
+<li><a href="#finding-savings-accounts">F.23. Finding savings accounts</a></li>
+<li><a href="#finding-investment-accounts">F.24. Finding investment accounts</a></li>
+<li><a href="#finding-cards">F.25. Finding cards</a></li>
+<li><a href="#finding-bonds">F.26. Finding bonds</a></li>
+<li><a href="#finding-bank-transactions">F.27. Finding bank transactions</a></li>
+<li><a href="#finding-card-transactions">F.28. Finding card transactions</a></li>
+<li><a href="#finding-recurring-expenditure-in-savings-account">F.29. Finding recurring expenditure in savings account</a></li>
 </ul>
 </li>
 </ul>
@@ -4484,7 +4495,10 @@ starting up. <strong>Maximise</strong> the <strong>Command Prompt</strong> or <s
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Prerequisites: There are currently no <code>savings</code> or <code>investment</code> account with the same name.</p>
+<p>Prerequisites: There are currently no <code>savings</code> or <code>investment</code> account with the same name.<br></p>
+<div class="paragraph">
+<p>There are less than 7 existing <code>savings</code> account.</p>
+</div>
 </li>
 <li>
 <p>Test case: <code>/add /savings /name JunBank Savings Account /amount 15000 /income 5000</code><br>
@@ -4520,7 +4534,10 @@ Expected: Error saying that there is already an existing bank account with the s
 <ol class="loweralpha" type="a">
 <li>
 <p>Prerequisites: There are currently no <code>investment</code> or <code>savings</code> account with the
-same name.</p>
+same name.<br></p>
+<div class="paragraph">
+<p>There are less than 3 existing <code>investment</code> accounts.</p>
+</div>
 </li>
 <li>
 <p>Test case: <code>/add /investment /name DBB Vickers Account /amount 20000</code><br>
@@ -4586,7 +4603,7 @@ Expected: Updated amount of the <code>savings</code> account being displayed aft
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Editing the name of a <code>investment</code> account</p>
+<p>Editing the name of an <code>investment</code> account</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
@@ -4617,15 +4634,60 @@ Expected: Updated amount of the <code>investment</code> account being displayed 
 </div>
 </div>
 <div class="sect2">
-<h3 id="adding-an-investment-bond"><a class="link" href="#adding-an-investment-bond">F.6. Adding an investment bond</a></h3>
+<h3 id="deleting-a-savings-account"><a class="link" href="#deleting-a-savings-account">F.6. Deleting a savings account</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Adding a new <code>investment</code> <code>bond</code> tied to an existing <code>investment account</code></p>
+<p>Delete the <code>savings</code> account with the specified name</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Prerequisites: There is an existing <code>investment</code> account to tie the <code>bond</code> to.</p>
+<p>Prerequisites: There is an existing <code>savings</code> account to be deleted.</p>
+</li>
+<li>
+<p>Test case: <code>/delete /savings /name JunBank Savings Account</code><br>
+Expected: Details of the deleted <code>savings</code> account being displayed after being deleted.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="delete-an-investment-account"><a class="link" href="#delete-an-investment-account">F.7. Delete an investment account</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Delete the <code>investment</code> account with the specified name</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: There is an existing <code>investment</code> account to be deleted.</p>
+</li>
+<li>
+<p>Test case: <code>/delete /investment /name DBB Vickers Account</code><br>
+Expected: Details of the deleted <code>investment</code> account being displayed after being deleted.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="adding-an-investment-bond"><a class="link" href="#adding-an-investment-bond">F.8. Adding an investment bond</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Adding a new <code>investment</code> <code>bond</code> tied to an existing <code>investment</code> account</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: There is an existing <code>investment</code> account to tie the <code>bond</code> to.<br></p>
+<div class="paragraph">
+<p>There is enough money in the <code>investment</code> account to add the <code>bond</code>.</p>
+</div>
 </li>
 <li>
 <p>Test case:
@@ -4639,11 +4701,11 @@ Expected: New details of the September SSB <code>bond</code> being displayed aft
 </div>
 </div>
 <div class="sect2">
-<h3 id="editing-an-investment-bond"><a class="link" href="#editing-an-investment-bond">F.7. Editing an investment bond</a></h3>
+<h3 id="editing-an-investment-bond"><a class="link" href="#editing-an-investment-bond">F.9. Editing an investment bond</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Editing the rate of an existing <code>investment</code> <code>bond</code> tied to an existing <code>investment account</code></p>
+<p>Editing the rate of an existing <code>investment</code> <code>bond</code> tied to an existing <code>investment</code> account</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
@@ -4658,7 +4720,7 @@ Expected: Updated rate of the September SSB <code>bond</code> being displayed af
 </div>
 </li>
 <li>
-<p>Editing the years of an existing <code>investment</code> <code>bond</code> tied to an existing <code>investment account</code></p>
+<p>Editing the years of an existing <code>investment</code> <code>bond</code> tied to an existing <code>investment</code> account</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
@@ -4676,7 +4738,271 @@ Expected: Updated years of the September SSB <code>bond</code> being displayed a
 </div>
 </div>
 <div class="sect2">
-<h3 id="adding-a-credit-card"><a class="link" href="#adding-a-credit-card">F.8. Adding a credit card</a></h3>
+<h3 id="adding-a-bank-expenditure-transaction"><a class="link" href="#adding-a-bank-expenditure-transaction">F.10. Adding a bank expenditure transaction</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Adding a new bank <code>expenditure</code> to a <code>savings</code> account</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: There is an existing <code>savings</code> account to add the <code>expenditure</code> to.<br></p>
+<div class="paragraph">
+<p>There is enough money in the <code>savings</code> account to add the expenditure.</p>
+</div>
+</li>
+<li>
+<p>Test case:
+<code>/add /bankexpenditure /from JunBank Savings Account /desc Bubble Tea /amount 4.30 /date 02/11/2019 /category Food
+and Drinks</code><br>
+Expected: New details of the Bubble Tea <code>expenditure</code> being displayed after being added.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Adding a new <code>ank `expenditure</code> to a <code>savings</code> account with insufficient money</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: There is an existing <code>savings</code> account to add the <code>expenditure</code> to.<br></p>
+<div class="paragraph">
+<p>There is not enough money in the <code>savings</code> account to add the expenditure.</p>
+</div>
+</li>
+<li>
+<p>Test case:
+<code>/add /bankexpenditure /from JunBank Savings Account /desc car /amount 80000 /date 01/11/2019 /category Transport</code><br>
+Expected: Error saying the bank account cannot have a negative amount.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="editing-a-bank-expenditure-transaction"><a class="link" href="#editing-a-bank-expenditure-transaction">F.11. Editing a bank expenditure transaction</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Editing the amount of an existing bank <code>expenditure</code> tied to an existing <code>savings</code> account</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: There is an existing <code>expenditure</code> tied to an existing <code>savings</code> account.<br></p>
+<div class="paragraph">
+<p>There is enough money in the <code>savings</code> account for the change of amount.</p>
+</div>
+</li>
+<li>
+<p>Test case:
+<code>/edit /bankexpenditure /from JunBank Savings Account /transno 1 /amount 3.70</code><br>
+Expected: Updated the amount of the <code>expenditure</code> in index 1 of the <code>transaction list</code> in JunBank Savings Account being
+displayed after being edited.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Editing the description and category of an existing bank <code>expenditure</code> tied to an existing <code>savings</code> account</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: There is an existing <code>expenditure</code> tied to an existing <code>savings</code> account.</p>
+</li>
+<li>
+<p>Test case:
+<code>/edit /bankexpenditure /from JunBank Savings Account /transno 4 /desc Top Up EZLink Card /category Transport</code><br>
+Expected: Updated the description and category of the <code>expenditure</code> in index 1 of the <code>transaction list</code> in JunBank
+Savings Account being displayed after being edited.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="deleting-a-bank-expenditure-transaction"><a class="link" href="#deleting-a-bank-expenditure-transaction">F.12. Deleting a bank expenditure transaction</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Delete an existing bank <code>expenditure</code> in a <code>savings</code> account.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: There is an existing <code>expenditure</code> tied to an existing <code>savings</code> account.</p>
+</li>
+<li>
+<p>Test case:
+<code>/delete /bankexpenditure /from JunBank Savings Account /transno 1</code><br>
+Expected: Details of the <code>expenditure</code> in index 1 of the <code>transaction list</code> in JunBank Savings Account being displayed
+before being deleted.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="adding-a-deposit-transaction"><a class="link" href="#adding-a-deposit-transaction">F.13. Adding a deposit transaction</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Adding a new <code>deposit</code> to a <code>savings</code> account</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: There is an existing <code>savings</code> account to add the <code>deposit</code> to.</p>
+</li>
+<li>
+<p>Test case:
+<code>/add /deposit /to JunBank Savings Account /desc FREELANCE /amount 300 /date 29/10/2019</code><br>
+Expected: New details of the FREELANCE <code>deposit</code> being displayed after being added.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="editing-a-deposit-transaction"><a class="link" href="#editing-a-deposit-transaction">F.14. Editing a deposit transaction</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Editing the amount and date of an existing <code>deposit</code> tied to an existing <code>savings</code> account</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: There is an existing <code>deposit</code> tied to and existing <code>savings</code> account.<br></p>
+<div class="paragraph">
+<p>There is enough money in the bank account to change the amount.</p>
+</div>
+</li>
+<li>
+<p>Test case:
+<code>/edit /deposit /from JunBank Savings Account /transno 5 /amount 200 /date 30/10/2019</code><br>
+Expected: Updated amount and date of the <code>deposit</code> in index 5 of the <code>transaction list</code>  in JunBank Savings Account
+being displayed after being edited.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="deleting-a-deposit-transaction"><a class="link" href="#deleting-a-deposit-transaction">F.15. Deleting a deposit transaction</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Delete an existing bank <code>deposit</code> in a <code>savings</code> account.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: There is an existing <code>deposit</code> tied to an existing <code>savings</code> account.</p>
+</li>
+<li>
+<p>Test case:
+<code>/delete /deposit /from JunBank Savings Account /transno 1</code><br>
+Expected: Details of the <code>deposit</code> in index 1 of the <code>transaction list</code> in JunBank Savings Account being displayed
+before being deleted.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="adding-a-recurring-bank-expenditure-transaction"><a class="link" href="#adding-a-recurring-bank-expenditure-transaction">F.16. Adding a recurring bank expenditure transaction</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Adding a new bank <code>expenditure</code> to a <code>savings</code> account</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: There is an existing <code>savings</code> account to add the <code>expenditure</code> to.</p>
+</li>
+<li>
+<p>Test case:
+<code>/add /recurbankexp /from JunBank Savings Account /desc Netflicks /amount 10.98 /category Entertainment</code><br>
+Expected: New details of the Netflicks recurring <code>expenditure</code> being displayed after being added.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="editing-a-recurring-bank-expenditure-transaction"><a class="link" href="#editing-a-recurring-bank-expenditure-transaction">F.17. Editing a recurring bank expenditure transaction</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Editing the amount of an existing bank <code>expenditure</code> tied to an existing <code>savings</code> account</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: There is an existing <code>expenditure</code> tied to an existing <code>savings</code> account.<br></p>
+</li>
+<li>
+<p>Test case:
+<code>/edit /expenditure /from JunBank Savings Account /transno 1 /amount 49.90</code><br>
+Expected: Updated the amount of the <code>recurring expenditure</code> in index 1 of the <code>transaction list</code> of recurring
+expenditures in JunBank Savings Account being displayed after being edited.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Editing the description and category of an existing bank <code>expenditure</code> tied to an existing <code>savings</code> account</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: There is an existing <code>recurring expenditure</code> tied to an existing <code>savings</code> account.</p>
+</li>
+<li>
+<p>Test case:
+<code>/edit /recurbankexp /from JunBank Savings Account /transno 4 /desc Phone bill /category Bills</code><br>
+Expected: Updated the description and category of the <code>recurring expenditure</code> in index 1 of the <code>transaction list</code> of
+recurring expenditures in JunBank Savings Account being displayed after being edited.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="deleting-a-recurring-bank-expenditure-transaction"><a class="link" href="#deleting-a-recurring-bank-expenditure-transaction">F.18. Deleting a recurring bank expenditure transaction</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Delete an existing bank recurring <code>expenditure</code> in a <code>savings</code> account.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: There is an existing recurring <code>expenditure</code> tied to an existing <code>savings</code> account.</p>
+</li>
+<li>
+<p>Test case:
+<code>/delete /recurbankexp /from JunBank Savings Account /transno 1</code><br>
+Expected: Details of the recurring <code>expenditure</code> in index 1 of the <code>transaction list</code> of <code>recurring expenditure</code> in
+JunBank Savings Account being displayed before being deleted.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="adding-a-credit-card"><a class="link" href="#adding-a-credit-card">F.19. Adding a credit card</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -4713,7 +5039,7 @@ Expected: Error saying that there is already an existing card with the same name
 </div>
 </div>
 <div class="sect2">
-<h3 id="editing-a-credit-card"><a class="link" href="#editing-a-credit-card">F.9. Editing a credit card</a></h3>
+<h3 id="editing-a-credit-card"><a class="link" href="#editing-a-credit-card">F.20. Editing a credit card</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -4750,7 +5076,7 @@ Expected: Updated limit of the <code>card</code> being displayed after being edi
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-a-credit-card"><a class="link" href="#deleting-a-credit-card">F.10. Deleting a credit card</a></h3>
+<h3 id="deleting-a-credit-card"><a class="link" href="#deleting-a-credit-card">F.21. Deleting a credit card</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -4787,7 +5113,7 @@ Expected: Error saying <code>card</code> to be deleted does not exist.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="transferring-fund"><a class="link" href="#transferring-fund">F.11. Transferring fund</a></h3>
+<h3 id="transferring-fund"><a class="link" href="#transferring-fund">F.22. Transferring fund</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -4826,7 +5152,7 @@ Expected: Error saying that sender account has insufficient fund to be transferr
 </div>
 </div>
 <div class="sect2">
-<h3 id="finding-savings-accounts"><a class="link" href="#finding-savings-accounts">F.12. Finding savings accounts</a></h3>
+<h3 id="finding-savings-accounts"><a class="link" href="#finding-savings-accounts">F.23. Finding savings accounts</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -4863,7 +5189,7 @@ Expected: Error sayings that there is no <code>savings</code> account found.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="finding-investment-accounts"><a class="link" href="#finding-investment-accounts">F.13. Finding investment accounts</a></h3>
+<h3 id="finding-investment-accounts"><a class="link" href="#finding-investment-accounts">F.24. Finding investment accounts</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -4900,7 +5226,7 @@ Expected: Error sayings that there is no <code>investment</code> account found.<
 </div>
 </div>
 <div class="sect2">
-<h3 id="finding-cards"><a class="link" href="#finding-cards">F.14. Finding cards</a></h3>
+<h3 id="finding-cards"><a class="link" href="#finding-cards">F.25. Finding cards</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -4937,7 +5263,7 @@ Expected: Error sayings that there is no <code>card</code> found.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="finding-bonds"><a class="link" href="#finding-bonds">F.15. Finding bonds</a></h3>
+<h3 id="finding-bonds"><a class="link" href="#finding-bonds">F.26. Finding bonds</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -4974,7 +5300,7 @@ Expected: Error sayings that there is no <code>bond</code> found.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="finding-bank-transactions"><a class="link" href="#finding-bank-transactions">F.16. Finding bank transactions</a></h3>
+<h3 id="finding-bank-transactions"><a class="link" href="#finding-bank-transactions">F.27. Finding bank transactions</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -5011,7 +5337,7 @@ Expected: Found matching <code>bank</code> transaction record and displays the r
 </div>
 </div>
 <div class="sect2">
-<h3 id="finding-card-transactions"><a class="link" href="#finding-card-transactions">F.17. Finding card transactions</a></h3>
+<h3 id="finding-card-transactions"><a class="link" href="#finding-card-transactions">F.28. Finding card transactions</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -5048,7 +5374,7 @@ Expected: Found matching <code>card</code> transaction record and displays the r
 </div>
 </div>
 <div class="sect2">
-<h3 id="finding-recurring-expenditure-in-savings-account"><a class="link" href="#finding-recurring-expenditure-in-savings-account">F.18. Finding recurring expenditure in savings account</a></h3>
+<h3 id="finding-recurring-expenditure-in-savings-account"><a class="link" href="#finding-recurring-expenditure-in-savings-account">F.29. Finding recurring expenditure in savings account</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -5085,4 +5411,4 @@ Expected: Found matching recurring expenditure in <code>savings</code> account a
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-05 15:03:03 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-05 15:44:37 UTC</div></div></div></body></html>
