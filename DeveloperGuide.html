@@ -92,14 +92,19 @@
 <li><a href="#adding-a-credit-card">F.19. Adding a credit card</a></li>
 <li><a href="#editing-a-credit-card">F.20. Editing a credit card</a></li>
 <li><a href="#deleting-a-credit-card">F.21. Deleting a credit card</a></li>
-<li><a href="#transferring-fund">F.22. Transferring fund</a></li>
-<li><a href="#finding-savings-accounts">F.23. Finding savings accounts</a></li>
-<li><a href="#finding-investment-accounts">F.24. Finding investment accounts</a></li>
-<li><a href="#finding-cards">F.25. Finding cards</a></li>
-<li><a href="#finding-bonds">F.26. Finding bonds</a></li>
-<li><a href="#finding-bank-transactions">F.27. Finding bank transactions</a></li>
-<li><a href="#finding-card-transactions">F.28. Finding card transactions</a></li>
-<li><a href="#finding-recurring-expenditure-in-savings-account">F.29. Finding recurring expenditure in savings account</a></li>
+<li><a href="#adding-a-card-expenditure">F.22. Adding a card expenditure</a></li>
+<li><a href="#listing-card-expenditures">F.23. Listing card expenditures</a></li>
+<li><a href="#deleting-a-card-expenditure">F.24. Deleting a card expenditure</a></li>
+<li><a href="#adding-a-card-bill">F.25. Adding a card bill</a></li>
+<li><a href="#deleting-a-card-bill">F.26. Deleting a card bill</a></li>
+<li><a href="#transferring-fund">F.27. Transferring fund</a></li>
+<li><a href="#finding-savings-accounts">F.28. Finding savings accounts</a></li>
+<li><a href="#finding-investment-accounts">F.29. Finding investment accounts</a></li>
+<li><a href="#finding-cards">F.30. Finding cards</a></li>
+<li><a href="#finding-bonds">F.31. Finding bonds</a></li>
+<li><a href="#finding-bank-transactions">F.32. Finding bank transactions</a></li>
+<li><a href="#finding-card-transactions">F.33. Finding card transactions</a></li>
+<li><a href="#finding-recurring-expenditure-in-savings-account">F.34. Finding recurring expenditure in savings account</a></li>
 </ul>
 </li>
 </ul>
@@ -5047,7 +5052,7 @@ Expected: Error saying that there is already an existing card with the same name
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Prerequisites: There is an existing <code>card</code> to be edited.</p>
+<p>Prerequisites: There is an existing <code>card</code> to be edited and there must be no unpaid card expenditures.</p>
 </li>
 <li>
 <p>Test case:
@@ -5062,7 +5067,7 @@ Expected: Updated name of the <code>card</code> being displayed after being edit
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Prerequisites: There is an existing <code>card</code> to be edited.</p>
+<p>Prerequisites: There is an existing <code>card</code> to be edited and there must be no unpaid card expenditures.</p>
 </li>
 <li>
 <p>Test case:
@@ -5113,7 +5118,139 @@ Expected: Error saying <code>card</code> to be deleted does not exist.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="transferring-fund"><a class="link" href="#transferring-fund">F.22. Transferring fund</a></h3>
+<h3 id="adding-a-card-expenditure"><a class="link" href="#adding-a-card-expenditure">F.22. Adding a card expenditure</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Adding a <code>card expenditure</code> into a <code>card</code>.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: <code>Card expenditure</code> must be added into a <code>card</code> that exist and that month&#8217;s expenditures<br>
+must be unpaid.</p>
+</li>
+<li>
+<p>Test case:
+<code>/add /cardexpenditure /from POBB Tomorrow Card /amount 300 /date 01/11/2019 /desc Chicken Rice</code><br>
+Expected: <code>Card expenditure</code> successfully added into <code>card</code>.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Adding a <code>card expenditure</code> into a <code>card</code> which exceeds the monthly <code>card</code> limit.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: <code>Card expenditure</code> must be added into a <code>card</code> that exist and <code>expenditure amount</code> must<br>
+be above <code>card</code> limit.</p>
+</li>
+<li>
+<p>Test case:
+<code>/add /cardexpenditure /from POBB Tomorrow Card /amount 1200 /date 02/11/2019 /desc Fried Rice</code><br>
+Expected: <code>Card expenditure</code> failed to be added because amount has exceeded monthly <code>card</code> limit.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="listing-card-expenditures"><a class="link" href="#listing-card-expenditures">F.23. Listing card expenditures</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Listing <code>card expenditure</code> from a <code>card</code>.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: <code>Card expenditure</code> must exist inside <code>card</code>.</p>
+</li>
+<li>
+<p>Test case:
+<code>/list /cardexpenditure /from POBB Tomorrow Card</code><br>
+Expected: Paid and unpaid <code>card expenditure</code> are being listed.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="deleting-a-card-expenditure"><a class="link" href="#deleting-a-card-expenditure">F.24. Deleting a card expenditure</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Deleting a <code>card expenditure</code> from a <code>card</code>.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: <code>Card</code> must be contain the expenditure to be deleted and expenditure must be unpaid.</p>
+</li>
+<li>
+<p>Test case:
+<code>/delete /cardexpenditure /from POBB Tomorrow Card /transno 1</code><br>
+Expected: <code>Card expenditure</code> #1 successfully deleted from <code>card</code>.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="adding-a-card-bill"><a class="link" href="#adding-a-card-bill">F.25. Adding a card bill</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Adding a <code>card bill</code> to <code>savings</code> account.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: <code>Card expenditure</code> for the particular month and <code>savings</code> account must exist.</p>
+</li>
+<li>
+<p>Test case:
+<code>/add /cardbill /card POBB Tomorrow Card /date 10/2019 /bank JunBank Savings Account</code><br>
+Expected: <code>Card bill</code> with total amount spent for the specified month added into <code>savings</code> expenditure
+and total rebates added into <code>savings</code> deposit. When listing <code>card</code> expenditures with
+<code>/list /cardexpenditure /from POBB Tomorrow Card</code>, expenditures for that particular month will be
+transferred from unpaid to paid.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="deleting-a-card-bill"><a class="link" href="#deleting-a-card-bill">F.26. Deleting a card bill</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Deleting a <code>card bill</code> from <code>savings</code> account.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: <code>Card bill</code> for the particular month must exist in <code>savings</code> account.</p>
+</li>
+<li>
+<p>Test case:
+<code>/delete /cardbill /card POBB Tomorrow Card /date 10/2019 /bank JunBank Savings Account</code><br>
+Expected: <code>Card bill</code> expenditure and deposit in <code>savings</code> account will be deleted. When listing <code>card</code>
+expenditures with <code>/list /cardexpenditure /from POBB Tomorrow Card</code>, expenditures for that particular month
+will be transferred from paid to unpaid.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="transferring-fund"><a class="link" href="#transferring-fund">F.27. Transferring fund</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -5152,7 +5289,7 @@ Expected: Error saying that sender account has insufficient fund to be transferr
 </div>
 </div>
 <div class="sect2">
-<h3 id="finding-savings-accounts"><a class="link" href="#finding-savings-accounts">F.23. Finding savings accounts</a></h3>
+<h3 id="finding-savings-accounts"><a class="link" href="#finding-savings-accounts">F.28. Finding savings accounts</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -5189,7 +5326,7 @@ Expected: Error sayings that there is no <code>savings</code> account found.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="finding-investment-accounts"><a class="link" href="#finding-investment-accounts">F.24. Finding investment accounts</a></h3>
+<h3 id="finding-investment-accounts"><a class="link" href="#finding-investment-accounts">F.29. Finding investment accounts</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -5226,7 +5363,7 @@ Expected: Error sayings that there is no <code>investment</code> account found.<
 </div>
 </div>
 <div class="sect2">
-<h3 id="finding-cards"><a class="link" href="#finding-cards">F.25. Finding cards</a></h3>
+<h3 id="finding-cards"><a class="link" href="#finding-cards">F.30. Finding cards</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -5263,7 +5400,7 @@ Expected: Error sayings that there is no <code>card</code> found.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="finding-bonds"><a class="link" href="#finding-bonds">F.26. Finding bonds</a></h3>
+<h3 id="finding-bonds"><a class="link" href="#finding-bonds">F.31. Finding bonds</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -5300,7 +5437,7 @@ Expected: Error sayings that there is no <code>bond</code> found.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="finding-bank-transactions"><a class="link" href="#finding-bank-transactions">F.27. Finding bank transactions</a></h3>
+<h3 id="finding-bank-transactions"><a class="link" href="#finding-bank-transactions">F.32. Finding bank transactions</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -5337,7 +5474,7 @@ Expected: Found matching <code>bank</code> transaction record and displays the r
 </div>
 </div>
 <div class="sect2">
-<h3 id="finding-card-transactions"><a class="link" href="#finding-card-transactions">F.28. Finding card transactions</a></h3>
+<h3 id="finding-card-transactions"><a class="link" href="#finding-card-transactions">F.33. Finding card transactions</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -5374,7 +5511,7 @@ Expected: Found matching <code>card</code> transaction record and displays the r
 </div>
 </div>
 <div class="sect2">
-<h3 id="finding-recurring-expenditure-in-savings-account"><a class="link" href="#finding-recurring-expenditure-in-savings-account">F.29. Finding recurring expenditure in savings account</a></h3>
+<h3 id="finding-recurring-expenditure-in-savings-account"><a class="link" href="#finding-recurring-expenditure-in-savings-account">F.34. Finding recurring expenditure in savings account</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -5411,4 +5548,4 @@ Expected: Found matching recurring expenditure in <code>savings</code> account a
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-05 15:50:27 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-06 08:25:26 UTC</div></div></div></body></html>
