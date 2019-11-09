@@ -36,6 +36,7 @@
 <li><a href="#deleting-credit-card">4.4. Deleting Credit Card</a></li>
 <li><a href="#listing-credit-cards">4.5. Listing Credit Cards</a></li>
 <li><a href="#transferring-funds">4.6. Transferring Funds</a></li>
+<li><a href="#adding-goals">4.7. Adding Goals</a></li>
 </ul>
 </li>
 <li><a href="#documentation">5. Documentation</a>
@@ -1355,6 +1356,211 @@ fund transfer.</p>
 </ol>
 </div>
 </div>
+<div class="sect2">
+<h3 id="adding-goals"><a class="link" href="#adding-goals">4.7. Adding Goals</a></h3>
+<div class="paragraph">
+<p>The <code>/add /goals</code> feature allows user to add in any financial goals they have in mind to achieve for their future plans.
+This also aims to encourage users whom have yet to have savings to start saving  and track their goals.</p>
+</div>
+<div class="sect3">
+<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">4.7.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>The current implementation of adding goals allow users to either manually track their goals or track via an existing
+saving account. Also, the <code>/amount</code> parameter that user specify should be the total amount they wish to
+have in their saving account.
+The reason for providing these two options to users is that we consider that some users may prefer to do manual tracking
+while others would prefer tracking them using an existing savings account.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/AddGoalsCommand.png" alt="AddGoalsCommand" width="800">
+</div>
+<div class="title">Figure 18. Sequence Diagram of Adding Goals</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The sequence diagram presented above is assumed to be a valid command which will produce a successful result.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The sequence diagram presented above depicts the interaction between the <code>Logic</code> and <code>Model</code> component for running
+<code>AddGoalsCommand</code>.</p>
+</div>
+<div class="paragraph">
+<p>The <code>AddGoalsCommand</code> requires a minimum of <strong>3</strong> and up to a maximum of <strong>4</strong> inputs:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Goal name</p>
+</li>
+<li>
+<p>Intended amount to save</p>
+</li>
+<li>
+<p>Date they wish to achieve the goal by</p>
+</li>
+<li>
+<p><strong>OPTIONAL</strong> input:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Savings Account Name</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>When the user executes the <code>AddGoalsCommand</code>, the following steps are taken by the application:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>When <code>AddGoalsCommand</code> is executed, a new goal object is created  with the provided inputs.</p>
+</li>
+<li>
+<p>After creation of the goal object is created, the <code>AddGoalsCommand</code> will invoke the method <code>profileAddGoals</code>.</p>
+</li>
+<li>
+<p>Within the invocation of <code>profileAddGoals</code>, a method named <code>addToGoals</code> will be invoked to add the new goal object
+to an ArrayList containing all goals objects. .</p>
+</li>
+<li>
+<p>Once invoked, <code>addToGoals</code> will perform the following checks:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Checks if goal name specified is unique among all goals in the existing list through the method of <code>goalsExist</code></p>
+</li>
+<li>
+<p>If a saving accounts was specified, it will check for if the amount of money in the account is lesser than the
+goals amount specified</p>
+</li>
+<li>
+<p>Checks for the size of goals list through the method of <code>CheckNumGoals</code></p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<code>AddGoalsCommand</code> will throw an error if the above check fails.
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<ol class="arabic" start="4">
+<li>
+<p>After passing the above checks,<code>addToGoals</code> will add the new goals object into the existing list containing all goals
+objects.</p>
+</li>
+<li>
+<p>Once the goal object have been added, the details of the new goal object will be displayed to inform the user
+of the <strong>successful</strong> addition of the goal object.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">4.7.2. Design Considerations</a></h4>
+<div class="paragraph">
+<p>This section describes the various design considerations taken when implementing the <code>/add /goals</code> feature.</p>
+</div>
+<div class="paragraph">
+<p><strong>Aspect: Choice of whether to allow tying of savings account to a goals</strong></p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 18%;">
+<col style="width: 37%;">
+<col style="width: 45%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><strong>Approach</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Pros</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Cons</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>1.</strong> Allowing the option of tying of savings account</p></td>
+<td class="tableblock halign-left valign-top"><div><div class="ulist">
+<ul>
+<li>
+<p>Provides flexibility to users</p>
+</li>
+<li>
+<p>Able to track goals status and progress, know how much more to save</p>
+</li>
+</ul>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="ulist">
+<ul>
+<li>
+<p>Difficult to implement, have to consider several possibilities: what happens to the goals when
+e.g. if savings account was deleted, if user are allowed to tie and untie savings account, un-tracked goals status would
+be always false</p>
+</li>
+<li>
+<p>Increases coupling and dependency of savings account</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>2.</strong> Disallow tying of savings account</p></td>
+<td class="tableblock halign-left valign-top"><div><div class="ulist">
+<ul>
+<li>
+<p>Easier to implement in terms of code</p>
+</li>
+<li>
+<p>Lesser considerations during the implementation of <code>/edit /goals</code></p>
+</li>
+</ul>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="ulist">
+<ul>
+<li>
+<p>Less flexibility for the users</p>
+</li>
+<li>
+<p>The feature and importance of goals would be less evident</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><strong>Approach 1</strong> was taken after serious consideration and weighing out the pros and cons.</p>
+</div>
+<div class="paragraph">
+<p>Firstly, the original intention of <code>goals</code> feature is to model real-life implementation of having goals,
+encourages users to save and enable an easy yet convenient way of tracking on status of goals.
+Although it may increase coupling and dependencies, the implementation of <code>goals</code> evidently shows that the pros
+outweighs the cons despite these trade-offs.</p>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -1421,7 +1627,7 @@ Alternatively, you can download the AsciiDoc plugin for IntelliJ, which allows y
 <div class="content">
 <img src="images/chrome_save_as_pdf.png" alt="chrome save as pdf" width="800">
 </div>
-<div class="title">Figure 18. Saving documentation as PDF files in Chrome</div>
+<div class="title">Figure 19. Saving documentation as PDF files in Chrome</div>
 </div>
 </div>
 <div class="sect2">
@@ -5548,4 +5754,4 @@ Expected: Found matching recurring expenditure in <code>savings</code> account a
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-09 07:43:42 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-09 09:55:28 UTC</div></div></div></body></html>
