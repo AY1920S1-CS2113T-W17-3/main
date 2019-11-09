@@ -392,7 +392,7 @@ The following class plays an important role at the architecture level:</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>LogsCenter</code> : Used by many classes to write log messages to the App&#8217;s log file.</p>
+<p><code>LogsCenter</code> : Used by many classes to write log messages to <strong>OwlMoney&#8217;s</strong> log file.</p>
 </li>
 </ul>
 </div>
@@ -706,13 +706,28 @@ transactions <strong>will be deleted</strong> along with it given that it has a 
 <div class="sect2">
 <h3 id="storage-component"><a class="link" href="#storage-component">3.5. Storage Component</a></h3>
 <div class="paragraph">
-<p>To be added in v1.4.</p>
+<p>The <code>Storage</code> component:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>can save user data in <code>.csv</code> format and read it back.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>OwlMoney</strong> uses <a href="http://opencsv.sourceforge.net/">OpenCSV</a> during both importing and exporting data when acting on
+<code>.csv</code> files.</p>
+</div>
+<div class="paragraph">
+<p>This allows user to see and modify saved data easily, with the use of clearly defined columns.</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="common-classes"><a class="link" href="#common-classes">3.6. Common Classes</a></h3>
 <div class="paragraph">
-<p>To be added in v1.4.</p>
+<p>Classes used by multiple components are in stored in the <code>commons</code> package. For example, the <code>logging</code> feature of
+<strong>OwlMoney</strong> has its logging features centralised in <code>owlmoney.commons</code>.</p>
 </div>
 </div>
 </div>
@@ -1749,8 +1764,8 @@ One of: <code>UserGuide</code>, <code>DeveloperGuide</code>, <code>LearningOutco
 <div class="sect2">
 <h3 id="site-template"><a class="link" href="#site-template">5.6. Site Template</a></h3>
 <div class="paragraph">
-<p>The files in <a href="https://github.com/AY1920S1-CS2113T-W17-3/main/tree/master/docs/stylesheets"><code>docs/stylesheets</code></a> are the <a href="https://developer.mozilla" class="bare">https://developer.mozilla</a>
-.org/en-US/docs/Web/CSS[CSS stylesheets] of the site.
+<p>The files in <a href="https://github.com/AY1920S1-CS2113T-W17-3/main/tree/master/docs/stylesheets"><code>docs/stylesheets</code></a> are the
+<a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS stylesheets</a> of the site.
 You can modify them to change some properties of the site&#8217;s design.</p>
 </div>
 <div class="paragraph">
@@ -4669,7 +4684,7 @@ These instructions only provide a starting point for testers to work on; testers
 </table>
 </div>
 <div class="paragraph">
-<p>Persistent Storage for card related function are not enabled.</p>
+<p>Test data has been included for your convenience, feel free to deviate from the sample commands during testing.</p>
 </div>
 <div class="sect2">
 <h3 id="launch-and-shutdown"><a class="link" href="#launch-and-shutdown">F.1. Launch and Shutdown</a></h3>
@@ -5754,4 +5769,4 @@ Expected: Found matching recurring expenditure in <code>savings</code> account a
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-09 09:55:28 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-09 11:50:49 UTC</div></div></div></body></html>
