@@ -105,7 +105,7 @@
 <li><a href="#finding-bonds">F.31. Finding bonds</a></li>
 <li><a href="#finding-bank-transactions">F.32. Finding bank transactions</a></li>
 <li><a href="#finding-card-transactions">F.33. Finding card transactions</a></li>
-<li><a href="#finding-recurring-expenditure-in-savings-account">F.34. Finding recurring expenditure in savings account</a></li>
+<li><a href="#finding-recurring-expenditure-in-a-savings-account">F.34. Finding recurring expenditure in a savings account</a></li>
 <li><a href="#adding-new-goals">F.35. Adding new goals</a></li>
 <li><a href="#edit-goals">F.36. Edit goals</a></li>
 <li><a href="#delete-goals">F.37. Delete goals</a></li>
@@ -626,7 +626,7 @@ parameters</strong> before calling the <code>Profile</code> class in <code>Model
 <div class="ulist">
 <ul>
 <li>
-<p>Bank account</p>
+<p>Bank accounts</p>
 </li>
 <li>
 <p>Cards</p>
@@ -639,6 +639,9 @@ parameters</strong> before calling the <code>Profile</code> class in <code>Model
 </li>
 <li>
 <p>Bank transactions</p>
+</li>
+<li>
+<p>Recurring Expenditures</p>
 </li>
 </ul>
 </div>
@@ -5656,7 +5659,7 @@ Expected: New <code>card</code> is added into the profile.</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Prerequisites: There are currently a <code>card</code> with the same name.</p>
+<p>Prerequisites: There is currently a <code>card</code> with the same name.</p>
 </li>
 <li>
 <p>Test case:
@@ -5890,7 +5893,7 @@ transfer.</p>
 <li>
 <p>Test case:
 <code>/transfer /fund /from JunBank Savings Account /to POBB Savings Account /amount 500 /date 1/1/2019</code><br>
-Expected: Fund successfully transfer between the <code>bank</code> account with the transaction being displayed.</p>
+Expected: Fund successfully transfers between the <code>bank</code> account with the transaction being displayed.</p>
 </li>
 </ol>
 </div>
@@ -5900,13 +5903,13 @@ Expected: Fund successfully transfer between the <code>bank</code> account with 
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Prerequisites: There are at least two existing <code>bank</code> accounts, and the sender account do not have sufficient fund
+<p>Prerequisites: There are at least two existing <code>bank</code> accounts, and the sender account does not have sufficient fund
 for the transfer.</p>
 </li>
 <li>
 <p>Test case:
 <code>/transfer /fund /from JunBank Savings Account /to POBB Savings Account /amount 500 /date 1/1/2019</code><br>
-Expected: Error saying that sender account has insufficient fund to be transferred.</p>
+Expected: Error saying that the sender account has insufficient funds to be transferred.</p>
 </li>
 </ol>
 </div>
@@ -5923,7 +5926,7 @@ Expected: Error saying that sender account has insufficient fund to be transferr
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Prerequisites: There are at least one existing <code>savings</code> accounts.</p>
+<p>Prerequisites: There is at least one existing <code>savings</code> accounts.</p>
 </li>
 <li>
 <p>Test case:
@@ -5943,7 +5946,7 @@ Expected: Found matching <code>savings</code> account and displays the results.<
 <li>
 <p>Test case:
 <code>/find /savings /name Jun</code><br>
-Expected: Error sayings that there is no <code>savings</code> account found.</p>
+Expected: Error saying that there is no <code>savings</code> account found.</p>
 </li>
 </ol>
 </div>
@@ -5960,7 +5963,7 @@ Expected: Error sayings that there is no <code>savings</code> account found.</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Prerequisites: There are at least one existing <code>investment</code> accounts.</p>
+<p>Prerequisites: There is at least one existing <code>investment</code> accounts.</p>
 </li>
 <li>
 <p>Test case:
@@ -5980,7 +5983,7 @@ Expected: Found matching <code>investment</code> account and displays the result
 <li>
 <p>Test case:
 <code>/find /investment /name Vickers</code><br>
-Expected: Error sayings that there is no <code>investment</code> account found.</p>
+Expected: Error saying that there is no <code>investment</code> account found.</p>
 </li>
 </ol>
 </div>
@@ -5997,7 +6000,7 @@ Expected: Error sayings that there is no <code>investment</code> account found.<
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Prerequisites: There are at least one existing <code>card</code>.</p>
+<p>Prerequisites: There is at least one existing <code>card</code>.</p>
 </li>
 <li>
 <p>Test case:
@@ -6017,7 +6020,7 @@ Expected: Found matching <code>card</code> and displays the results.</p>
 <li>
 <p>Test case:
 <code>/find /card /name POBB</code><br>
-Expected: Error sayings that there is no <code>card</code> found.</p>
+Expected: Error saying that there is no <code>card</code> found.</p>
 </li>
 </ol>
 </div>
@@ -6034,7 +6037,7 @@ Expected: Error sayings that there is no <code>card</code> found.</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Prerequisites: There are at least one existing <code>bond</code> within the <code>investment</code> account.</p>
+<p>Prerequisites: There is at least one existing <code>bond</code> within the <code>investment</code> account.</p>
 </li>
 <li>
 <p>Test case:
@@ -6054,7 +6057,7 @@ Expected: Found matching <code>bond</code> and displays the results.</p>
 <li>
 <p>Test case:
 <code>/find /bonds /name SSB /from DBB Vickers Account</code><br>
-Expected: Error sayings that there is no <code>bond</code> found.</p>
+Expected: Error saying that there is no <code>bond</code> found.</p>
 </li>
 </ol>
 </div>
@@ -6067,11 +6070,11 @@ Expected: Error sayings that there is no <code>bond</code> found.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Searching for existing transaction records based on description</p>
+<p>Searching for existing transaction records based on the description</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Prerequisites: There are at least one transaction record and the <code>bank</code> to be search must exist.</p>
+<p>Prerequisites: There is at least one transaction record and the <code>bank</code> to be searched must exist.</p>
 </li>
 <li>
 <p>Test case:
@@ -6086,7 +6089,7 @@ Expected: Found matching <code>bank</code> transaction record and displays the r
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Prerequisites: There are at least one transaction record and the <code>bank</code> to be search must exist.</p>
+<p>Prerequisites: There is at least one transaction record and the <code>bank</code> to be searched must exist.</p>
 </li>
 <li>
 <p>Test case:
@@ -6104,11 +6107,11 @@ Expected: Found matching <code>bank</code> transaction record and displays the r
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Searching for existing transaction records based on description</p>
+<p>Searching for existing transaction records based on the description</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Prerequisites: There are at least one transaction record and the <code>card</code> to be search must exist.</p>
+<p>Prerequisites: There is at least one transaction record and the <code>card</code> to be searched must exist.</p>
 </li>
 <li>
 <p>Test case:
@@ -6123,7 +6126,7 @@ Expected: Found matching <code>card</code> transaction record and displays the r
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Prerequisites: There are at least one transaction record and the <code>card</code> to be search must exist.</p>
+<p>Prerequisites: There is at least one transaction record and the <code>card</code> to be searched must exist.</p>
 </li>
 <li>
 <p>Test case:
@@ -6137,19 +6140,19 @@ Expected: Found matching <code>card</code> transaction record and displays the r
 </div>
 </div>
 <div class="sect2">
-<h3 id="finding-recurring-expenditure-in-savings-account"><a class="link" href="#finding-recurring-expenditure-in-savings-account">F.34. Finding recurring expenditure in savings account</a></h3>
+<h3 id="finding-recurring-expenditure-in-a-savings-account"><a class="link" href="#finding-recurring-expenditure-in-a-savings-account">F.34. Finding recurring expenditure in a savings account</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Searching for existing recurring expenditure based on description</p>
+<p>Searching for existing recurring expenditure based on the description</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Prerequisites: There are at least one recurring expenditure and the <code>savings</code> account to be search must exist.</p>
+<p>Prerequisites: There is at least one recurring expenditure and the <code>savings</code> account to be searched must exist.</p>
 </li>
 <li>
 <p>Test case:
-<code>/find /recurbankexp /name JunBank Savings Account /desc bubble tea</code><br>
+<code>/find /recurbankexp /name JunBank Savings Account /desc spotif</code><br>
 Expected: Found matching recurring expenditure in <code>savings</code> account and displays the results.</p>
 </li>
 </ol>
@@ -6160,11 +6163,11 @@ Expected: Found matching recurring expenditure in <code>savings</code> account a
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Prerequisites: There are at least one recurring expenditure and the <code>savings</code> account to be search must exist.</p>
+<p>Prerequisites: There is at least one recurring expenditure and the <code>savings</code> account to be searched must exist.</p>
 </li>
 <li>
 <p>Test case:
-<code>/find /recurbankexp /name JunBank Savings Account /category food</code><br>
+<code>/find /recurbankexp /name JunBank Savings Account /category bills</code><br>
 Expected: Found matching recurring expenditure in <code>savings</code> account and displays the results.</p>
 </li>
 </ol>
@@ -6424,4 +6427,4 @@ Expected: There are no goals set!</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 07:03:03 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 09:06:54 UTC</div></div></div></body></html>

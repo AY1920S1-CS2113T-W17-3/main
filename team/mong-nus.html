@@ -92,6 +92,10 @@ way to review their credit card expenses.</p>
 <p><strong>Highlights</strong>: This enhancement involves adding several new commands to <strong>OwlMoney</strong>. As such it requires an
 understanding of the underlying architecture and the components <code>logic</code>, <code>model</code> and <code>storage</code>.</p>
 </li>
+<li>
+<p><strong>Credits</strong>: The implementation of <strong>Card</strong> feature was collaborated with Terence, as the implementation of the <strong>Card
+Expenditure</strong> feature depends on the implementation of the <strong>Card</strong> feature.</p>
+</li>
 </ul>
 </div>
 </div>
@@ -179,7 +183,13 @@ an in-depth analysis and understanding of other features.</p>
 <p>Organised and Coordinated Team Meeting</p>
 </li>
 <li>
-<p>Managed issue tracker and merging of pull requests (PRs)</p>
+<p>Managed issue tracker</p>
+</li>
+<li>
+<p>Reviewed and Merged pull requests (PRs)</p>
+</li>
+<li>
+<p>Ensured that</p>
 </li>
 </ul>
 </div>
@@ -193,10 +203,11 @@ an in-depth analysis and understanding of other features.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Contributed and wrote command syntax and explanation for
+<p>Contributed and wrote the sections for
 <a href="https://github.com/AY1920S1-CS2113T-W17-3/main/blob/master/docs/UserGuide.adoc#Features">Features</a>,
 <a href="https://github.com/AY1920S1-CS2113T-W17-3/main/blob/master/docs/UserGuide.adoc#utility-commands">Utility Commands</a>,
-<a href="https://github.com/AY1920S1-CS2113T-W17-3/main/blob/master/docs/UserGuide.adoc#command-summary">Command Summary</a>.</p>
+<a href="https://github.com/AY1920S1-CS2113T-W17-3/main/blob/master/docs/UserGuide.adoc#command-summary">Command Summary</a>.
+The documentations were written in collaboration with Brian, Terence, Valerie, Shamus.</p>
 </li>
 </ul>
 </div>
@@ -229,7 +240,7 @@ and
 <a href="https://github.com/AY1920S1-CS2113T-W17-3/main/blob/master/docs/DeveloperGuide.adoc#use-cases">Use Cases</a>.</p>
 </li>
 <li>
-<p>Vetted and resolved Developer Guide Error (Issue number
+<p>Vetted and resolved Developer Guide Error (Example: Issue Numbers
 <a href="https://github.com/AY1920S1-CS2113T-W17-3/main/issues/159">#159</a>,
 <a href="https://github.com/AY1920S1-CS2113T-W17-3/main/issues/160">#160</a>,
 <a href="https://github.com/AY1920S1-CS2113T-W17-3/main/issues/161">#161</a>,
@@ -249,7 +260,7 @@ and
 <div class="ulist">
 <ul>
 <li>
-<p>Reviewed Pull Requests (with non-trivial review comments):
+<p>Reviewed Pull Requests (with mostly non-trivial review comments):
 <a href="https://github.com/AY1920S1-CS2113T-W17-3/main/pull/66">#66</a>,
 <a href="https://github.com/AY1920S1-CS2113T-W17-3/main/pull/71">#71</a>,
 <a href="https://github.com/AY1920S1-CS2113T-W17-3/main/pull/77">#77</a>,
@@ -263,6 +274,18 @@ and
 <a href="https://github.com/AY1920S1-CS2113T-W17-3/main/pull/127">#127</a>,
 <a href="https://github.com/AY1920S1-CS2113T-W17-3/main/pull/134">#134</a>.</p>
 </li>
+<li>
+<p>Reported bugs and provided constructive suggestion for other team&#8217;s project (WordUp):
+<a href="https://github.com/mong-nus/ped/issues/1">#1</a>,
+<a href="https://github.com/mong-nus/ped/issues/2">#2</a>,
+<a href="https://github.com/mong-nus/ped/issues/3">#3</a>,
+<a href="https://github.com/mong-nus/ped/issues/4">#4</a>,
+<a href="https://github.com/mong-nus/ped/issues/5">#5</a>,
+<a href="https://github.com/mong-nus/ped/issues/6">#6</a>,
+<a href="https://github.com/mong-nus/ped/issues/7">#7</a>,
+<a href="https://github.com/mong-nus/ped/issues/8">#8</a>,
+<a href="https://github.com/mong-nus/ped/issues/9">#9</a>.</p>
+</li>
 </ul>
 </div>
 </div>
@@ -273,15 +296,69 @@ and
 <div class="paragraph">
 <p>The following sections below showcase extracts of my contributions to the User Guide and my ability to write
 documentation targeting end-users with little or no technical knowledge. In this section, it will only
-showcase the <strong>Find</strong> feature due to the page limit restriction. You can find more information about other features
-implemented by me
+showcase part of the <strong>Find</strong> feature due to the page limit restriction. You can find more information about other
+features implemented by me
 <a href="https://github.com/AY1920S1-CS2113T-W17-3/main/blob/master/docs/UserGuide.adoc">here</a>.</p>
 </div>
 <div class="sect2">
 <h3 id="4-1-finding-command-code-find-code"><a class="link" href="#4-1-finding-command-code-find-code">4.1 Finding Command: <code>/find</code></a></h3>
 <div class="paragraph">
-<p>This command allows the user to find different kind of information which will be demonstrated below:</p>
+<p>The <code>/find</code> command allows the user to search for different kind of information which will be demonstrated in this
+section.</p>
 </div>
+<div class="paragraph">
+<p>Below is a list of command parameters that you can expect to use for the <code>/find</code> command in this section.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 18%;">
+<col style="width: 37%;">
+<col style="width: 45%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Parameter</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Acceptable Range of Values</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ACCOUNT_NAME</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Indicates the name of the bank account.</p>
+<p class="tableblock">(e.g. DBB Vickers Account)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ACCOUNT_NAME</code> should contain alphabetic characters, numeric characters, and spaces only.</p>
+<p class="tableblock"><code>ACCOUNT_NAME</code> is case-sensitive.</p>
+<p class="tableblock">Take note that there is a maximum of <strong>30</strong> character limit.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>CARD_NAME</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Indicates the name of the credit card.</p>
+<p class="tableblock">(e.g. POBB Everyday Card)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>CARD_NAME</code> should contain alphabetic characters, numeric characters, and spaces only.</p>
+<p class="tableblock"><code>CARD_NAME</code> is case-sensitive.</p>
+<p class="tableblock">Take note that there is a maximum of <strong>30</strong> character limit.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>BOND_NAME</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Indicates the name of the investment bond.</p>
+<p class="tableblock">(e.g. June SSB)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>BOND_NAME</code> should contain alphabetic characters, numeric characters, and spaces only.</p>
+<p class="tableblock"><code>BOND_NAME</code> is case-sensitive.</p>
+<p class="tableblock">Take note that there is a maximum of <strong>30</strong> character limit.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DESCRIPTION</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Indicates the description of the transaction.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DESCRIPTION</code> should contain alphabetic characters, numeric characters, and spaces only.</p>
+<p class="tableblock">Take note that there is a maximum of <strong>50</strong> character limit.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DATE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Indicates the date the transaction was made.</p>
+<p class="tableblock">(e.g. 2/2/2019)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DATE</code> should be in <strong>DD/MM/YYYY</strong> format and cannot be a newer date than the current date.</p></td>
+</tr>
+</tbody>
+</table>
 <div class="sect3">
 <h4 id="4-1-1-finding-savings-account-details-code-find-savings-code"><a class="link" href="#4-1-1-finding-savings-account-details-code-find-savings-code">4.1.1 Finding savings account details <code>/find /savings</code></a></h4>
 <div class="paragraph">
@@ -289,7 +366,8 @@ implemented by me
 details of the savings account. Don&#8217;t worry <strong>OwlMoney</strong> allows you to find it with ease.</p>
 </div>
 <div class="paragraph">
-<p>Command Example: <code>/find /savings /name Jun</code></p>
+<p>Command Syntax: <code>/find /savings /name ACCOUNT_NAME</code>
+Command Example: <code>/find /savings /name Jun</code></p>
 </div>
 <div class="paragraph">
 <p>The command example allows the user to find and list all savings account that matches the keyword "Jun". This can
@@ -297,9 +375,9 @@ be seen from Figure 2 below.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/FindSavingAccountCommand.png" alt="FindSavingAccountCommand">
+<img src="../images/FindSavings.png" alt="FindSavings">
 </div>
-<div class="title">Figure 2: Find Investment Account</div>
+<div class="title">Figure : Successful search of savings account after <code>/find /savings</code></div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -309,7 +387,7 @@ be seen from Figure 2 below.</p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Keyword use for the search is case-insensitive, providing users greater flexibility during the search.</p>
+<p>Keyword (<code>ACCOUNT_NAME</code>) use for the search is case-insensitive, providing users greater flexibility during the search.</p>
 </div>
 </td>
 </tr>
@@ -323,7 +401,8 @@ be seen from Figure 2 below.</p>
 details of the investment account. Don&#8217;t worry <strong>OwlMoney</strong> allows you to find it with ease.</p>
 </div>
 <div class="paragraph">
-<p>Command Example: <code>/find /savings /name Vickers</code></p>
+<p>Command Syntax: <code>/find /investment /name ACCOUNT_NAME</code>
+Command Example: <code>/find /investment /name Vickers</code></p>
 </div>
 <div class="paragraph">
 <p>The command example allows the user to find and list all investment account that matches the keyword "Vickers".
@@ -331,9 +410,9 @@ This can be seen from Figure 3 below.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/FindInvestmentAccountCommand.png" alt="FindInvestmentAccountCommand">
+<img src="../images/FindInvestment.png" alt="FindInvestment">
 </div>
-<div class="title">Figure 3: Find Investment Account</div>
+<div class="title">Figure : Successful search of investment account after <code>/find /investment</code></div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -343,7 +422,7 @@ This can be seen from Figure 3 below.</p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Keyword use for the search is case-insensitive, providing users greater flexibility during the search.</p>
+<p>Keyword (<code>ACCOUNT_NAME</code>) use for the search is case-insensitive, providing users greater flexibility during the search.</p>
 </div>
 </td>
 </tr>
@@ -357,7 +436,8 @@ This can be seen from Figure 3 below.</p>
 details of the card. Don&#8217;t worry <strong>OwlMoney</strong> allows you to find it with ease.</p>
 </div>
 <div class="paragraph">
-<p>Command Example: <code>/find /card /name POBB</code></p>
+<p>Command Syntax: <code>/find /card /name CARD_NAME</code>
+Command Example: <code>/find /card /name POBB</code></p>
 </div>
 <div class="paragraph">
 <p>The command example allows the user to find and list all card that matches with the keyword "POBB". This can
@@ -377,7 +457,7 @@ be seen from Figure 4 below.</p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Keyword use for the search is case-insensitive, providing users greater flexibility during the search.</p>
+<p>Keyword (<code>CARD_NAME</code>) use for the search is case-insensitive, providing users greater flexibility during the search.</p>
 </div>
 </td>
 </tr>
@@ -391,7 +471,8 @@ be seen from Figure 4 below.</p>
 details of the bond. Don&#8217;t worry <strong>OwlMoney</strong> allows you to find it with ease.</p>
 </div>
 <div class="paragraph">
-<p>Command Example: <code>/find /bonds /name SSB /from DBB Vickers Account</code></p>
+<p>Command Syntax: <code>/find /bonds /name BOND_NAME /from ACCOUNT_NAME</code>
+Command Example: <code>/find /bonds /name SSB /from DBB Vickers Account</code></p>
 </div>
 <div class="paragraph">
 <p>The command example allows the user to find and list all bonds within DBB Vicker Account that matches the
@@ -399,9 +480,9 @@ keyword "SSB". This can be seen from Figure 5 below.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/FindBondCommand.png" alt="FindBondCommand">
+<img src="../images/FindBond.png" alt="FindBond">
 </div>
-<div class="title">Figure 5: Find Bonds</div>
+<div class="title">Figure : Successful search of bonds after <code>/find /bonds</code></div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -411,7 +492,7 @@ keyword "SSB". This can be seen from Figure 5 below.</p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Keyword use for the search is case-insensitive, providing users greater flexibility during the search.</p>
+<p>Keyword (<code>BOND_NAME</code>) use for the search is case-insensitive, providing users greater flexibility during the search.</p>
 </div>
 </td>
 </tr>
@@ -425,7 +506,9 @@ keyword "SSB". This can be seen from Figure 5 below.</p>
 details of a specific bank transaction&#8217;s records. Don&#8217;t worry <strong>OwlMoney</strong> allows you to find it with ease.</p>
 </div>
 <div class="paragraph">
-<p>Command Example: <code>/find /banktransaction /name JunBank Savings Account /desc bubble tea /from 1/1/2019 /to 7/1/2019
+<p>Command Syntax: /find /banktransaction /name ACCOUNT_NAME [/desc DESCRIPTION] [/from DATE /to DATE] [/category
+CATEGORY]
+Command Example: <code>/find /banktransaction /name JunBank Savings Account /desc bubble tea /from 1/1/2019 /to 7/1/2019
 /category food</code></p>
 </div>
 <div class="paragraph">
@@ -434,52 +517,9 @@ be seen from Figure 6 below.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/FindBankTransactionCommand.png" alt="FindBankTransactionCommand">
+<img src="../images/FindBankTransaction4.png" alt="FindBankTransaction4">
 </div>
-<div class="title">Figure 6: Find Bank Transaction</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Keyword use for description and category is case-insensitive, providing users greater flexibility during the
-search.</p>
-</div>
-<div class="paragraph">
-<p>The date range for /from and /to is inclusive of the date specified.</p>
-</div>
-<div class="paragraph">
-<p>The search will list transaction records that match with either one of the parameters; description, category or date
-range.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-</div>
-<div class="sect3">
-<h4 id="4-1-3-finding-card-transaction-code-find-cardtransaction-code"><a class="link" href="#4-1-3-finding-card-transaction-code-find-cardtransaction-code">4.1.3 Finding card transaction <code>/find /cardtransaction</code></a></h4>
-<div class="paragraph">
-<p>Scenario: Let&#8217;s say that you have thousands of card transaction records and you want to find the
-details of a specific card transaction&#8217;s records. Don&#8217;t worry <strong>OwlMoney</strong> allows you to find it with ease.</p>
-</div>
-<div class="paragraph">
-<p>Command Example: <code>/find /cardtransaction /name POBB Tomorrow Card /desc bubble tea /from 1/1/2019 /to 7/1/2019 /category
-food</code></p>
-</div>
-<div class="paragraph">
-<p>The command example allows the user to find and list all savings account that matches the keyword "DBB". This can
-be seen from Figure 7 below.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/FindCardTransactionCommand.png" alt="FindCardTransactionCommand">
-</div>
-<div class="title">Figure 7: Find Card Transaction</div>
+<div class="title">Figure : Successful search of bank transaction by description, category and date range after <code>/find /banktransaction</code></div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -489,8 +529,8 @@ be seen from Figure 7 below.</p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Keyword use for description and category is case-insensitive, providing users greater flexibility during the
-search.</p>
+<p>Keyword (<code>DESCRIPTION</code> and <code>CATEGORY</code>) use for description and category is case-insensitive, providing users greater
+flexibility during the search.</p>
 </div>
 <div class="paragraph">
 <p>The date range for /from and /to is inclusive of the date specified.</p>
@@ -499,9 +539,16 @@ search.</p>
 <p>The search will list transaction records that match with either one of the parameters; description, category or date
 range.</p>
 </div>
+<div class="paragraph">
+<p>The parameter within the square bracket (E.g. <code>[/desc DESCRIPTION]`</code>) is optional in the command. However, at least one
+of /desc, /category, or /from with /to must be used to make it a valid command.</p>
+</div>
 </td>
 </tr>
 </table>
+</div>
+<div class="paragraph">
+<p>For the complete list of functionality for <code>/find</code> command, you can find them here.</p>
 </div>
 </div>
 </div>
@@ -521,7 +568,7 @@ implemented by me
 <h3 id="5-1-design-for-find-feature"><a class="link" href="#5-1-design-for-find-feature">5.1 Design for Find Feature</a></h3>
 <div class="imageblock">
 <div class="content">
-<img src="../images/classdiagram.png" alt="classdiagram">
+<img src="../images/FindClassDiagram.png" alt="FindClassDiagram">
 </div>
 <div class="title">Figure 8: Find Command Class Diagram</div>
 </div>
@@ -531,7 +578,7 @@ implemented by me
 <div class="ulist">
 <ul>
 <li>
-<p>Bank account</p>
+<p>Bank accounts</p>
 </li>
 <li>
 <p>Cards</p>
@@ -540,10 +587,13 @@ implemented by me
 <p>Bonds</p>
 </li>
 <li>
-<p>Card transaction</p>
+<p>Card transactions</p>
 </li>
 <li>
-<p>Bank transaction</p>
+<p>Bank transactions</p>
+</li>
+<li>
+<p>Recurring Expenditures</p>
 </li>
 </ul>
 </div>
@@ -555,10 +605,9 @@ implemented by me
 <div class="sect2">
 <h3 id="5-2-implementation-for-find-feature"><a class="link" href="#5-2-implementation-for-find-feature">5.2 Implementation for Find feature</a></h3>
 <div class="paragraph">
-<p>The following section describes the specific implementation for the <strong>finding of savings account</strong> and how data flows
-across
-various objects and methods to obtain a successful execution. In this section, we will be showcasing the data flow of
-finding a savings account.</p>
+<p>The following section describes the specific implementation for <strong>finding of the savings account</strong> and how data flows
+across various objects and methods to obtain a successful execution. In this section, we will be showcasing the data
+flow of finding a savings account.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -625,10 +674,10 @@ The sequence diagram presented above is assumed to be a valid command which will
 <div class="ulist">
 <ul>
 <li>
-<p>Check for matching savings account&#8217;s name with the keyword among all savings account stored in the ArrayList.</p>
+<p>Check for matching account name with the keyword among all accounts stored in the ArrayList.</p>
 </li>
 <li>
-<p>Check whether the savings account that matches the keyword is indeed a savings account.</p>
+<p>Check whether the account that matches the keyword is indeed a savings account.</p>
 </li>
 </ul>
 </div>
@@ -656,5 +705,83 @@ user of the <strong>successful</strong> matches.</p>
 </ol>
 </div>
 </div>
+<div class="sect2">
+<h3 id="5-3-design-considerations"><a class="link" href="#5-3-design-considerations">5.3 Design Considerations</a></h3>
+<div class="paragraph">
+<p>This section describes the various design considerations taken when implementing the <code>/find</code> feature.</p>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 07:03:03 UTC</div></div></div></body></html>
+<div class="paragraph">
+<p><strong>Aspect: Choice of whether the keyword (E.g. <code>DESCRIPTION</code> or <code>CATEGORY</code>) to be searched should be case-sensitive or
+case-insensitive</strong></p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 18%;">
+<col style="width: 37%;">
+<col style="width: 45%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><strong>Approach</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Pros</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Cons</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>1.</strong> Searching of items based on the keyword is case-sensitive.</p></td>
+<td class="tableblock halign-left valign-top"><div><div class="ulist">
+<ul>
+<li>
+<p>By restricting the search to be case-sensitive, it provides user with more accurate searched result.</p>
+</li>
+</ul>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="ulist">
+<ul>
+<li>
+<p>By having a case-sensitive search, it will cause the <code>/find</code> command to be inflexible. As the user will need to
+provide the exact capitalisation within the keyword to be able to find the item he/she is searching for.</p>
+</li>
+<li>
+<p>For example,if the description of an expenditure that the user is searching for is "Lunch at KFC". The user will not
+be able to find the expenditure if he/she provide the keyword as "lunch". This is because the capitalisation of the
+first letter within the keyword is "l" and it is different from the expenditure description.</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>2.</strong> Searching of items based on the keyword is case-insensitive.</p></td>
+<td class="tableblock halign-left valign-top"><div><div class="ulist">
+<ul>
+<li>
+<p>Provide user with greater flexibility when searching for matching items.</p>
+</li>
+</ul>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="ulist">
+<ul>
+<li>
+<p>If interest has already been credited, it is not feasible to change the names of past records as it might cause
+confusion to the end user. This becomes more apparent when the names clash with the name of another investment bond
+which had expired prior to making this edit. This might confuse users as they might think that they earned much more
+interest from the same bond.</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>After weighting the pros and cons, <strong>approach 2</strong> was taken.</p>
+</div>
+<div class="paragraph">
+<p>The reason for choosing approach 2 over approach 1 is mainly due to the flexibility it can provide to a user. Although,
+searching of item with case insensitivity might result in more result being display. We felt that the ability to match
+keyword with the item that the user would like to find easily is more important as it make the enhance the
+user-friendliness of the user experience when using of our application.</p>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 09:06:54 UTC</div></div></div></body></html>
