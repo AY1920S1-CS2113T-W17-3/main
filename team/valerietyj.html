@@ -271,7 +271,7 @@ Regardless whether it&#8217;s a short-term goal <em class="small">like saving fo
 <p><code>TARGET_AMOUNT</code> is based on the total amount of money you aim to have in your savings bank account.</p>
 </div>
 <div class="paragraph">
-<p>YOU CAN ONLY ADD UP TO <strong>20</strong> GOALS</p>
+<p>YOU CAN ONLY ADD UP TO <strong>20</strong> GOALS.</p>
 </div>
 </td>
 </tr>
@@ -352,7 +352,7 @@ Savings Account</code>.</p>
 <p>At least one of <code>/newname</code>, <code>/amount</code>, <code>/in</code>, <code>/by</code>, <code>/from</code>, <code>/mark</code> must be used.</p>
 </div>
 <div class="paragraph">
-<p><code>/in</code> and <code>/by</code> cannot be used together at the same time</p>
+<p><code>/in</code> and <code>/by</code> cannot be used together at the same time.</p>
 </div>
 <div class="paragraph">
 <p><code>ACCOUNT_NAME</code> can only be names of existing savings bank accounts and not investment accounts or credit cards.</p>
@@ -361,7 +361,7 @@ Savings Account</code>.</p>
 <p><code>/mark</code> is used to manually mark <strong>un-tracked</strong> goals status and cannot contain trailing arguments!</p>
 </div>
 <div class="paragraph">
-<p>Untie your currently linked goals with the same ACCOUNT_NAME <code>/from ACCOUNT_NAME</code></p>
+<p>Untie your currently linked goals with the <strong>same ACCOUNT_NAME</strong> that you link to using <code>/from ACCOUNT_NAME</code>.</p>
 </div>
 </td>
 </tr>
@@ -402,6 +402,20 @@ Savings Account</code>.</p>
 </div>
 <div class="title">Figure 5. Successful edition of goal date and amount after using `/edit /goals /by /amount `</div>
 </div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>You can also add a savings account using the edit feature if your existing goal has no account linked to it.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
 <div class="ulist">
 <ul>
 <li>
@@ -430,28 +444,11 @@ Marks un-tracked goals as done.</p>
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<div class="title">Successful edition of goal to link to savings account, untie from savings account and marking an</div>
-<p>un-tracked goal as achieved.</p>
-</div>
 <div class="imageblock">
 <div class="content">
 <img src="../images/GoalsEditMultiple.png" alt="GoalsEditMultiple" width="970">
 </div>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>You can also add a savings account if your existing goal has no account linked to it.</p>
-</div>
-</td>
-</tr>
-</table>
+<div class="title">Figure 6. Successful use of edit feature to link / unlink goals to / from savings account and mark done an un-tracked goals.</div>
 </div>
 </div>
 <div class="sect4">
@@ -483,7 +480,7 @@ Or achieved your goal? You can safely delete them!</p>
 <div class="content">
 <img src="../images/GoalsDelete.png" alt="GoalsDelete" width="970">
 </div>
-<div class="title">Figure 6. Successful deletion of goal after using <code>/delete /goals /name</code></div>
+<div class="title">Figure 7. Successful deletion of goal after using <code>/delete /goals /name</code></div>
 </div>
 </div>
 </div>
@@ -507,7 +504,7 @@ to provide experienced end-users a walk-through on the design implementation and
 <div class="content">
 <img src="../images/LogicCommandGoalsPackage.png" alt="LogicCommandGoalsPackage" width="800">
 </div>
-<div class="title">Figure 7. Goals Command Class Diagram</div>
+<div class="title">Figure 8. Goals Command Class Diagram</div>
 </div>
 <div class="paragraph">
 <p>The <code>logic.command.goals</code> package consist of <code>Goals</code> classes with the following features:</p>
@@ -551,9 +548,9 @@ while others would prefer tracking them using an existing savings account.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/AddGoalsCommand.png" alt="AddGoalsCommand" width="800">
+<img src="../images/AddGoalsCommand.png" alt="AddGoalsCommand" width="970">
 </div>
-<div class="title">Figure 8. Sequence Diagram of Adding Goals</div>
+<div class="title">Figure 9. Sequence Diagram of Adding Goals</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -738,182 +735,6 @@ Although it may increase coupling and dependencies, the implementation of <code>
 outweighs the cons despite these trade-offs.</p>
 </div>
 </div>
-<div class="sect3">
-<h4 id="use-cases-for-implementation-of-goals"><a class="link" href="#use-cases-for-implementation-of-goals">Use Cases for implementation of goals</a></h4>
-<div class="paragraph">
-<p><strong>Actor: Existing user</strong><br>
-<a id="UC-12"></a> <strong>Use case: UC12 - Set short or long term financial goal</strong><br>
-<strong>Preconditions:</strong></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>User has a profile created</strong></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><strong>Main success scenario:</strong></p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>User chooses to set financial goals.</p>
-</li>
-<li>
-<p>System requests the type of financial goal to be set.</p>
-</li>
-<li>
-<p>User specifies the type of financial goal to be set.</p>
-</li>
-<li>
-<p>System requests information for the financial goal.</p>
-</li>
-<li>
-<p>User enters the information required for setting the financial goal.</p>
-</li>
-<li>
-<p>System creates the financial goal.</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p><strong>Extensions</strong></p>
-</div>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>3a. System detects invalid type of financial goal to be set.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>3a1. System requests for the correct type of financial goal to be set.</p>
-</li>
-<li>
-<p>3a2. User re-enters the type of financial goal to be set.</p>
-</li>
-<li>
-<p>Steps 3a1-3a2 are repeated until the type of financial goal to be set is entered correctly.</p>
-</li>
-<li>
-<p>Use case resumes from step 4.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>5a. System detects invalid information required for setting the financial goal.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>5a1. System requests for the correct information required for setting the financial goal.</p>
-</li>
-<li>
-<p>5a2. User re-enters the information required for setting the financial goal.</p>
-</li>
-<li>
-<p>Steps 5a1-5a2 are repeated until the information required for setting the financial goal is entered correctly.</p>
-</li>
-<li>
-<p>Use case resumes from step 6.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><strong>Actor: Indecisive user</strong><br>
-<a id="UC-13"></a> <strong>Use case: UC13 -  Edit existing financial goal</strong><br>
-<strong>Preconditions:</strong></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>User has a profile created</strong></p>
-</li>
-<li>
-<p><strong>User has a financial goal set up</strong></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><strong>Main success scenario:</strong></p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>User chooses to edit existing financial goal.</p>
-</li>
-<li>
-<p>System requests the financial goal to be edited.</p>
-</li>
-<li>
-<p>User specifies the financial goal to be edited.</p>
-</li>
-<li>
-<p>System requests the information to be edited.</p>
-</li>
-<li>
-<p>User enters the information to be updated.</p>
-</li>
-<li>
-<p>System updates existing financial goal.</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p><strong>Extensions</strong></p>
-</div>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>3a. System detects invalid financial goal to be edited.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>3a1. System requests for the correct financial goal to be edited.</p>
-</li>
-<li>
-<p>3a2. User re-enters the financial goal to be edited.</p>
-</li>
-<li>
-<p>Steps 3a1-3a2 are repeated until the financial goal to be edited is entered correctly.</p>
-</li>
-<li>
-<p>Use case resumes from step 4.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>5a. System detects invalid information to be updated.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>5a1. System requests for the correct information to be updated.</p>
-</li>
-<li>
-<p>5a2. User re-enters the information to be updated.</p>
-</li>
-<li>
-<p>Steps 5a1-5a2 are repeated until the information to be updated is entered correctly.</p>
-</li>
-<li>
-<p>Use case resumes from step 6.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
 </div>
 </div>
-</div>
-</div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 12:20:08 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 12:20:46 UTC</div></div></div></body></html>
