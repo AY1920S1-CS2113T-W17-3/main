@@ -34,9 +34,8 @@
 <li><a href="#adding-savings">4.2. Adding Savings</a></li>
 <li><a href="#editing-bonds">4.3. Editing Bonds</a></li>
 <li><a href="#deleting-credit-card">4.4. Deleting Credit Card</a></li>
-<li><a href="#listing-credit-cards">4.5. Listing Credit Cards</a></li>
-<li><a href="#finding-of-savings-account">4.6. Finding of Savings Account</a></li>
-<li><a href="#adding-goals">4.7. Adding Goals</a></li>
+<li><a href="#finding-of-savings-account">4.5. Finding of Savings Account</a></li>
+<li><a href="#adding-goals">4.6. Adding Goals</a></li>
 </ul>
 </li>
 <li><a href="#documentation">5. Documentation</a>
@@ -1229,11 +1228,24 @@ in a high risk of logic and coding errors, leaving room for bugs to be exploited
 </div>
 <div class="sect2">
 <h3 id="deleting-credit-card"><a class="link" href="#deleting-credit-card">4.4. Deleting Credit Card</a></h3>
+<div class="paragraph">
+<p>The <code>/delete /card</code> feature aims to help users remove credit cards that they no longer wish to store in their
+profile. This could be because the credit card has expired and they no longer wish to keep track of it.</p>
+</div>
+<div class="sect3">
+<h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">4.4.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>The current implementation of deleting <code>card</code> allows users to remove a credit card from their profile by entering
+the credit card name. Because we allow entering of card name that is case and trailing whitespace insensitive, users do
+not need to worry about typing the exact card name. Although each credit card has it&#8217;s own Universal Unique Identifier
+(UUID), it is not exposed to the users because UUID is a string of 32 alphanumeric characters and it will be very
+unintuitive for them to enter it into the command.</p>
+</div>
 <div class="imageblock">
 <div class="content">
 <img src="images/DeleteCardCommand.png" alt="DeleteCardCommand" width="970">
 </div>
-<div class="title">Figure 15. Model Component Diagram</div>
+<div class="title">Figure 15. Sequence Diagram for deleting of credit card</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1311,78 +1323,124 @@ of the <strong>successful</strong> deletion of the card object.</p>
 </ol>
 </div>
 </div>
-<div class="sect2">
-<h3 id="listing-credit-cards"><a class="link" href="#listing-credit-cards">4.5. Listing Credit Cards</a></h3>
-<div class="imageblock">
-<div class="content">
-<img src="images/listCardCommand.png" alt="listCardCommand" width="970">
+<div class="sect3">
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">4.4.2. Design Considerations</a></h4>
+<div class="paragraph">
+<p>This section describes the various design considerations taken when implementing the <code>/delete /card</code> feature.</p>
 </div>
-<div class="title">Figure 16. Model Component Diagram</div>
+<div class="paragraph">
+<p><strong>Aspect: Choice of using which parameters for the deletion of credit cards</strong></p>
 </div>
-<div class="admonitionblock note">
-<table>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 18%;">
+<col style="width: 37%;">
+<col style="width: 45%;">
+</colgroup>
+<thead>
 <tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-The sequence diagram presented above is assumed to be a valid command which will produce a successful result.
-</td>
+<th class="tableblock halign-left valign-top"><strong>Approach</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Pros</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Cons</strong></th>
 </tr>
-</table>
-</div>
-<div class="paragraph">
-<p>The above sequence diagram depicts the interaction between the <code>Logic</code> and <code>Model</code> component for running
-<code>ListCardCommand</code>.</p>
-</div>
-<div class="paragraph">
-<p>The <code>ListCardCommand</code> does not require any additional input.</p>
-</div>
-<div class="paragraph">
-<p>When the user executes the <code>ListCardCommand</code>, the following steps are taken by the application:</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>When the <code>ListCardCommand</code> is executed, it will invoke <code>profileListCard</code>.</p>
-</li>
-<li>
-<p>Within the invocation of <code>profileListCard</code>, a method name <code>cardListListCard</code> will be invoked.</p>
-</li>
-<li>
-<p>Once invoked, <code>cardListListCard</code> will perform the following checks:</p>
-<div class="ulist">
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>1.</strong> Allowing the deletion of credit cards by specifying the card name (case and trailing whitespace insensitive).</p></td>
+<td class="tableblock halign-left valign-top"><div><div class="ulist">
 <ul>
 <li>
-<p>Check the <code>ArrayList</code> containing the card objects is not empty through the method cardListCheckListEmpty.</p>
+<p>More intuitive because users typically remember their cards by its name.</p>
+</li>
+<li>
+<p>Users do not need to worry about remembering the exact card name because it is case insensitive.</p>
 </li>
 </ul>
-</div>
-</li>
-</ol>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<code>cardListListCard</code> will throw an error if the above check fails.
-</td>
-</tr>
-</table>
-</div>
-<div class="olist arabic">
-<ol class="arabic" start="4">
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="ulist">
+<ul>
 <li>
-<p>After passing the above checks, <code>cardListListCard</code> will display the details of each card within the Arraylist.</p>
+<p>Harder to implement because additional functions are required for the trimming of spaces from card names and also
+converting it to a common case for comparison.</p>
 </li>
-</ol>
+<li>
+<p>Users cannot have multiple cards with the same name but different cases (e.g. VISA, Visa, ViSa).</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>2.</strong> Allowing the deletion of credit cards by specifying the exact card name (case and trailing whitespace sensitive).</p></td>
+<td class="tableblock halign-left valign-top"><div><div class="ulist">
+<ul>
+<li>
+<p>It allows for multiple cards to have the same name with different cases (e.g. VISA, Visa, ViSa).</p>
+</li>
+</ul>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="ulist">
+<ul>
+<li>
+<p>Users may forget their exact card name because it is difficult to remember multiple variations of the same names
+with different cases.</p>
+</li>
+<li>
+<p>Users will be more prone to deleting a wrong card because cards with the same name but different cases may look alike.</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>3.</strong> Allowing the deletion of credit cards by specifying the card&#8217;s order number.</p></td>
+<td class="tableblock halign-left valign-top"><div><div class="ulist">
+<ul>
+<li>
+<p>Easiest to implement because we can directly remove the card from the array list using its index number.</p>
+</li>
+</ul>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="ulist">
+<ul>
+<li>
+<p>Unintuitive for the user because they have to remember the card&#8217;s order number. If they forget the order number,
+they will have to <code>list</code> the credit cards to find out its order number.</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>4.</strong> Allowing the deletion of credit cards by specifying the card&#8217;s UUID.</p></td>
+<td class="tableblock halign-left valign-top"><div><div class="ulist">
+<ul>
+<li>
+<p>Easy to implement because we do not have to worry about case sensitiveness.</p>
+</li>
+</ul>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="ulist">
+<ul>
+<li>
+<p>Unintuitive for the user because they will be unable to remember a random 32 character alphanumeric string.</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>After careful consideration and weighing of pros and cons, we decided to use <strong>approach 1</strong>.</p>
+</div>
+<div class="paragraph">
+<p>Although approach 1 is the hardest to implement, it is the most intuitive for users because they do not need to
+memorise unnecessary order numbers, random 32 characters alphanumeric string, or the exact name. In addition, we have
+decided for cards to have case insensitive names, so that users cannot add cards with the same name but different cases.
+Therefore, since card names are case insensitive, it makes sense for users to expect case insensitive names
+in the command.</p>
+</div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="finding-of-savings-account"><a class="link" href="#finding-of-savings-account">4.6. Finding of Savings Account</a></h3>
+<h3 id="finding-of-savings-account"><a class="link" href="#finding-of-savings-account">4.5. Finding of Savings Account</a></h3>
 <div class="paragraph">
 <p>The <code>/find /savings</code> feature aims to provide the user with the ability to search for a savings account that matches the
 keyword specified by the user. This enables the user to have <strong>great flexibility</strong> to view their savings account details
@@ -1390,7 +1448,7 @@ without the need of memorising each of their savings account names within <stron
  a specific savings account, it also aids in the operation of editing or deleting of savings account.</p>
 </div>
 <div class="sect3">
-<h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">4.6.1. Current Implementation</a></h4>
+<h4 id="current-implementation-4"><a class="link" href="#current-implementation-4">4.5.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The current implementation of finding savings account only allows the user to search through the name of the account.
 The reason to only allows the user to search through the account name was that searching through parameters such as
@@ -1400,7 +1458,7 @@ income may be inaccurate, as a user&#8217;s income may change over time resultin
 <div class="content">
 <img src="images/FindSequenceDiagram.png" alt="FindSequenceDiagram">
 </div>
-<div class="title">Figure 17. Sequence Diagram of finding savings account</div>
+<div class="title">Figure 16. Sequence Diagram of finding savings account</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1494,7 +1552,7 @@ user of the <strong>successful</strong> matches.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">4.6.2. Design Considerations</a></h4>
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">4.5.2. Design Considerations</a></h4>
 <div class="paragraph">
 <p>This section describes the various design considerations taken when implementing the <code>find</code> feature (e.g. <code>/find
 /savings</code> or <code>/find /banktransaction</code>).</p>
@@ -1576,14 +1634,14 @@ that
 </div>
 </div>
 <div class="sect2">
-<h3 id="adding-goals"><a class="link" href="#adding-goals">4.7. Adding Goals</a></h3>
+<h3 id="adding-goals"><a class="link" href="#adding-goals">4.6. Adding Goals</a></h3>
 <div class="paragraph">
 <p>The <code>/add /goals</code> feature allows users to add in any financial goals they have in mind to achieve for their future
 plans.
 This also aims to encourage users who have yet to have savings to start saving and track their goals.</p>
 </div>
 <div class="sect3">
-<h4 id="current-implementation-4"><a class="link" href="#current-implementation-4">4.7.1. Current Implementation</a></h4>
+<h4 id="current-implementation-5"><a class="link" href="#current-implementation-5">4.6.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The current implementation of adding goals allows users to either manually track their goals or track via an existing
 saving account. Also, the <code>/amount</code> parameter that users specify should be the total amount they wish to
@@ -1595,7 +1653,7 @@ while others would prefer tracking them using an existing savings account.</p>
 <div class="content">
 <img src="images/AddGoalsCommand.png" alt="AddGoalsCommand" width="970">
 </div>
-<div class="title">Figure 18. Sequence Diagram of Adding Goals</div>
+<div class="title">Figure 17. Sequence Diagram of Adding Goals</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1699,7 +1757,7 @@ of the <strong>successful</strong> addition of the goal object.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">4.7.2. Design Considerations</a></h4>
+<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">4.6.2. Design Considerations</a></h4>
 <div class="paragraph">
 <p>This section describes the various design considerations taken when implementing the <code>/add /goals</code> feature.</p>
 </div>
@@ -1849,7 +1907,7 @@ Chrome</code>.</p>
 <div class="content">
 <img src="images/chrome_save_as_pdf.png" alt="chrome save as pdf" width="800">
 </div>
-<div class="title">Figure 19. Saving documentation as PDF files in Chrome</div>
+<div class="title">Figure 18. Saving documentation as PDF files in Chrome</div>
 </div>
 </div>
 <div class="sect2">
@@ -4976,7 +5034,7 @@ are correct.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>3a1. System requests for the correct credit card to be deleted.</p>
+<p>3a1. System requests for the credit card to be deleted.</p>
 </li>
 <li>
 <p>3a2. User re-enters the credit card to be deleted.</p>
@@ -5159,7 +5217,7 @@ entered correctly.</p>
 <p>System requests details for payment of credit card bill.</p>
 </li>
 <li>
-<p>User enters details for payment of credit card bill.</p>
+<p>User enters credit card, savings account, and date for payment of credit card bill.</p>
 </li>
 <li>
 <p>System adds new credit card bill expenditure record in savings account.</p>
@@ -5228,7 +5286,7 @@ entered correctly.</p>
 <p>System requests details of credit card bill to be deleted.</p>
 </li>
 <li>
-<p>User enters details of credit card bill to be deleted.</p>
+<p>User enters credit card, savings account, and date of credit card bill to be deleted.</p>
 </li>
 <li>
 <p>System deletes the specified credit card bill expenditure record from savings account.</p>
@@ -6762,4 +6820,4 @@ Expected: Details of achievement being displayed</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 13:45:36 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 13:49:09 UTC</div></div></div></body></html>
