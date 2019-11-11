@@ -9,22 +9,26 @@ degree in Information Security.</p>
 </div>
 <div class="paragraph">
 <p>I have collaborated with
-<a href="https://github.com/AY1920S1-CS2113T-W17-3/main/blob/master/docs/team/shamussy.adoc">Shamus Neo Zhi Kai</a>,
-<a href="https://github.com/AY1920S1-CS2113T-W17-3/main/blob/master/docs/team/mong-nus.adoc">Mong Zheng Wei</a>,
-<a href="https://github.com/AY1920S1-CS2113T-W17-3/main/blob/master/docs/team/terencetanwt.adoc">Tan Wee Theng, Terence</a>
-and <a href="https://github.com/AY1920S1-CS2113T-W17-3/main/blob/master/docs/team/valerietyj.adoc">Valerie Tan Yi Jia</a>
+<a href="shamussy.html">Shamus Neo Zhi Kai</a>,
+<a href="mong-nus.html">Mong Zheng Wei</a>,
+<a href="terencetanwt.html">Tan Wee Theng Terence</a> and
+<a href="valerietyj.html">Valerie Tan Yi Jia</a>
 to work on a project for the module CS2113T (Software Engineering &amp; Object-Oriented Programming).</p>
 </div>
 <div class="sect2">
 <h3 id="about-the-project"><a class="link" href="#about-the-project">About the project</a></h3>
 <div class="paragraph">
 <p>My team and I were tasked to enhance a basic command line interface desktop personal assistance, named Duke, for our
-project. We have decided to morph it into a finance tracker, which mainly targets undergraduates and fresh graduates, called OwlMoney.
+project. We have decided to morph it into a finance tracker, which mainly targets undergraduates and fresh graduates,
+called <strong>OwlMoney</strong>.
 This morphed product allows the users to keep track of their finances, while also allowing them to set goals for themselves to achieve.</p>
 </div>
 <div class="paragraph">
-<p>My role was to design and implement the <code>add</code>, <code>edit</code>, <code>delete</code> and <code>list</code> functions for the <code>Savings</code> account,
-<code>expenditures</code>, <code>deposit</code> and recurring bank expenditures, <code>recurbankexp</code>. The following sections illustrates these implementations in more detail, as well as the relevant documentation I have added to the User Guide and Developer Guide in relation to these implementations.</p>
+<p>My role was to design and implement the <code>add</code>, <code>edit</code>, <code>delete</code> and <code>list</code> functions for <code>savings</code>,
+<code>expenditures</code>, <code>deposit</code> and recurring bank expenditures (<code>recurbankexp</code>).
+The following sections illustrates these implementations in more detail, as well as the relevant documentation
+I have added to the User Guide and Developer Guide in relation to these implementations.
+In addition to this, I have aided <a href="shamussy.html">Shamus</a> in implementing investment and bonds.</p>
 </div>
 <div class="paragraph">
 <p>Note the following symbols and formatting used.</p>
@@ -100,25 +104,24 @@ This morphed product allows the users to keep track of their finances, while als
 <div class="ulist">
 <ul>
 <li>
-<p>What it does: The <code>add</code>, <code>edit</code>, <code>delete</code> and <code>list</code> commands on a <code>savings</code> account allows the user to manage all
+<p><strong>What it does</strong>: The <code>add</code>, <code>edit</code>, <code>delete</code> and <code>list</code> commands on a <code>savings</code> account allows the user to manage all
 savings accounts in the profile.</p>
 </li>
 <li>
-<p>Justification: The savings account is a common account that many users own. Additionally, many transactions are
+<p><strong>Justification</strong>: The savings account is a common account that many users own. Additionally, many transactions are
 performed in this account. Because of these reasons, the implementation of the <code>Savings</code> account will cater to a
 large number of users.</p>
 </li>
 <li>
-<p>Highlights: The bank account also keeps track of the user&#8217;s monthly income so that it can automatically be credited
+<p><strong>Highlights</strong>: The bank account also keeps track of the user&#8217;s monthly income so that it can automatically be credited
 into the <code>Savings</code> account. This prevents errors such as forgetting to add a deposit for the monthly income.</p>
 </li>
 <li>
-<p>Credits: A majority of this class inherits from the parent class <code>bank</code> which was collaborated by
-<a href="https://github.com/AY1920S1-CS2113T-W17-3/main/blob/master/docs/team/shamussy.adoc">Shamus Neo Zhi Kai</a>,
-<a href="https://github.com/AY1920S1-CS2113T-W17-3/main/blob/master/docs/team/mong-nus.adoc">Mong Zheng Wei</a>,
-<a href="https://github.com/AY1920S1-CS2113T-W17-3/main/blob/master/docs/team/terencetanwt.adoc">Tan Wee Theng, Terence</a>
-and <a href="https://github.com/AY1920S1-CS2113T-W17-3/main/blob/master/docs/team/valerietyj.adoc">Valerie Tan Yi Jia</a>
-.</p>
+<p><strong>Credits</strong>: A majority of this class inherits from the parent class <code>bank</code> which was collaborated by
+<a href="shamussy.html">Shamus</a>,
+<a href="mong-nus.html">Zheng Wei</a>,
+<a href="terencetanwt.html">Terence</a> and
+<a href="valerietyj.html">Valerie</a>.</p>
 </li>
 </ul>
 </div>
@@ -129,18 +132,40 @@ and <a href="https://github.com/AY1920S1-CS2113T-W17-3/main/blob/master/docs/tea
 <div class="ulist">
 <ul>
 <li>
-<p>What it does: The <code>add</code>, <code>edit</code>, <code>delete</code> and <code>list</code> commands on transaction objects allows the user to manage all
+<p><strong>What it does</strong>: The <code>add</code>, <code>edit</code>, <code>delete</code> and <code>list</code> commands on transaction objects allows the user to manage all
 transactions within the bank or card accounts.</p>
 </li>
 <li>
-<p>Justification: Transactions which are performed on a bank account will affect the amount of money in it. By
+<p><strong>Justification</strong>: Transactions which are performed on a bank account will affect the amount of money in it. By
 implementing the transactions features, the user will be able to add any transactions which has been performed to the
 specified bank account. This enables the ability to track the user&#8217;s finances.</p>
 </li>
 <li>
-<p>Highlights: This enhancement automatically adjusts the current amount in the bank automatically when a transaction
+<p><strong>Highlights</strong>: This enhancement automatically adjusts the current amount in the bank automatically when a transaction
 is added, modified or deleted. This allows effective tracking of the user&#8217;s finances in the account without the need
 to manually edit the bank amount.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Features implemented:</strong> I have assisted <a href="shamussy.html">Shamus</a> to implement the investment account.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>What it does</strong>: The investment account allows <strong>OwlMoney</strong> to be able to track investments and bonds that the user has.</p>
+</li>
+<li>
+<p><strong>Justification</strong>: Investments are common sources of income for many users, including our target users of fresh and
+undergraduates. By allowing them to track their investments, users are able to track more than just their savings</p>
+</li>
+<li>
+<p><strong>Highlights</strong>: This enhancement automatically credits the 6 month interest into the bank account. This allows
+effective tracking of the user&#8217;s investments while reducing errors from user input.</p>
+</li>
+<li>
+<p><strong>Credits</strong>: A majority of these features was done by <a href="shamussy.html">Shamus</a>. I assisted him when he had difficulties in
+implementing certain features.</p>
 </li>
 </ul>
 </div>
@@ -156,7 +181,7 @@ to manually edit the bank amount.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Project Management:</p>
+<p><strong>Project Management</strong>:</p>
 <div class="ulist">
 <ul>
 <li>
@@ -166,17 +191,17 @@ to manually edit the bank amount.</p>
 </div>
 </li>
 <li>
-<p>Enhancement made to existing features:</p>
+<p><strong>Enhancement made to existing features</strong>:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Fixed error in the Ui of the program. (Pull Request )</p>
+<p>Fixed error in the Ui of the program. (Pull Request #152)</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p>Documentation:</p>
+<p><strong>Documentation</strong>:</p>
 <div class="ulist">
 <ul>
 <li>
@@ -184,9 +209,10 @@ to manually edit the bank amount.</p>
 <a href="https://github.com/AY1920S1-CS2113T-W17-3/main/pull/163">#163</a>)</p>
 </li>
 <li>
-<p>Planned the initial user stories and use cases of the project. (Collaborated with <a href="https://github.com/AY1920S1-CS2113T-W17-3/main/blob/master/docs/team/shamussy.adoc">Shamus</a>,
-<a href="https://github.com/AY1920S1-CS2113T-W17-3/main/blob/master/docs/team/mong-nus.adoc">Zheng Wei</a>, <a href="https://github.com/AY1920S1-CS2113T-W17-3/main/blob/master/docs/team/terencetanwt.adoc">Terence</a> and <a href="https://github.com/AY1920S1-CS2113T-W17-3/main/blob/master/docs/team/valerietyj.adoc">Valerie</a>
-) (Issue <a href="https://github.com/AY1920S1-CS2113T-W17-3/main/issues/24">#24</a>,
+<p>Planned the initial user stories and use cases of the project. (<a href="shamussy.html">Shamus</a>,
+<a href="mong-nus.html">Zheng Wei</a>,
+<a href="terencetanwt.html">Terence</a> and
+<a href="valerietyj.html">Valerie</a>) (Issue <a href="https://github.com/AY1920S1-CS2113T-W17-3/main/issues/24">#24</a>,
 <a href="https://github.com/AY1920S1-CS2113T-W17-3/main/issues/26">#26</a>,
 <a href="https://github.com/AY1920S1-CS2113T-W17-3/main/issues/27">#27</a>)</p>
 </li>
@@ -194,17 +220,20 @@ to manually edit the bank amount.</p>
 </div>
 </li>
 <li>
-<p>Community:</p>
+<p><strong>Community</strong>:</p>
 <div class="ulist">
 <ul>
 <li>
 <p>Reviewed the User Guide and Developer Guide of other groups.</p>
 </li>
+<li>
+<p>Reported several bugs found in another team&#8217;s project, <a href="https://github.com/BrianTKM/ped/issues">MisterMusik</a>.</p>
+</li>
 </ul>
 </div>
 </li>
 <li>
-<p>Team Collaboration:</p>
+<p><strong>Team Collaboration</strong>:</p>
 <div class="ulist">
 <ul>
 <li>
@@ -227,6 +256,20 @@ to manually edit the bank amount.</p>
 <p>Resolved bugs in the program. (Pull Request
 <a href="https://github.com/AY1920S1-CS2113T-W17-3/main/pull/90/files">#90</a>)</p>
 </li>
+<li>
+<p>Designed and implemented the abstract class <code>bank</code>, <code>parser</code>, <code>command</code>, and <code>transaction</code> which serve as the code
+base of the project with everyone (<a href="shamussy.html">Shamus</a>,
+<a href="mong-nus.html">Zheng Wei</a>,
+<a href="terencetanwt.html">Terence</a> and
+<a href="valerietyj.html">Valerie</a>) (Pull Request <a href="https://github.com/AY1920S1-CS2113T-W17-3/main/pull/64/files">#64</a>,
+<a href="https://github.com/AY1920S1-CS2113T-W17-3/main/pull/67/files">#67</a>).</p>
+</li>
+<li>
+<p>Implemented logging for <strong>OwlMoney</strong> while collaborating with everyone (<a href="shamussy.html">Shamus</a>,
+<a href="mong-nus.html">Zheng Wei</a>,
+<a href="terencetanwt.html">Terence</a> and
+<a href="valerietyj.html">Valerie</a>).</p>
+</li>
 </ul>
 </div>
 </li>
@@ -236,7 +279,7 @@ to manually edit the bank amount.</p>
 <div class="sect2">
 <h3 id="contributions-to-the-user-guide"><a class="link" href="#contributions-to-the-user-guide">Contributions to the User Guide</a></h3>
 <div class="paragraph">
-<p>The User Guide had to be updated to reflect the instructions on how to use the morphed product, OwlMoney.
+<p>The User Guide had to be updated to reflect the instructions on how to use the morphed product, <strong>OwlMoney</strong>.
 The following is a portion of the User Guide which shows the commands for managing <code>Savings</code>, <code>expenditures</code>,
 <code>deposit</code> and <code>bankrecurexp</code>.</p>
 </div>
@@ -298,90 +341,6 @@ every start of the month.</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="editing-savings-bank-account-code-edit-savings-code"><a class="link" href="#editing-savings-bank-account-code-edit-savings-code">Editing savings bank account <code>/edit /savings</code></a></h5>
-<div class="paragraph">
-<p>Changes made to your savings account? Reflect them on <strong>OwlMoney</strong> as well!</p>
-</div>
-<div class="paragraph">
-<p><strong>Command Syntax</strong></p>
-</div>
-<div class="paragraph">
-<p><code>/edit /savings /name ACCOUNT_NAME [/newname ACCOUNT_NAME] [/amount AMOUNT] [/income INCOME]</code></p>
-</div>
-<div class="admonitionblock warning">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-warning" title="Warning"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>At least one of <code>/newname</code>, <code>/amount</code> or <code>/income</code> must be used.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p><strong>Example</strong></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>/edit /savings /name JunBank Savings Account /newname JulyBank Savings Account</code></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Edits <code>JunBank Savings Account</code> name to <code>JulyBank Savings Account</code>.</p>
-</div>
-</div>
-<div class="sect4">
-<h5 id="deleting-savings-bank-account-code-delete-savings-code"><a class="link" href="#deleting-savings-bank-account-code-delete-savings-code">Deleting savings bank account <code>/delete /savings</code></a></h5>
-<div class="paragraph">
-<p>Closed your savings bank account? You can reflect that on <code>OwlMoney</code> as well!</p>
-</div>
-<div class="paragraph">
-<p><strong>Command Syntax</strong></p>
-</div>
-<div class="paragraph">
-<p><code>/delete /savings /name ACCOUNT_NAME</code></p>
-</div>
-<div class="admonitionblock warning">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-warning" title="Warning"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>All transactions (e.g. expenditures and deposits) related to the savings account will be deleted.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p><strong>Example</strong></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>/delete /savings /name JunBank Savings Account</code></p>
-</li>
-</ul>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/DeleteSavings.png" alt="DeleteSavings">
-</div>
-<div class="title">Figure 2. Successful deletion of a savings account after using <code>/delete /savings</code>.</div>
-</div>
-<div class="paragraph">
-<p>Deletes a savings account named <code>JunBank Savings Account</code>.</p>
-</div>
-</div>
-<div class="sect4">
 <h5 id="adding-expenditures-for-savings-bank-account-code-add-bankexpenditure-code"><a class="link" href="#adding-expenditures-for-savings-bank-account-code-add-bankexpenditure-code">Adding expenditures for savings bank account <code>/add /bankexpenditure</code></a></h5>
 <div class="paragraph">
 <p>Spending is a daily affair and it is difficult to keep track of so many of them. Fret not!
@@ -422,116 +381,11 @@ Dining</code></p>
 <div class="content">
 <img src="../images/AddBankExpenditure.png" alt="AddBankExpenditure">
 </div>
-<div class="title">Figure 3. Successful adding of bank expenditure after using <code>/add /bankexpenditure</code>.</div>
+<div class="title">Figure 2. Successful adding of bank expenditure after using <code>/add /bankexpenditure</code>.</div>
 </div>
 <div class="paragraph">
 <p>Adds an expenditure that deducts from <code>JunBank Savings Account</code> dated on <code>28/09/2019</code> that costs $<code>1.20</code> with
 the description of <code>bubble tea</code> and category of <code>Dining</code>.</p>
-</div>
-</div>
-<div class="sect4">
-<h5 id="editing-expenditures-for-savings-bank-account-code-edit-bankexpenditure-code"><a class="link" href="#editing-expenditures-for-savings-bank-account-code-edit-bankexpenditure-code">Editing expenditures for savings bank account <code>/edit /bankexpenditure</code></a></h5>
-<div class="paragraph">
-<p>Spent lesser than you initially recorded? You can edit them here!</p>
-</div>
-<div class="paragraph">
-<p><strong>Command Syntax</strong></p>
-</div>
-<div class="paragraph">
-<p><code>/edit /bankexpenditure /from ACCOUNT_NAME /transno TRANSACTION_NUMBER [/desc DESCRIPTION] [/category CATEGORY] [/amount
-AMOUNT] [/date DATE]</code></p>
-</div>
-<div class="admonitionblock warning">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-warning" title="Warning"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>At least one of <code>/desc</code>, <code>/category</code>, <code>/amount</code>, <code>/date</code> must be used.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>To find out which transaction to edit, use the <code>/list</code> or <code>/find</code> function to find <code>/transno</code></p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p><strong>Example</strong></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>/edit /bankexpenditure /from JunBank Savings Account /transno 2 /desc Uniwlo Shirt</code></p>
-</li>
-</ul>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/EditBankExpenditure1.png" alt="EditBankExpenditure1">
-</div>
-<div class="title">Figure 4. Successful editing of bank expenditure after using <code>/edit /bankexpenditure</code>.</div>
-</div>
-<div class="paragraph">
-<p>Edits expenditure <code>2</code> that was charged to <code>JunBank Savings Account</code> to a new description of <code>Uniwlo Shirt</code>.</p>
-</div>
-</div>
-<div class="sect4">
-<h5 id="deleting-expenditures-for-savings-bank-account-code-delete-bankexpenditure-code"><a class="link" href="#deleting-expenditures-for-savings-bank-account-code-delete-bankexpenditure-code">Deleting expenditures for savings bank account <code>/delete /bankexpenditure</code></a></h5>
-<div class="paragraph">
-<p>Accidentally added a transaction that did not happen? You can delete it!</p>
-</div>
-<div class="paragraph">
-<p><strong>Command Syntax</strong></p>
-</div>
-<div class="paragraph">
-<p><code>/delete /bankexpenditure /from ACCOUNT_NAME /transno TRANSACTION_NUMBER</code></p>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>To find out which expenditure to delete, use the <code>/list</code> or <code>/find</code> function to find the expenditure number.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p><strong>Example</strong></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>/delete /bankexpenditure /from JunBank Savings Account /transno 1</code></p>
-</li>
-</ul>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/DeleteBankExpenditure.png" alt="DeleteBankExpenditure">
-</div>
-<div class="title">Figure 5. Successful deleting of bank expenditure after using <code>/delete /bankexpenditure</code>.</div>
-</div>
-<div class="paragraph">
-<p>Deletes an expenditure from <code>JunBank Savings Account with transaction number</code> <code>1</code>.</p>
 </div>
 </div>
 <div class="sect4">
@@ -559,168 +413,12 @@ AMOUNT] [/date DATE]</code></p>
 <div class="content">
 <img src="../images/AddDeposit.png" alt="AddDeposit">
 </div>
-<div class="title">Figure 6. Successful adding of deposit after using <code>/add /deposit</code>.</div>
+<div class="title">Figure 3. Successful adding of deposit after using <code>/add /deposit</code>.</div>
 </div>
 <div class="paragraph">
 <p>Deposits $<code>300</code> earned from <code>FREELANCE WORK</code> work into <code>JunBank Savings Account</code>.</p>
 </div>
 </div>
-<div class="sect4">
-<h5 id="editing-deposit-details-for-savings-bank-account-code-edit-deposit-code"><a class="link" href="#editing-deposit-details-for-savings-bank-account-code-edit-deposit-code">Editing deposit details for savings bank account <code>/edit /deposit</code></a></h5>
-<div class="paragraph">
-<p>Accidentally added more zeroes than expected when entering your deposit? Edit them here!</p>
-</div>
-<div class="paragraph">
-<p><strong>Command Syntax</strong></p>
-</div>
-<div class="paragraph">
-<p><code>/edit /deposit /from ACCOUNT_NAME /transno TRANSACTION_NUMBER [/desc DESCRIPTION] [/amount AMOUNT] [/date DATE]</code></p>
-</div>
-<div class="admonitionblock warning">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-warning" title="Warning"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>At least one of <code>/desc</code>, <code>/amount</code>, <code>/date</code> must be used.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>To find which to deposit to edit, use the <code>/list</code> or <code>/find</code> function to find the transaction number.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p><strong>Example</strong></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>/edit /deposit /from JunBank Savings Account /transno 11 /desc FREELANCE WORK /amount 270 /date 29/10/2019</code></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Edits the <code>deposit</code> with transaction number <code>11</code> deposited to <code>JunBank Savings Account</code> to a new description of
-<code>FREELANCE WORK</code>, setting a new amount of $<code>270</code> and a new date of <code>29/11/2019</code></p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/EditDeposit1.png" alt="EditDeposit1">
-</div>
-<div class="title">Figure 7. Successful editing of deposit after using <code>/edit /deposit</code>.</div>
-</div>
-</div>
-<div class="sect4">
-<h5 id="deleting-deposit-for-savings-bank-account-code-delete-deposit-code"><a class="link" href="#deleting-deposit-for-savings-bank-account-code-delete-deposit-code">Deleting deposit for savings bank account <code>/delete /deposit</code></a></h5>
-<div class="paragraph">
-<p>Accidentally added a deposit that you have not done? You can delete it here!</p>
-</div>
-<div class="paragraph">
-<p><strong>Command Syntax</strong></p>
-</div>
-<div class="paragraph">
-<p><code>/delete /deposit /from ACCOUNT_NAME /transno TRANSACTION_NUMBER</code></p>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>To find out which recurring expenditure to delete, use the <code>/list</code> or <code>/find</code> function to find the description.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p><strong>Example</strong></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>/delete /deposit /from JunBank Savings Account /transno 11</code></p>
-</li>
-</ul>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/DeleteDeposit.png" alt="DeleteDeposit">
-</div>
-<div class="title">Figure 8. Successful deleting of deposit after using <code>/delete /deposit</code>.</div>
-</div>
-<div class="paragraph">
-<p>Deletes a <code>deposit</code> with transaction number <code>11</code> from <code>JunBank Savings Account</code>.</p>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="recurring-expenditures-management"><a class="link" href="#recurring-expenditures-management">Recurring expenditures management</a></h4>
-<div class="paragraph">
-<p>In this section, you&#8217;ll be introduced to commands and parameters that help you to manage
-recurring expenditures in <strong>OwlMoney</strong>.</p>
-</div>
-<div class="paragraph">
-<p>Below is a list of command parameters that you can expect to use for the commands in this section.</p>
-</div>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 18%;">
-<col style="width: 37%;">
-<col style="width: 45%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Parameter</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Acceptable Range of Values</strong></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ACCOUNT_NAME</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Indicates the name of the bank account.</p>
-<p class="tableblock">(e.g. DBB Vickers Account)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ACCOUNT_NAME</code> should contain alphabetic characters, numeric characters, and spaces only.</p>
-<p class="tableblock"><code>ACCOUNT_NAME</code> is case-sensitive.</p>
-<p class="tableblock">Take note that there is a maximum of <strong>30</strong> character limit.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>AMOUNT</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Indicates the amount of money.</p>
-<p class="tableblock">(e.g. 2113.30)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>AMOUNT</code> should contain only digits up to <strong>2</strong> decimal places and a maximum of <strong>9</strong> digits.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DESCRIPTION</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Indicates the description of the transaction.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DESCRIPTION</code> should contain alphabetic characters, numeric characters, and spaces only.</p>
-<p class="tableblock">Take note that there is a maximum of <strong>50</strong> character limit.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>CATEGORY</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The category that the expenditure can be tagged to.</p>
-<p class="tableblock">(e.g. Bills)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>CATEGORY</code> should contain alphabetic characters and spaces only.</p>
-<p class="tableblock">Take note that there is a maximum of <strong>15</strong> character limit.</p></td>
-</tr>
-</tbody>
-</table>
 <div class="sect4">
 <h5 id="adding-recurring-expenditures-code-add-recurbankexp-code"><a class="link" href="#adding-recurring-expenditures-code-add-recurbankexp-code">Adding recurring expenditures <code>/add /recurbankexp</code></a></h5>
 <div class="paragraph">
@@ -742,100 +440,11 @@ recurring expenditures in <strong>OwlMoney</strong>.</p>
 <div class="content">
 <img src="../images/AddRecurringExpenditure.png" alt="AddRecurringExpenditure">
 </div>
-<div class="title">Figure 9. Successful adding of recurring expenditure after using <code>/add /recurbankexp</code>.</div>
+<div class="title">Figure 4. Successful adding of recurring expenditure after using <code>/add /recurbankexp</code>.</div>
 </div>
 <div class="paragraph">
 <p>Adds a recurring expenditure that deducts $<code>72.90</code> every <strong>1st</strong> of the month to pay <code>Telco Bills</code> charged to <code>JunBank
-Savings
-Account</code> categorised under the <code>Bills</code> category.</p>
-</div>
-</div>
-<div class="sect4">
-<h5 id="editing-recurring-expenditure-code-edit-recurbankexp-code"><a class="link" href="#editing-recurring-expenditure-code-edit-recurbankexp-code">Editing recurring expenditure <code>/edit /recurbankexp</code></a></h5>
-<div class="paragraph">
-<p><strong>Command Syntax</strong></p>
-</div>
-<div class="paragraph">
-<p><code>/edit /recurbankexp /from ACCOUNT_NAME /transno TRANSACTION_NUMBER [/desc DESCRIPTION] [/category CATEGORY] [/amount
-AMOUNT]</code></p>
-</div>
-<div class="admonitionblock warning">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-warning" title="Warning"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>At least one of <code>/desc</code>, <code>/category</code> or <code>/amount</code> must be used.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p><strong>Example</strong></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>/edit /recurbankexp /from JunBank Savings Account /transno 2 /desc Telco Bills /amount 119.90</code></p>
-</li>
-</ul>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/EditRecurringExpenditure.png" alt="EditRecurringExpenditure">
-</div>
-<div class="title">Figure 10. Successful editing of recurring expenditure after using <code>/edit /recurbankexp</code>.</div>
-</div>
-<div class="paragraph">
-<p>Edits recurring expenditure number <code>2</code> description to <code>Telco Bills</code> to charge $<code>119.90</code>.</p>
-</div>
-</div>
-<div class="sect4">
-<h5 id="deleting-recurring-expenditure-code-delete-recurbankexp-code"><a class="link" href="#deleting-recurring-expenditure-code-delete-recurbankexp-code">Deleting recurring expenditure <code>/delete /recurbankexp</code></a></h5>
-<div class="paragraph">
-<p>Cancelled your recurring bill? You can delete it!</p>
-</div>
-<div class="paragraph">
-<p><strong>Command Syntax</strong></p>
-</div>
-<div class="paragraph">
-<p><code>/delete /recurbankexp /from ACCOUNT_NAME /transno TRANSACTION_NUMBER</code></p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/DeleteRecurringExpenditure.png" alt="DeleteRecurringExpenditure">
-</div>
-<div class="title">Figure 11. Successful deleting of recurring expenditure after using <code>/delete /recurbankexp</code>.</div>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>To find out which recurring expenditure to delete, use the <code>/list</code> or <code>/find</code> function to find the description.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p><strong>Example</strong></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>/delete /recurbankexp /from JunBank Savings Account /transno 1</code></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Deletes a recurring expenditure from <code>JunBank Savings Account</code> with transaction number <code>1</code>.</p>
+Savings Account</code> categorised under the <code>Bills</code> category.</p>
 </div>
 </div>
 </div>
@@ -843,13 +452,61 @@ AMOUNT]</code></p>
 <div class="sect2">
 <h3 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">Contributions to the Developer Guide</a></h3>
 <div class="paragraph">
-<p>The following section shows my contribution to the Developer guide for the <code>Savings</code> feature.</p>
+<p>The following section shows my contribution to the Developer guide for the <code>Bank</code> and <code>Savings</code> feature.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/LogicCommandBankPackage.png" alt="LogicCommandBankPackage" width="800">
+</div>
+<div class="title">Figure 5. Bank Command Class Diagram</div>
+</div>
+<div class="paragraph">
+<p>The <code>logic.command.bank</code> package consist of <code>Savings</code> and <code>Investment</code> classes which inherits from the <code>Command</code> class.</p>
+</div>
+<div class="paragraph">
+<p>Both the <code>Savings</code> and <code>Investments</code> classes have the following common features:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Add</p>
+</li>
+<li>
+<p>Edit</p>
+</li>
+<li>
+<p>Delete</p>
+</li>
+<li>
+<p>List</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><code>Main</code> will call the specific <code>Savings</code> or <code>Investment</code> command class that will construct the <strong>required
+parameters</strong> before calling the <code>Profile</code> class in <code>Model</code> to <strong>execute</strong>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="adding-savings"><a class="link" href="#adding-savings">Adding Savings</a></h3>
+<div class="paragraph">
+<p>The <code>/add /savings</code> feature aims to provide the user with the ability to add a new <code>savings</code> account into <strong>OwlMoney</strong>.
+With this feature, the user will be able to start tracking their expenses.
+Hence, allowing the user to track their monthly budget and save up effectively.</p>
+</div>
+<div class="sect3">
+<h4 id="current-implementation"><a class="link" href="#current-implementation">Current Implementation</a></h4>
+<div class="paragraph">
+<p>The current implementation of adding a <code>savings</code> account requires 2 parameters; <code>amount</code> and <code>income</code>.
+The ability to track the <code>savings</code> account is enhanced through monitoring the <code>amount</code>,
+while also being able to update it through any <code>income</code> the user has.
+Hence, the user will be able to control their spending effectively.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="../images/AddSavingCommand.png" alt="AddSavingCommand" width="800">
 </div>
-<div class="title">Figure 12. Sequence Diagram of Adding Savings</div>
+<div class="title">Figure 6. Sequence Diagram of Adding Savings</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -936,5 +593,84 @@ of the <strong>successful</strong> addition of the savings object.</p>
 </ol>
 </div>
 </div>
+<div class="sect3">
+<h4 id="design-consideration"><a class="link" href="#design-consideration">Design consideration</a></h4>
+<div class="paragraph">
+<p>This section describes the various design considerations taken when implementing the <code>/add /savings</code> feature.</p>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 11:21:42 UTC</div></div></div></body></html>
+<div class="paragraph">
+<p><strong>Aspect: Choice of whether to set the account name as case-sensitive or case-insensitive</strong></p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 18%;">
+<col style="width: 37%;">
+<col style="width: 45%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><strong>Approach</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Pros</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Cons</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>1.</strong> Case-insensitive name</p></td>
+<td class="tableblock halign-left valign-top"><div><div class="ulist">
+<ul>
+<li>
+<p>All banks added have unique names.</p>
+</li>
+<li>
+<p>More intuitive for users as they usually remember the names, and not the capitalisation of each letter.</p>
+</li>
+</ul>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="ulist">
+<ul>
+<li>
+<p>More checks need to be done by trimming and comparing the capitalised newly added bank name to existing bank names</p>
+</li>
+<li>
+<p>Unable to have similar bank names only differing by capitalising letters</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>2.</strong> Case-sensitive name</p></td>
+<td class="tableblock halign-left valign-top"><div><div class="ulist">
+<ul>
+<li>
+<p>More accurate names</p>
+</li>
+<li>
+<p>Allows for multiple similar name banks (eg. POSB, Posb, POsb)</p>
+</li>
+</ul>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="ulist">
+<ul>
+<li>
+<p>Confusing when there are multiple banks with similar names,</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>After weighing the pros and cons, <strong>approach 1</strong> was taken.</p>
+</div>
+<div class="paragraph">
+<p>By designing the name to be case-insensitive, it increases the user-friendliness of <strong>OwlMoney</strong> since bank names are
+commonly remembered without the exact capitalisation of letters. Also, in the event the user keys in a
+different capitalised character for the same bank, there is no need for the user to re-enter the command
+due to the bank account "not existing". Additionally, the case-sensitivity check can also be used with the Card
+function or with any other case-insensitive model or logic.</p>
+</div>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 12:20:08 UTC</div></div></div></body></html>

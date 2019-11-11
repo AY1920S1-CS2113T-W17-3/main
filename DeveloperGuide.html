@@ -31,11 +31,12 @@
 <li><a href="#implementation">4. Implementation</a>
 <ul class="sectlevel2">
 <li><a href="#parsing-commands-in-general">4.1. Parsing Commands in General</a></li>
-<li><a href="#editing-bonds">4.2. Editing Bonds</a></li>
-<li><a href="#deleting-credit-card">4.3. Deleting Credit Card</a></li>
-<li><a href="#listing-credit-cards">4.4. Listing Credit Cards</a></li>
-<li><a href="#finding-of-savings-account">4.5. Finding of Savings Account</a></li>
-<li><a href="#adding-goals">4.6. Adding Goals</a></li>
+<li><a href="#adding-savings">4.2. Adding Savings</a></li>
+<li><a href="#editing-bonds">4.3. Editing Bonds</a></li>
+<li><a href="#deleting-credit-card">4.4. Deleting Credit Card</a></li>
+<li><a href="#listing-credit-cards">4.5. Listing Credit Cards</a></li>
+<li><a href="#finding-of-savings-account">4.6. Finding of Savings Account</a></li>
+<li><a href="#adding-goals">4.7. Adding Goals</a></li>
 </ul>
 </li>
 <li><a href="#documentation">5. Documentation</a>
@@ -783,6 +784,22 @@ into the the specific Parser classes in <code>ParseTypeMenu</code>.</p>
 <div class="paragraph">
 <p>The execution of commands will be elaborated in subsequent diagrams below.</p>
 </div>
+</div>
+<div class="sect2">
+<h3 id="adding-savings"><a class="link" href="#adding-savings">4.2. Adding Savings</a></h3>
+<div class="paragraph">
+<p>The <code>/add /savings</code> feature aims to provide the user with the ability to add a new <code>savings</code> account into <strong>OwlMoney</strong>.
+With this feature, the user will be able to start tracking their expenses.
+Hence, allowing the user to track their monthly budget and save up effectively.</p>
+</div>
+<div class="sect3">
+<h4 id="current-implementation"><a class="link" href="#current-implementation">4.2.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>The current implementation of adding a <code>savings</code> account requires 2 parameters; <code>amount</code> and <code>income</code>.
+The ability to track the <code>savings</code> account is enhanced through monitoring the <code>amount</code>,
+while also being able to update it through any <code>income</code> the user has.
+Hence, the user will be able to control their spending effectively.</p>
+</div>
 <div class="imageblock">
 <div class="content">
 <img src="images/AddSavingCommand.png" alt="AddSavingCommand" width="800">
@@ -874,15 +891,94 @@ of the <strong>successful</strong> addition of the savings object.</p>
 </ol>
 </div>
 </div>
+<div class="sect3">
+<h4 id="design-consideration"><a class="link" href="#design-consideration">4.2.2. Design consideration</a></h4>
+<div class="paragraph">
+<p>This section describes the various design considerations taken when implementing the <code>/add /savings</code> feature.</p>
+</div>
+<div class="paragraph">
+<p><strong>Aspect: Choice of whether to set the account name as case-sensitive or case-insensitive</strong></p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 18%;">
+<col style="width: 37%;">
+<col style="width: 45%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><strong>Approach</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Pros</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Cons</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>1.</strong> Case-insensitive name</p></td>
+<td class="tableblock halign-left valign-top"><div><div class="ulist">
+<ul>
+<li>
+<p>All banks added have unique names.</p>
+</li>
+<li>
+<p>More intuitive for users as they usually remember the names, and not the capitalisation of each letter.</p>
+</li>
+</ul>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="ulist">
+<ul>
+<li>
+<p>More checks need to be done by trimming and comparing the capitalised newly added bank name to existing bank names</p>
+</li>
+<li>
+<p>Unable to have similar bank names only differing by capitalising letters</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>2.</strong> Case-sensitive name</p></td>
+<td class="tableblock halign-left valign-top"><div><div class="ulist">
+<ul>
+<li>
+<p>More accurate names</p>
+</li>
+<li>
+<p>Allows for multiple similar name banks (eg. POSB, Posb, POsb)</p>
+</li>
+</ul>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="ulist">
+<ul>
+<li>
+<p>Confusing when there are multiple banks with similar names,</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>After weighing the pros and cons, <strong>approach 1</strong> was taken.</p>
+</div>
+<div class="paragraph">
+<p>By designing the name to be case-insensitive, it increases the user-friendliness of <strong>OwlMoney</strong> since bank names are
+commonly remembered without the exact capitalisation of letters. Also, in the event the user keys in a
+different capitalised character for the same bank, there is no need for the user to re-enter the command
+due to the bank account "not existing". Additionally, the case-sensitivity check can also be used with the Card
+function or with any other case-insensitive model or logic.</p>
+</div>
+</div>
+</div>
 <div class="sect2">
-<h3 id="editing-bonds"><a class="link" href="#editing-bonds">4.2. Editing Bonds</a></h3>
+<h3 id="editing-bonds"><a class="link" href="#editing-bonds">4.3. Editing Bonds</a></h3>
 <div class="paragraph">
 <p>The <code>/edit /bonds</code> feature aims to help users update the specific details of the investment <code>bonds</code> that they
 purchase. This is to enable them to not go through the trouble of deleting and re-adding the <code>bond</code> if they enter the
 details wrongly by mistake.</p>
 </div>
 <div class="sect3">
-<h4 id="current-implementation"><a class="link" href="#current-implementation">4.2.1. Current Implementation</a></h4>
+<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">4.3.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The current implementation of editing <code>bonds</code> only allows for the edition of <code>rate</code> and <code>year</code> where the <code>year</code>
 parameter can only be changed to a higher integer than the original <code>year</code> currently stored. The reason behind only
@@ -1031,7 +1127,7 @@ of the <strong>successful</strong> editing of the bond.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations"><a class="link" href="#design-considerations">4.2.2. Design Considerations</a></h4>
+<h4 id="design-considerations"><a class="link" href="#design-considerations">4.3.2. Design Considerations</a></h4>
 <div class="paragraph">
 <p>This section describes the various design considerations taken when implementing the <code>/edit /bonds</code> feature.</p>
 </div>
@@ -1130,7 +1226,7 @@ high risk of logic and coding errors, leaving room for bugs to be exploited.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-credit-card"><a class="link" href="#deleting-credit-card">4.3. Deleting Credit Card</a></h3>
+<h3 id="deleting-credit-card"><a class="link" href="#deleting-credit-card">4.4. Deleting Credit Card</a></h3>
 <div class="imageblock">
 <div class="content">
 <img src="images/DeleteCardCommand.png" alt="DeleteCardCommand" width="970">
@@ -1214,7 +1310,7 @@ of the <strong>successful</strong> deletion of the card object.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="listing-credit-cards"><a class="link" href="#listing-credit-cards">4.4. Listing Credit Cards</a></h3>
+<h3 id="listing-credit-cards"><a class="link" href="#listing-credit-cards">4.5. Listing Credit Cards</a></h3>
 <div class="imageblock">
 <div class="content">
 <img src="images/listCardCommand.png" alt="listCardCommand" width="970">
@@ -1284,7 +1380,7 @@ The sequence diagram presented above is assumed to be a valid command which will
 </div>
 </div>
 <div class="sect2">
-<h3 id="finding-of-savings-account"><a class="link" href="#finding-of-savings-account">4.5. Finding of Savings Account</a></h3>
+<h3 id="finding-of-savings-account"><a class="link" href="#finding-of-savings-account">4.6. Finding of Savings Account</a></h3>
 <div class="paragraph">
 <p>The <code>/find /savings</code> feature aims to provide the user with the ability to search for a savings account that matches the
 keyword specified by the user. This enables the user to have great flexibility to view their savings account details
@@ -1292,7 +1388,7 @@ without the need of memorising each of their savings account names within <stron
  a specific savings account, it also aids in the operation of editing or deleting of savings account.</p>
 </div>
 <div class="sect3">
-<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">4.5.1. Current Implementation</a></h4>
+<h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">4.6.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The current implementation of finding savings account only allows the user to search through the name of the account.
 The reason to only allow the user to search through the account name was that searching through parameters such as
@@ -1396,7 +1492,7 @@ user of the <strong>successful</strong> matches.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">4.5.2. Design Considerations</a></h4>
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">4.6.2. Design Considerations</a></h4>
 <div class="paragraph">
 <p>This section describes the various design considerations taken when implementing the <code>/find</code> feature.</p>
 </div>
@@ -1475,13 +1571,13 @@ Although, searching for the item with case insensitivity might cause more unwant
 </div>
 </div>
 <div class="sect2">
-<h3 id="adding-goals"><a class="link" href="#adding-goals">4.6. Adding Goals</a></h3>
+<h3 id="adding-goals"><a class="link" href="#adding-goals">4.7. Adding Goals</a></h3>
 <div class="paragraph">
 <p>The <code>/add /goals</code> feature allows user to add in any financial goals they have in mind to achieve for their future plans.
 This also aims to encourage users whom have yet to have savings to start saving  and track their goals.</p>
 </div>
 <div class="sect3">
-<h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">4.6.1. Current Implementation</a></h4>
+<h4 id="current-implementation-4"><a class="link" href="#current-implementation-4">4.7.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The current implementation of adding goals allow users to either manually track their goals or track via an existing
 saving account. Also, the <code>/amount</code> parameter that user specify should be the total amount they wish to
@@ -1597,7 +1693,7 @@ of the <strong>successful</strong> addition of the goal object.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">4.6.2. Design Considerations</a></h4>
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">4.7.2. Design Considerations</a></h4>
 <div class="paragraph">
 <p>This section describes the various design considerations taken when implementing the <code>/add /goals</code> feature.</p>
 </div>
@@ -6658,4 +6754,4 @@ Expected: Details of achievement being displayed</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 11:21:42 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 12:20:08 UTC</div></div></div></body></html>
