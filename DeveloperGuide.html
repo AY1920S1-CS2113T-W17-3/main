@@ -1385,7 +1385,7 @@ The sequence diagram presented above is assumed to be a valid command which will
 <h3 id="finding-of-savings-account"><a class="link" href="#finding-of-savings-account">4.6. Finding of Savings Account</a></h3>
 <div class="paragraph">
 <p>The <code>/find /savings</code> feature aims to provide the user with the ability to search for a savings account that matches the
-keyword specified by the user. This enables the user to have great flexibility to view their savings account details
+keyword specified by the user. This enables the user to have <strong>great flexibility</strong> to view their savings account details
 without the need of memorising each of their savings account names within <strong>OwlMoney</strong>. By allowing the user to search for
  a specific savings account, it also aids in the operation of editing or deleting of savings account.</p>
 </div>
@@ -1393,14 +1393,14 @@ without the need of memorising each of their savings account names within <stron
 <h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">4.6.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The current implementation of finding savings account only allows the user to search through the name of the account.
-The reason to only allow the user to search through the account name was that searching through parameters such as
-income may be inaccurate, as a user income may change over time resulting in inconsistency in the search.</p>
+The reason to only allows the user to search through the account name was that searching through parameters such as
+income may be inaccurate, as a user&#8217;s income may change over time resulting in inconsistency in the search.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/FindSequenceDiagram.png" alt="FindSequenceDiagram">
 </div>
-<div class="title">Figure 17. Sequence Diagram of Finding Savings Account</div>
+<div class="title">Figure 17. Sequence Diagram of finding savings account</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1427,7 +1427,7 @@ The sequence diagram presented above is assumed to be a valid command which will
 <p>The name of the account that acts as a keyword for the search.</p>
 </li>
 <li>
-<p>Type of item to be searched (e.g. <code>card</code>, <code>savings</code> or <code>investment</code>)</p>
+<p>Type of object to be searched (e.g. <code>card</code>, <code>savings</code> or <code>investment</code>)</p>
 </li>
 </ul>
 </div>
@@ -1445,7 +1445,7 @@ application:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Check the type of items to be searched is either <code>card</code>, <code>savings</code> or <code>investment</code>.</p>
+<p>Check the type of object to be searched is either <code>card</code>, <code>savings</code> or <code>investment</code>.</p>
 </li>
 </ul>
 </div>
@@ -1462,7 +1462,7 @@ application:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Check for matching account name with the keyword among all accounts stored in the ArrayList.</p>
+<p>Check for matching account name with the keyword among all accounts stored in the <strong>ArrayList</strong>.</p>
 </li>
 <li>
 <p>Check whether the account that matches the keyword is indeed a savings account.</p>
@@ -1496,7 +1496,8 @@ user of the <strong>successful</strong> matches.</p>
 <div class="sect3">
 <h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">4.6.2. Design Considerations</a></h4>
 <div class="paragraph">
-<p>This section describes the various design considerations taken when implementing the <code>/find</code> feature.</p>
+<p>This section describes the various design considerations taken when implementing the <code>find</code> feature (e.g. <code>/find
+/savings</code> or <code>/find /banktransaction</code>).</p>
 </div>
 <div class="paragraph">
 <p><strong>Aspect: Choice of whether the keyword (E.g. <code>ACCOUNT_NAME</code>, <code>DESCRIPTION</code> or <code>CATEGORY</code>) to be searched should be
@@ -1517,7 +1518,7 @@ case-sensitive or case-insensitive</strong></p>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>1.</strong> Searching of items based on the keyword is case-sensitive.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>1.</strong> Searching of objects based on the keyword is case-sensitive.</p></td>
 <td class="tableblock halign-left valign-top"><div><div class="ulist">
 <ul>
 <li>
@@ -1529,23 +1530,24 @@ case-sensitive or case-insensitive</strong></p>
 <ul>
 <li>
 <p>By having a case-sensitive search, it will cause the <code>/find</code> command to be inflexible. As the user will need to
-provide the exact capitalisation within the keyword to be able to find the item he/she is searching for.</p>
+provide the exact capitalisation within the keyword to be able to find the object he/she is searching for.</p>
 </li>
 <li>
 <p>For example, if the description of a transaction record that the user is searching for is "Lunch at KFC". The user
-will not be able to find the expenditure if he/she provides the keyword as "lunch". This is because of the
-capitalisation of the first letter within the keyword is "l" and it is different from the expenditure description.</p>
+will not be able to find the transaction record if he/she provides the keyword as "lunch". This is because of the
+capitalisation of the first letter within the keyword is "l" and it is different from the transaction record&#8217;s
+description.</p>
 </li>
 </ul>
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>2.</strong> Searching of items based on the keyword is case-insensitive.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>2.</strong> Searching of objects based on the keyword is case-insensitive.</p></td>
 <td class="tableblock halign-left valign-top"><div><div class="ulist">
 <ul>
 <li>
 <p>By allowing the search to be case-insensitive, it provides the user with greater flexibility when searching for
-matching items.</p>
+matching objects.</p>
 </li>
 </ul>
 </div></div></td>
@@ -1566,8 +1568,9 @@ capitalisation of the keyword does not matter.</p>
 </div>
 <div class="paragraph">
 <p>The reason for choosing <strong>approach 2 over approach 1</strong> is mainly due to the flexibility that it can provide to a user.
-Although, searching for the item with case insensitivity might cause more unwanted results being displayed. We felt that
- the ability to easily match keyword with the item that the user would like to find is more important, as it enhanced
+Although, searching for the object with case insensitivity might cause more unwanted results being displayed. We felt
+that
+ the ability to easily match keyword with the object that the user would like to find is more important, as it enhanced
  the user-friendliness of <strong>OwlMoney</strong>.</p>
 </div>
 </div>
@@ -6759,4 +6762,4 @@ Expected: Details of achievement being displayed</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 13:16:08 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 13:45:36 UTC</div></div></div></body></html>
