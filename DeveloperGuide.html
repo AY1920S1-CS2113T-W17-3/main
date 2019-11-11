@@ -5656,8 +5656,8 @@ you might want to change it back to <code>DBB Vickers Account</code> or you can 
 </li>
 <li>
 <p>Test case:
-<code>/add /bonds /name September SSB /amount 1000 /rate 1.65 /year 7 /date 1/10/2019 /from BBB Vickers Account</code><br>
-Expected: New details of the September SSB <code>bond</code> being displayed after being added.</p>
+<code>/add /bonds /name test SSB /amount 1000 /rate 1.65 /year 7 /date 1/10/2019 /from BBB Vickers Account</code><br>
+Expected: New details of the test SSB <code>bond</code> being displayed after being added.</p>
 </li>
 </ol>
 </div>
@@ -5692,8 +5692,8 @@ Expected: New details of the September SSB <code>bond</code> being displayed aft
 </li>
 <li>
 <p>Test case:
-<code>/edit /bonds /from BBB Vickers Account /name September SSB /rate 1.90</code><br>
-Expected: Updated rate of the September SSB <code>bond</code> being displayed after being edited.</p>
+<code>/edit /bonds /from BBB Vickers Account /name test SSB /rate 1.90</code><br>
+Expected: Updated rate of the test SSB <code>bond</code> being displayed after being edited.</p>
 </li>
 </ol>
 </div>
@@ -5704,6 +5704,11 @@ Expected: Updated rate of the September SSB <code>bond</code> being displayed af
 <ol class="loweralpha" type="a">
 <li>
 <p>Prerequisites: There is an existing <code>bond</code> tied to an existing <code>investment</code> account.</p>
+</li>
+<li>
+<p>Test case:
+<code>/edit /bonds /from BBB Vickers Account /name test SSB /year 10</code><br>
+Expected: Updated year of the test SSB <code>bond</code> being displayed after being edited.</p>
 </li>
 </ol>
 </div>
@@ -5738,7 +5743,7 @@ Expected: Updated rate of the September SSB <code>bond</code> being displayed af
 </li>
 <li>
 <p>Test case:
-<code>/delete /bonds /from BBB Vickers Account /name September SSB</code><br>
+<code>/delete /bonds /from BBB Vickers Account /name test SSB</code><br>
 Expected: Details of the deleted <code>bond</code> being displayed after being deleted.</p>
 </li>
 </ol>
@@ -6838,4 +6843,4 @@ Expected: Details of achievement being displayed</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 13:59:46 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 14:00:55 UTC</div></div></div></body></html>
