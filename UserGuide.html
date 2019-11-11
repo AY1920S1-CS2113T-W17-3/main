@@ -2367,6 +2367,12 @@ that you require quickly out of <strong>OwlMoney</strong>.</p>
 <p class="tableblock">Take note that there is a maximum of <strong>50</strong> character limit.</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>CATEGORY</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Indicates the category of the transaction.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>CATEGORY</code> should contain alphabetic characters, and spaces only.</p>
+<p class="tableblock">Take note that there is a maximum of <strong>15</strong> character limit.</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>DATE</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Indicates the date the transaction was made.</p>
 <p class="tableblock">(e.g. 2/2/2019)</p></td>
@@ -2386,11 +2392,11 @@ your bank account as long as you remember part of your account name.</p>
 <div class="paragraph">
 <p><code>/find /savings /name ACCOUNT_NAME</code></p>
 </div>
-<div class="admonitionblock warning">
+<div class="admonitionblock note">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-warning" title="Warning"></i>
+<i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
 <div class="paragraph">
@@ -2432,11 +2438,11 @@ your bank account as long as you remember part of your account name.</p>
 <div class="paragraph">
 <p><code>/find /investment /name ACCOUNT_NAME</code></p>
 </div>
-<div class="admonitionblock warning">
+<div class="admonitionblock note">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-warning" title="Warning"></i>
+<i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
 <div class="paragraph">
@@ -2477,11 +2483,11 @@ your bank account as long as you remember part of your account name.</p>
 <div class="paragraph">
 <p><code>/find /card /name CARD_NAME</code></p>
 </div>
-<div class="admonitionblock warning">
+<div class="admonitionblock note">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-warning" title="Warning"></i>
+<i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
 <div class="paragraph">
@@ -2521,11 +2527,11 @@ you various ways to do it!</p>
 <div class="paragraph">
 <p><code>/find /bonds /name BOND_NAME /from ACCOUNT_NAME</code></p>
 </div>
-<div class="admonitionblock warning">
+<div class="admonitionblock note">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-warning" title="Warning"></i>
+<i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
 <div class="paragraph">
@@ -2581,6 +2587,12 @@ to do it! It allows you to search by description, category or a date range!</p>
 <div class="paragraph">
 <p>Transactions includes both expenditures and deposits.</p>
 </div>
+<div class="paragraph">
+<p><code>DESCRIPTION</code> used for searching is case-insensitive.</p>
+</div>
+<div class="paragraph">
+<p><code>CATEGORY</code> used for searching is case-insensitive.</p>
+</div>
 </td>
 </tr>
 </table>
@@ -2594,12 +2606,6 @@ to do it! It allows you to search by description, category or a date range!</p>
 <td class="content">
 <div class="paragraph">
 <p>At least one of <code>/desc</code>, <code>/category</code>, or <code>/from</code> with <code>/to</code> must be used.</p>
-</div>
-<div class="paragraph">
-<p><code>DESCRIPTION</code> used for searching is case-insensitive.</p>
-</div>
-<div class="paragraph">
-<p><code>CATEGORY</code> used for searching is case-insensitive.</p>
 </div>
 </td>
 </tr>
@@ -2736,6 +2742,12 @@ do it! It allows you to search by description, category or a date range!</p>
 <div class="paragraph">
 <p>Transactions includes both expenditures and deposits.</p>
 </div>
+<div class="paragraph">
+<p><code>DESCRIPTION</code> used for searching is case-insensitive.</p>
+</div>
+<div class="paragraph">
+<p><code>CATEGORY</code> used for searching is case-insensitive.</p>
+</div>
 </td>
 </tr>
 </table>
@@ -2749,12 +2761,6 @@ do it! It allows you to search by description, category or a date range!</p>
 <td class="content">
 <div class="paragraph">
 <p>At least one of <code>/desc</code>, <code>/category</code>, or <code>/from</code> with <code>/to</code> must be used.</p>
-</div>
-<div class="paragraph">
-<p><code>DESCRIPTION</code> used for searching is case-insensitive.</p>
-</div>
-<div class="paragraph">
-<p><code>CATEGORY</code> used for searching is case-insensitive.</p>
 </div>
 </td>
 </tr>
@@ -2891,6 +2897,12 @@ various ways to do it! It allows you to search by description or category!</p>
 <div class="paragraph">
 <p>Recurring expenditure only exists in savings account.</p>
 </div>
+<div class="paragraph">
+<p><code>DESCRIPTION</code> used for searching is case-insensitive.</p>
+</div>
+<div class="paragraph">
+<p><code>CATEGORY</code> used for searching is case-insensitive.</p>
+</div>
 </td>
 </tr>
 </table>
@@ -2904,12 +2916,6 @@ various ways to do it! It allows you to search by description or category!</p>
 <td class="content">
 <div class="paragraph">
 <p>At least one of <code>/desc</code> or <code>/category</code> must be used.</p>
-</div>
-<div class="paragraph">
-<p><code>DESCRIPTION</code> used for searching is case-insensitive.</p>
-</div>
-<div class="paragraph">
-<p><code>CATEGORY</code> used for searching is case-insensitive.</p>
 </div>
 </td>
 </tr>
@@ -3938,4 +3944,4 @@ specified by the user</strong></p></td>
 </table>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 08:18:30 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 08:31:28 UTC</div></div></div></body></html>

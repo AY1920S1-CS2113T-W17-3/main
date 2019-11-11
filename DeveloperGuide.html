@@ -31,12 +31,11 @@
 <li><a href="#implementation">4. Implementation</a>
 <ul class="sectlevel2">
 <li><a href="#parsing-commands-in-general">4.1. Parsing Commands in General</a></li>
-<li><a href="#adding-savings">4.2. Adding Savings</a></li>
-<li><a href="#editing-bonds">4.3. Editing Bonds</a></li>
-<li><a href="#deleting-credit-card">4.4. Deleting Credit Card</a></li>
-<li><a href="#listing-credit-cards">4.5. Listing Credit Cards</a></li>
-<li><a href="#transferring-funds">4.6. Transferring Funds</a></li>
-<li><a href="#adding-goals">4.7. Adding Goals</a></li>
+<li><a href="#editing-bonds">4.2. Editing Bonds</a></li>
+<li><a href="#deleting-credit-card">4.3. Deleting Credit Card</a></li>
+<li><a href="#listing-credit-cards">4.4. Listing Credit Cards</a></li>
+<li><a href="#finding-of-savings-account">4.5. Finding of Savings Account</a></li>
+<li><a href="#adding-goals">4.6. Adding Goals</a></li>
 </ul>
 </li>
 <li><a href="#documentation">5. Documentation</a>
@@ -777,9 +776,6 @@ into the the specific Parser classes in <code>ParseTypeMenu</code>.</p>
 <div class="paragraph">
 <p>The execution of commands will be elaborated in subsequent diagrams below.</p>
 </div>
-</div>
-<div class="sect2">
-<h3 id="adding-savings"><a class="link" href="#adding-savings">4.2. Adding Savings</a></h3>
 <div class="imageblock">
 <div class="content">
 <img src="images/AddSavingCommand.png" alt="AddSavingCommand" width="800">
@@ -872,14 +868,14 @@ of the <strong>successful</strong> addition of the savings object.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="editing-bonds"><a class="link" href="#editing-bonds">4.3. Editing Bonds</a></h3>
+<h3 id="editing-bonds"><a class="link" href="#editing-bonds">4.2. Editing Bonds</a></h3>
 <div class="paragraph">
 <p>The <code>/edit /bonds</code> feature aims to help users update the specific details of the investment <code>bonds</code> that they
 purchase. This is to enable them to not go through the trouble of deleting and re-adding the <code>bond</code> if they enter the
 details wrongly by mistake.</p>
 </div>
 <div class="sect3">
-<h4 id="current-implementation"><a class="link" href="#current-implementation">4.3.1. Current Implementation</a></h4>
+<h4 id="current-implementation"><a class="link" href="#current-implementation">4.2.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The current implementation of editing <code>bonds</code> only allows for the edition of <code>rate</code> and <code>year</code> where the <code>year</code>
 parameter can only be changed to a higher integer than the original <code>year</code> currently stored. The reason behind only
@@ -1028,7 +1024,7 @@ of the <strong>successful</strong> editing of the bond.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations"><a class="link" href="#design-considerations">4.3.2. Design Considerations</a></h4>
+<h4 id="design-considerations"><a class="link" href="#design-considerations">4.2.2. Design Considerations</a></h4>
 <div class="paragraph">
 <p>This section describes the various design considerations taken when implementing the <code>/edit /bonds</code> feature.</p>
 </div>
@@ -1127,7 +1123,7 @@ high risk of logic and coding errors, leaving room for bugs to be exploited.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-credit-card"><a class="link" href="#deleting-credit-card">4.4. Deleting Credit Card</a></h3>
+<h3 id="deleting-credit-card"><a class="link" href="#deleting-credit-card">4.3. Deleting Credit Card</a></h3>
 <div class="imageblock">
 <div class="content">
 <img src="images/DeleteCardCommand.png" alt="DeleteCardCommand" width="970">
@@ -1211,7 +1207,7 @@ of the <strong>successful</strong> deletion of the card object.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="listing-credit-cards"><a class="link" href="#listing-credit-cards">4.5. Listing Credit Cards</a></h3>
+<h3 id="listing-credit-cards"><a class="link" href="#listing-credit-cards">4.4. Listing Credit Cards</a></h3>
 <div class="imageblock">
 <div class="content">
 <img src="images/listCardCommand.png" alt="listCardCommand" width="970">
@@ -1281,12 +1277,25 @@ The sequence diagram presented above is assumed to be a valid command which will
 </div>
 </div>
 <div class="sect2">
-<h3 id="transferring-funds"><a class="link" href="#transferring-funds">4.6. Transferring Funds</a></h3>
+<h3 id="finding-of-savings-account"><a class="link" href="#finding-of-savings-account">4.5. Finding of Savings Account</a></h3>
+<div class="paragraph">
+<p>The <code>/find /savings</code> feature aims to provide the user with the ability to search for a savings account that matches the
+keyword specified by the user. This enables the user to have great flexibility to view their savings account details
+without the need of memorising each of their savings account names within <strong>OwlMoney</strong>. By allowing the user to search for
+ a specific savings account, it also aids in the operation of editing or deleting of savings account.</p>
+</div>
+<div class="sect3">
+<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">4.5.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>The current implementation of finding savings account only allows the user to search through the name of the account.
+The reason to only allow the user to search through the account name was that searching through parameters such as
+income may be inaccurate, as a user income may change over time resulting in inconsistency in the search.</p>
+</div>
 <div class="imageblock">
 <div class="content">
-<img src="images/TransferCommand.png" alt="TransferCommand" width="970">
+<img src="images/FindSequenceDiagram.png" alt="FindSequenceDiagram">
 </div>
-<div class="title">Figure 17. Model Component Diagram</div>
+<div class="title">Figure 17. Sequence Diagram of Finding Savings Account</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1301,49 +1310,57 @@ The sequence diagram presented above is assumed to be a valid command which will
 </table>
 </div>
 <div class="paragraph">
-<p>The above sequence diagram depicts the interaction between the <code>Logic</code> and <code>Model</code> component for running
-<code>TransferCommand</code>.</p>
+<p>The sequence diagram presented above depicts the interaction between the <code>Logic</code>, <code>Model</code> and <code>Ui</code> component for running
+<code>FindBankOrCardCommand</code>.</p>
 </div>
 <div class="paragraph">
-<p>The <code>TransferCommand</code> requires <strong>4</strong> inputs:</p>
+<p>The <code>FindBankOrCardCommand</code> requires <strong>2</strong> inputs:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Sender Bank Account&#8217;s name</p>
+<p>The name of the account that acts as a keyword for the search.</p>
 </li>
 <li>
-<p>Receiver Bank Account&#8217;s name</p>
-</li>
-<li>
-<p>Date of transfer</p>
-</li>
-<li>
-<p>Amount to transfer</p>
+<p>Type of item to be searched (e.g. <code>card</code>, <code>savings</code> or <code>investment</code>)</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>When the user executes the <code>TransferCommand</code>, the following steps are taken by the application:</p>
+<p>When the user executes the <code>FindBankOrCardCommand</code> to search for savings account, the following steps are taken by the
+application:</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>When the <code>TransferCommand</code> is executed, it will invoke <code>transferFund</code>.</p>
+<p>When the <code>FindBankOrCardCommand</code> is executed, it will invoke <code>findBankOrCard</code>.</p>
 </li>
 <li>
-<p>Once invoked, <code>transferFund</code> will perform the following checks:</p>
+<p>Once invoked, <code>findBankOrCard</code> will perform the following checks:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Check the transferring account exists in the Arraylist of banks through the method <code>bankListIsAccountExistToReceive</code>.</p>
+<p>Check the type of items to be searched is either <code>card</code>, <code>savings</code> or <code>investment</code>.</p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+<div class="olist arabic">
+<ol class="arabic" start="3">
+<li>
+<p>After passing the above checks, <code>findBankOrCard</code> will invoke <code>findBankAccount</code>.</p>
 </li>
 <li>
-<p>Check the transferring account has sufficient money for the transfer through the method
-<code>bankListIsSufficientForTransfer</code>.</p>
+<p>Within the invocation of <code>findBankAccount</code>, it will perform the following checks:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Check for matching account name with the keyword among all accounts stored in the ArrayList.</p>
 </li>
 <li>
-<p>Check the receiving account exists in the arraylist of bank through the method <code>bankListIsAccountExistToReceive</code>.</p>
+<p>Check whether the account that matches the keyword is indeed a savings account.</p>
 </li>
 </ul>
 </div>
@@ -1357,35 +1374,107 @@ The sequence diagram presented above is assumed to be a valid command which will
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-<code>transferFund</code> will throw an error if any of the above checks fail.
+<code>findBankAccount</code> will throw an error if all bank accounts within the application fail the above checks.
 </td>
 </tr>
 </table>
 </div>
 <div class="olist arabic">
-<ol class="arabic" start="3">
+<ol class="arabic" start="5">
 <li>
-<p>After passing the above checks, <code>transferFund</code> will add an expenditure to the transferring account.</p>
-</li>
-<li>
-<p>After adding an <strong>expenditure</strong> to the transferring account, a <strong>deposit</strong> will be added to the receiving account for the
-fund transfer.</p>
-</li>
-<li>
-<p>Once the transfer has been completed, the details of the transfer will be displayed to inform the user of the
-<strong>successful</strong> fund transfer.</p>
+<p>Once the search has been completed, the details of all matching savings account will be displayed to inform the
+user of the <strong>successful</strong> matches.</p>
 </li>
 </ol>
 </div>
 </div>
+<div class="sect3">
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">4.5.2. Design Considerations</a></h4>
+<div class="paragraph">
+<p>This section describes the various design considerations taken when implementing the <code>/find</code> feature.</p>
+</div>
+<div class="paragraph">
+<p><strong>Aspect: Choice of whether the keyword (E.g. <code>ACCOUNT_NAME</code>, <code>DESCRIPTION</code> or <code>CATEGORY</code>) to be searched should be
+case-sensitive or case-insensitive</strong></p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 18%;">
+<col style="width: 37%;">
+<col style="width: 45%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><strong>Approach</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Pros</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Cons</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>1.</strong> Searching of items based on the keyword is case-sensitive.</p></td>
+<td class="tableblock halign-left valign-top"><div><div class="ulist">
+<ul>
+<li>
+<p>By restricting the search to be case-sensitive, it provides the user with a more accurate searched result.</p>
+</li>
+</ul>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="ulist">
+<ul>
+<li>
+<p>By having a case-sensitive search, it will cause the <code>/find</code> command to be inflexible. As the user will need to
+provide the exact capitalisation within the keyword to be able to find the item he/she is searching for.</p>
+</li>
+<li>
+<p>For example, if the description of a transaction record that the user is searching for is "Lunch at KFC". The user
+will not be able to find the expenditure if he/she provides the keyword as "lunch". This is because of the
+capitalisation of the first letter within the keyword is "l" and it is different from the expenditure description.</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>2.</strong> Searching of items based on the keyword is case-insensitive.</p></td>
+<td class="tableblock halign-left valign-top"><div><div class="ulist">
+<ul>
+<li>
+<p>By allowing the search to be case-insensitive, it provides the user with greater flexibility when searching for
+matching items.</p>
+</li>
+</ul>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="ulist">
+<ul>
+<li>
+<p>For example, if the description of a transaction record that the user is searching for is "Lunch at KFC". The user
+will be able to find the transaction record if he/she provides the keyword as "lunch". This is because the
+capitalisation of the keyword does not matter.</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>After weighing the pros and cons, <strong>approach 2</strong> was taken.</p>
+</div>
+<div class="paragraph">
+<p>The reason for choosing <strong>approach 2 over approach 1</strong> is mainly due to the flexibility that it can provide to a user.
+Although, searching for the item with case insensitivity might cause more unwanted results being displayed. We felt that
+ the ability to easily match keyword with the item that the user would like to find is more important, as it enhanced
+ the user-friendliness of <strong>OwlMoney</strong>.</p>
+</div>
+</div>
+</div>
 <div class="sect2">
-<h3 id="adding-goals"><a class="link" href="#adding-goals">4.7. Adding Goals</a></h3>
+<h3 id="adding-goals"><a class="link" href="#adding-goals">4.6. Adding Goals</a></h3>
 <div class="paragraph">
 <p>The <code>/add /goals</code> feature allows user to add in any financial goals they have in mind to achieve for their future plans.
 This also aims to encourage users whom have yet to have savings to start saving  and track their goals.</p>
 </div>
 <div class="sect3">
-<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">4.7.1. Current Implementation</a></h4>
+<h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">4.6.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The current implementation of adding goals allow users to either manually track their goals or track via an existing
 saving account. Also, the <code>/amount</code> parameter that user specify should be the total amount they wish to
@@ -1501,7 +1590,7 @@ of the <strong>successful</strong> addition of the goal object.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">4.7.2. Design Considerations</a></h4>
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">4.6.2. Design Considerations</a></h4>
 <div class="paragraph">
 <p>This section describes the various design considerations taken when implementing the <code>/add /goals</code> feature.</p>
 </div>
@@ -2808,13 +2897,13 @@ correctly.</p>
 <p>User chooses to add new expenditure record.</p>
 </li>
 <li>
-<p>System requests expenditure details.</p>
+<p>System requests expenditure details and the account to add the expenditure.</p>
 </li>
 <li>
 <p>User enters expenditure details.</p>
 </li>
 <li>
-<p>System adds new expenditure record.</p>
+<p>System adds new expenditure record into the specified account.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -2827,17 +2916,18 @@ correctly.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>3a. System detects invalid expenditure details.</p>
+<p>3a. System detects invalid expenditure details or account.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>3a1. System requests for the correct expenditure details.</p>
+<p>3a1. System requests for the correct expenditure details and the account to add the expenditure.</p>
 </li>
 <li>
-<p>3a2. User re-enters the expenditure details.</p>
+<p>3a2. User re-enters the expenditure details and the account to add the expenditure.</p>
 </li>
 <li>
-<p>Steps 3a1-3a2 are repeated until the expenditure details entered are correct.</p>
+<p>Steps 3a1-3a2 are repeated until the expenditure details and the account to add the expenditure are entered correctly
+.</p>
 </li>
 <li>
 <p>Use case resumes from step 4.</p>
@@ -2934,10 +3024,10 @@ correctly.</p>
 <p>User chooses to delete expenditure record.</p>
 </li>
 <li>
-<p>System requests expenditure to be deleted.</p>
+<p>System requests expenditure to be deleted and the account to delete the expenditure from.</p>
 </li>
 <li>
-<p>User specifies the expenditure to be deleted.</p>
+<p>User specifies the expenditure to be deleted and the account to delete the expenditure from.</p>
 </li>
 <li>
 <p>System deletes the specified record from the database.</p>
@@ -2953,17 +3043,18 @@ correctly.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>3a. System detects invalid expenditure to be deleted.</p>
+<p>3a. System detects invalid expenditure to be deleted or account to delete the expenditure from.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>3a1. System requests for the correct expenditure to be deleted.</p>
+<p>3a1. System requests for the correct expenditure to be deleted and the account to delete the expenditure from.</p>
 </li>
 <li>
-<p>3a2. User re-enters the expenditure to be deleted.</p>
+<p>3a2. User re-enters the expenditure to be deleted and the account to delete the expenditure from.</p>
 </li>
 <li>
-<p>Steps 3a1-3a2 are repeated until the expenditure to be deleted is entered correctly.</p>
+<p>Steps 3a1-3a2 are repeated until the expenditure to be deleted the account to delete the expenditure from are
+entered correctly.</p>
 </li>
 <li>
 <p>Use case resumes from step 4.</p>
@@ -2997,10 +3088,10 @@ correctly.</p>
 <p>User chooses to list the expenditure record.</p>
 </li>
 <li>
-<p>System requests the type of expenditure to be listed.</p>
+<p>System requests the account to list from.</p>
 </li>
 <li>
-<p>User specifies the type of expenditure to be listed.</p>
+<p>User specifies the account to list from.</p>
 </li>
 <li>
 <p>System displays the expenditure records specified.</p>
@@ -3016,17 +3107,17 @@ correctly.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>3a. System detects invalid type of expenditure to be listed.</p>
+<p>3a. System detects invalid account to list from.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>3a1. System requests for the correct type of expenditure to be listed.</p>
+<p>3a1. System requests for the correct account to list from.</p>
 </li>
 <li>
-<p>3a2. User re-enters the type of expenditure to be listed.</p>
+<p>3a2. User re-enters the account to list from.</p>
 </li>
 <li>
-<p>Steps 3a1-3a2 are repeated until the type of expenditure to be listed is entered correctly.</p>
+<p>Steps 3a1-3a2 are repeated until the account to list from is entered correctly.</p>
 </li>
 <li>
 <p>Use case resumes from step 4.</p>
@@ -3047,6 +3138,9 @@ correctly.</p>
 <p><strong>User has a profile created</strong></p>
 </li>
 <li>
+<p><strong>User has at least an existing card, savings account or investment account</strong></p>
+</li>
+<li>
 <p><strong>User has existing transaction records</strong></p>
 </li>
 </ul>
@@ -3060,10 +3154,10 @@ correctly.</p>
 <p>User chooses to search for transaction record.</p>
 </li>
 <li>
-<p>System requests the keyword to be search.</p>
+<p>System requests the keywords to be search.</p>
 </li>
 <li>
-<p>User specifies the keyword to be search.</p>
+<p>User specifies the keywords to be search.</p>
 </li>
 <li>
 <p>System displays information found from the search.</p>
@@ -3079,17 +3173,17 @@ correctly.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>3a. System detects invalid keyword to be search.</p>
+<p>3a. System detects invalid keywords to be search.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>3a1. System requests for the correct keyword to be search.</p>
+<p>3a1. System requests for the correct keywords to be search.</p>
 </li>
 <li>
-<p>3a2. User re-enters the keyword to be search.</p>
+<p>3a2. User re-enters the keywords to be search.</p>
 </li>
 <li>
-<p>Steps 3a1-3a2 are repeated until the keyword to be search is entered correctly.</p>
+<p>Steps 3a1-3a2 are repeated until the keywords to be search is entered correctly.</p>
 </li>
 <li>
 <p>Use case resumes from step 4.</p>
@@ -3450,10 +3544,10 @@ correctly.</p>
 <p>User chooses to charge expenditure to credit card.</p>
 </li>
 <li>
-<p>System requests the expenditure information.</p>
+<p>System requests the expenditure information and the card to be charged.</p>
 </li>
 <li>
-<p>User enters the expenditure information.</p>
+<p>User enters the expenditure information and the card to be charged.</p>
 </li>
 <li>
 <p>System creates the credit card expenditure record.</p>
@@ -3469,17 +3563,17 @@ correctly.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>3a. System detects invalid expenditure information.</p>
+<p>3a. System detects invalid expenditure information or card to be charged.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>3a1. System requests for the correct expenditure information.</p>
+<p>3a1. System requests for the correct expenditure information and card to be charged.</p>
 </li>
 <li>
-<p>3a2. User re-enters the expenditure information.</p>
+<p>3a2. User re-enters the expenditure information and card to be charged.</p>
 </li>
 <li>
-<p>Steps 3a1-3a2 are repeated until the expenditure information is entered correctly.</p>
+<p>Steps 3a1-3a2 are repeated until the expenditure information and card to be charged are entered correctly.</p>
 </li>
 <li>
 <p>Use case resumes from step 4.</p>
@@ -3513,10 +3607,10 @@ correctly.</p>
 <p>User chooses to edit credit card details.</p>
 </li>
 <li>
-<p>System requests for new credit card details.</p>
+<p>System requests for new credit card details and the credit card to be edited.</p>
 </li>
 <li>
-<p>User enters new credit card details.</p>
+<p>User enters new credit card details and the credit card to be edited.</p>
 </li>
 <li>
 <p>System updates the credit card details.</p>
@@ -3532,17 +3626,17 @@ correctly.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>3a. System detects invalid credit card details.</p>
+<p>3a. System detects invalid credit card details or credit card to be edited</p>
 <div class="ulist">
 <ul>
 <li>
-<p>3a1. System requests for the correct credit card details.</p>
+<p>3a1. System requests for the correct credit card details and credit card to be edited.</p>
 </li>
 <li>
-<p>3a2. User re-enters the credit card details.</p>
+<p>3a2. User re-enters the credit card details and the credit card to be edited.</p>
 </li>
 <li>
-<p>Steps 3a1-3a2 are repeated until the credit card details is entered correctly.</p>
+<p>Steps 3a1-3a2 are repeated until the credit card details and the credit card to be edited are entered correctly.</p>
 </li>
 <li>
 <p>Use case resumes from step 4.</p>
@@ -3601,10 +3695,10 @@ correctly.</p>
 <p>User chooses to set recurring expenditure.</p>
 </li>
 <li>
-<p>System requests for details of recurring expenditure.</p>
+<p>System requests for details of recurring expenditure and the savings account to be charged.</p>
 </li>
 <li>
-<p>User enters details of recurring expenditure.</p>
+<p>User enters details of recurring expenditure and the savings account to be charged.</p>
 </li>
 <li>
 <p>System creates recurring expenditure.</p>
@@ -3620,17 +3714,18 @@ correctly.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>3a. System detects invalid details of recurring expenditure.</p>
+<p>3a. System detects invalid details of recurring expenditure or savings account to be charged.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>3a1. System requests for the correct details of recurring expenditure.</p>
+<p>3a1. System requests for the correct details of recurring expenditure and savings account to be charged.</p>
 </li>
 <li>
-<p>3a2. User re-enters the details of recurring expenditure.</p>
+<p>3a2. User re-enters the details of recurring expenditure and the savings account to be charged.</p>
 </li>
 <li>
-<p>Steps 3a1-3a2 are repeated until the details of recurring expenditure is entered correctly.</p>
+<p>Steps 3a1-3a2 are repeated until the details of recurring expenditure and savings account to be charged are entered
+correctly.</p>
 </li>
 <li>
 <p>Use case resumes from step 4.</p>
@@ -3724,12 +3819,44 @@ correctly.</p>
 <p>User chooses to view recurring expenditure.</p>
 </li>
 <li>
-<p>System displays all recurring payments in chronological order.</p>
+<p>System requests the savings account to be listed.</p>
+</li>
+<li>
+<p>User enters the savings account to be listed.</p>
+</li>
+<li>
+<p>System displays all recurring payments.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
 </li>
 </ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3a. System detects invalid savings account to be listed.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>3a1. System requests for the correct savings account to be listed.</p>
+</li>
+<li>
+<p>3a2. User re-enters the savings account to be listed.</p>
+</li>
+<li>
+<p>Steps 3a1-3a2 are repeated until the savings account to be listed is entered correctly.</p>
+</li>
+<li>
+<p>Use case resumes from step 4.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
 </div>
 <div class="paragraph">
 <p><strong>Actor: User with income</strong><br>
@@ -3786,10 +3913,10 @@ correctly.</p>
 <p>User chooses to edit recurring expenditure.</p>
 </li>
 <li>
-<p>System requests from user the recurring expenditure to be edited.</p>
+<p>System requests from user the recurring expenditure to be edited and the savings account.</p>
 </li>
 <li>
-<p>User specifies the recurring expenditure.</p>
+<p>User specifies the recurring expenditure and the savings account.</p>
 </li>
 <li>
 <p>System requests for the new recurring expenditure details.</p>
@@ -3811,17 +3938,17 @@ correctly.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>3a. System detects invalid recurring expenditure being specified.</p>
+<p>3a. System detects invalid recurring expenditure or savings account being specified.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>3a1. System requests for the correct recurring expenditure.</p>
+<p>3a1. System requests for the correct recurring expenditure and savings account.</p>
 </li>
 <li>
-<p>3a2. User re-enters the recurring expenditure.</p>
+<p>3a2. User re-enters the recurring expenditure and savings account.</p>
 </li>
 <li>
-<p>Steps 3a1-3a2 are repeated until the recurring expenditure entered are correct.</p>
+<p>Steps 3a1-3a2 are repeated until the recurring expenditure and savings account are entered correctly.</p>
 </li>
 </ul>
 </div>
@@ -4238,10 +4365,10 @@ correctly.</p>
 <p>User choose to edit investment account.</p>
 </li>
 <li>
-<p>System requests for new investment account details.</p>
+<p>System requests for new investment account details and the investment account to be edited.</p>
 </li>
 <li>
-<p>User enters investment account details.</p>
+<p>User enters investment account details and the investment account to be edited.</p>
 </li>
 <li>
 <p>System updates the investment account.</p>
@@ -4257,17 +4384,18 @@ correctly.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>3a. System detects invalid investment account details.</p>
+<p>3a. System detects invalid investment account details or investment account to be edited.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>3a1. System requests for the correct investment account details.</p>
+<p>3a1. System requests for the correct investment account details and the investment account to be edited.</p>
 </li>
 <li>
-<p>3a2. User re-enters the investment account details.</p>
+<p>3a2. User re-enters the investment account details and the investment account to be edited.</p>
 </li>
 <li>
-<p>Steps 3a1-3a2 are repeated until the investment account details entered are correct.</p>
+<p>Steps 3a1-3a2 are repeated until the investment account details and the investment account to be edited entered
+are correct.</p>
 </li>
 <li>
 <p>Use case resumes from step 4.</p>
@@ -4396,8 +4524,8 @@ correctly.</p>
 </ul>
 </div>
 <div class="paragraph">
-<p><strong>Actor: Organized User</strong><br>
-<a id="UC-36"></a> <strong>Use case: UC36 - Gain achievement</strong><br>
+<p><strong>Actor: Organised User</strong><br>
+<a id="UC-36"></a> <strong>Use case: UC36 - List card details</strong><br>
 <strong>Preconditions:</strong></p>
 </div>
 <div class="ulist">
@@ -4427,8 +4555,8 @@ correctly.</p>
 </ol>
 </div>
 <div class="paragraph">
-<p><strong>Actor: Organized User</strong><br>
-<a id="UC-37"></a> <strong>Use case: UC37 - Gain achievement</strong><br>
+<p><strong>Actor: Organised User</strong><br>
+<a id="UC-37"></a> <strong>Use case: UC37 - List card expenditures</strong><br>
 <strong>Preconditions:</strong></p>
 </div>
 <div class="ulist">
@@ -4522,10 +4650,10 @@ correctly.</p>
 <p>User choose to search for specific bank account, credit card or bonds.</p>
 </li>
 <li>
-<p>System requests for the keyword to be used for searching.</p>
+<p>System requests for the keywords to be used for searching.</p>
 </li>
 <li>
-<p>User specifies the keyword to be used for searching.</p>
+<p>User specifies the keywords to be used for searching.</p>
 </li>
 <li>
 <p>System displays information found from the search.</p>
@@ -4541,17 +4669,17 @@ correctly.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>3a. System detects invalid keyword to be used for searching.</p>
+<p>3a. System detects invalid keywords to be used for searching.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>3a1. System requests for the correct keyword to be used for searching.</p>
+<p>3a1. System requests for the correct keywords to be used for searching.</p>
 </li>
 <li>
-<p>3a2. User re-enters the keyword to be used for searching.</p>
+<p>3a2. User re-enters the keywords to be used for searching.</p>
 </li>
 <li>
-<p>Steps 3a1-3a2 are repeated until the keyword to be used for searching is entered correctly.</p>
+<p>Steps 3a1-3a2 are repeated until the keywords to be used for searching is entered correctly.</p>
 </li>
 <li>
 <p>Use case resumes from step 4.</p>
@@ -4585,12 +4713,44 @@ correctly.</p>
 <p>User chooses the type of financial details to list.</p>
 </li>
 <li>
+<p>System requests for the type of financial details to be listed.</p>
+</li>
+<li>
+<p>User specifies the type of financial details to be listed.</p>
+</li>
+<li>
 <p>System displays the information in a table format.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
 </li>
 </ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3a. System detects invalid type of financial details to be listed.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>3a1. System requests for the correct type of financial details to be listed.</p>
+</li>
+<li>
+<p>3a2. User re-enters the type of financial details to be listed.</p>
+</li>
+<li>
+<p>Steps 3a1-3a2 are repeated until the type of financial details to be listed is entered correctly.</p>
+</li>
+<li>
+<p>Use case resumes from step 4.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
 </div>
 <div class="paragraph">
 <p><strong>Actor: Existing user</strong><br>
@@ -4619,10 +4779,10 @@ correctly.</p>
 <p>User choose to search for specific recurring expenditure.</p>
 </li>
 <li>
-<p>System requests for the keyword to be used for searching.</p>
+<p>System requests for the keywords to be used for searching.</p>
 </li>
 <li>
-<p>User specifies the keyword to be used for searching.</p>
+<p>User specifies the keywords to be used for searching.</p>
 </li>
 <li>
 <p>System displays information found from the search.</p>
@@ -4638,17 +4798,17 @@ correctly.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>3a. System detects invalid keyword to be used for searching.</p>
+<p>3a. System detects invalid keywords to be used for searching.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>3a1. System requests for the correct keyword to be used for searching.</p>
+<p>3a1. System requests for the correct keywords to be used for searching.</p>
 </li>
 <li>
-<p>3a2. User re-enters the keyword to be used for searching.</p>
+<p>3a2. User re-enters the keywords to be used for searching.</p>
 </li>
 <li>
-<p>Steps 3a1-3a2 are repeated until the keyword to be used for searching is entered correctly.</p>
+<p>Steps 3a1-3a2 are repeated until the keywords to be used for searching is entered correctly.</p>
 </li>
 <li>
 <p>Use case resumes from step 4.</p>
@@ -4748,10 +4908,10 @@ correctly.</p>
 <p>User chooses to edit credit card expenditure record.</p>
 </li>
 <li>
-<p>System requests for the new expenditure details and the expenditure to be edited.</p>
+<p>System requests for the new expenditure details, expenditure to be edited and name of card.</p>
 </li>
 <li>
-<p>User enters new expenditure details and the expenditure to be edited.</p>
+<p>User enters new expenditure details, expenditure to be edited and name of card.</p>
 </li>
 <li>
 <p>System updates the credit card expenditure record.</p>
@@ -4767,17 +4927,18 @@ correctly.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>3a. System detects invalid expenditure details or expenditure to be edited.</p>
+<p>3a. System detects invalid new expenditure details, expenditure to be edited or name of card.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>3a1. System requests for the correct expenditure details and expenditure to be edited.</p>
+<p>3a1. System requests for the correct new expenditure details, expenditure to be edited and name of card.</p>
 </li>
 <li>
-<p>3a2. User re-enters the expenditure details and expenditure to be edited.</p>
+<p>3a2. User re-enters the new expenditure details, expenditure to be edited and name of card.</p>
 </li>
 <li>
-<p>Steps 3a1-3a2 are repeated until the expenditure details and expenditure to be edited entered are correct.</p>
+<p>Steps 3a1-3a2 are repeated until the new expenditure details, expenditure to be edited and name of card entered are
+correct.</p>
 </li>
 <li>
 <p>Use case resumes from step 4.</p>
@@ -4814,10 +4975,10 @@ correctly.</p>
 <p>User chooses to delete credit card expenditure record.</p>
 </li>
 <li>
-<p>System requests expenditure to be deleted.</p>
+<p>System requests expenditure to be deleted and the credit card to delete the expenditure from.</p>
 </li>
 <li>
-<p>User specifies the expenditure to be deleted.</p>
+<p>User specifies the expenditure to be deleted and the credit card to delete the expenditure from..</p>
 </li>
 <li>
 <p>System deletes the specified record from the database.</p>
@@ -4833,17 +4994,18 @@ correctly.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>3a. System detects invalid expenditure to be deleted.</p>
+<p>3a. System detects invalid expenditure to be deleted or credit card to delete the expenditure from.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>3a1. System requests for the correct expenditure to be deleted.</p>
+<p>3a1. System requests for the correct expenditure to be deleted and the credit card to delete the expenditure from.</p>
 </li>
 <li>
-<p>3a2. User re-enters the expenditure to be deleted.</p>
+<p>3a2. User re-enters the expenditure to be deleted and the credit card to delete the expenditure from.</p>
 </li>
 <li>
-<p>Steps 3a1-3a2 are repeated until the expenditure to be deleted is entered correctly.</p>
+<p>Steps 3a1-3a2 are repeated until the expenditure to be deleted and the credit card to delete the expenditure from are
+entered correctly.</p>
 </li>
 <li>
 <p>Use case resumes from step 4.</p>
@@ -5700,7 +5862,7 @@ Expected: Updated name of the <code>card</code> being displayed after being edit
 </li>
 <li>
 <p>Test case:
-<code>/edit /card /name POBB Tomorrow Card /limit 10000</code><br>
+<code>/edit /card /name JunBank GoodVibes Card /limit 10000</code><br>
 Expected: Updated limit of the <code>card</code> being displayed after being edited.</p>
 </li>
 </ol>
@@ -5722,7 +5884,7 @@ Expected: Updated limit of the <code>card</code> being displayed after being edi
 </li>
 <li>
 <p>Test case:
-<code>/delete /card /name POBB Tomorrow Card</code><br>
+<code>/delete /card /name JunBank GoodVibes Card</code><br>
 Expected: Deleted <code>card</code> details will be displayed after being deleted.</p>
 </li>
 </ol>
@@ -6430,4 +6592,4 @@ Expected: Details of achievement being displayed</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 08:18:30 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 08:31:28 UTC</div></div></div></body></html>
