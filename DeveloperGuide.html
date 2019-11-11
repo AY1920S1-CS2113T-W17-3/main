@@ -6643,6 +6643,9 @@ Expected: Found matching recurring expenditure in <code>savings</code> account a
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
+<p>Pre-requisites: There are currently no goals with the same name</p>
+</li>
+<li>
 <p>Test case:
 <code>/add /goals /name GRAD TRIP /by 10/11/2020 /amount 3000</code><br>
 Expected: New details of goal displayed</p>
@@ -6654,6 +6657,9 @@ Expected: New details of goal displayed</p>
 <p>Add new goals by specifying number of days, name and amount</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
+<li>
+<p>Pre-requisites: There are currently no goals with the same name</p>
+</li>
 <li>
 <p>Test case:
 <code>/add /goals /name GRAD TRIP /amount 3000 /in 365</code><br>
@@ -6667,7 +6673,48 @@ Expected: New details of goal displayed</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Pre-requisites: A savings account with specified name should exist.</p>
+<p>Pre-requisites:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>A savings account with specified name should exist</p>
+</li>
+<li>
+<p>There are no goals with the same name</p>
+</li>
+<li>
+<p>Total amount in savings account specified is less than goals amount specified</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Test case:
+<code>/add /goals /name GRAD TRIP /from JunBank /amount 3000 /in 365</code><br>
+Expected: New details of goal displayed</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Add new goals by specifying number of days, name and existing saving accounts (sufficient amount in account)</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Pre-requisites:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>A savings account with specified name should exist</p>
+</li>
+<li>
+<p>There are no goals with the same name</p>
+</li>
+<li>
+<p>Total amount in savings account specified is more than goals amount specified</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
 <p>Test case:
@@ -6683,8 +6730,8 @@ Expected: New details of goal displayed</p>
 <ol class="loweralpha" type="a">
 <li>
 <p>Test case:
-<code>/add /goals /name GRAD TRIP /from 10/11/2020 /amount 3000 /in 365</code><br>
-Expected: There is already a goal with the same name: GRAD TRIP</p>
+<code>/add /goals /name GRAD TRIP /amount 3000 /in 365</code><br>
+Expected: Error showing that there is already a goal with the same name: GRAD TRIP</p>
 </li>
 </ol>
 </div>
@@ -6701,12 +6748,29 @@ Expected: There is already a goal with the same name: GRAD TRIP</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Pre-requisites: Goal with specified name must exist</p>
+<p>Pre-requisites: Goal with specified name must exist, and there are currently <strong>no</strong> goals with
+the same name as the new intended name</p>
 </li>
 <li>
 <p>Test case:
 <code>/edit /goals /name GRAD TRIP /newname KOREA GRAD</code><br>
 Expected: New edited details is displayed</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Edit goals name</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Pre-requisites: Goal with specified name must exist, and there <strong>is currently a goal with
+the same name</strong> as the new intended name</p>
+</li>
+<li>
+<p>Test case:
+<code>/edit /goals /name GRAD TRIP /newname KOREA GRAD</code><br>
+Expected: There is already a goal name: KOREA GRAD</p>
 </li>
 </ol>
 </div>
@@ -6742,11 +6806,23 @@ Expected: New edited details is displayed</p>
 </div>
 </li>
 <li>
+<p>Edit goals date using both /in and /by parameters</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case:
+<code>/edit /goals /name GRAD TRIP /in 300 /by 20/10/2020</code><br>
+Expected: Error saying "/by and /in cannot be specified concurrently when editing goals"</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
 <p>Edit the saving account tied to goals (can either add / edit / delete)</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Pre-requisites: Goal with specified name must exist and saving account specified must exist</p>
+<p>Pre-requisites: Goal with specified name must exist and name of saving account specified must exist</p>
 </li>
 <li>
 <p>Test case:
@@ -6888,4 +6964,4 @@ Expected: Details of achievement being displayed</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 14:48:44 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 14:59:42 UTC</div></div></div></body></html>
